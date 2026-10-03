@@ -1086,6 +1086,102 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 }
+  /* =========================================================
+   NURSING NOTES
+   ========================================================= */
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.notes-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.notes-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(11,37,69,.11);
+}
+
+.notes-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: var(--blue-light);
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  margin-bottom: 14px;
+}
+
+.notes-card h3 {
+  color: var(--navy);
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.notes-card > p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.notes-card summary {
+  cursor: pointer;
+  color: var(--teal);
+  font-weight: 800;
+  padding: 10px 0;
+}
+
+.notes-card summary:hover {
+  color: var(--blue);
+}
+
+.subtopics {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.subtopics details {
+  border-bottom: 1px solid var(--border);
+  padding: 4px 0;
+}
+
+.subtopics details:last-child {
+  border-bottom: none;
+}
+
+.subtopics summary {
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.subtopics ul {
+  padding: 8px 0 12px 22px;
+  color: var(--muted);
+}
+
+.subtopics li {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+@media (max-width: 750px) {
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  
 </style>
 </head>
 
@@ -1504,70 +1600,791 @@ footer {
      RESOURCES
      ========================================================= -->
 
+<!-- =========================================================
+     NURSING NOTES & STUDY RESOURCES
+     ========================================================= -->
+
 <section class="section" id="resources">
 
   <div class="section-heading">
 
     <div>
-      <h2>Explore Learning Resources</h2>
+      <h2>Nursing Notes & Study Resources</h2>
+
       <p>
-        The long-term LearningNursing library will go beyond procedures.
+        Simple, organised notes for nursing students.
+        Choose a subject and explore its main topics and subtopics.
       </p>
     </div>
 
   </div>
 
-  <div class="resource-grid">
 
-    <div class="resource-card">
-      <div class="resource-icon">📚</div>
+  <!-- =======================================================
+       RESOURCE SUBJECTS
+       ======================================================= -->
+
+  <div class="notes-grid">
+
+
+    <!-- ================= NURSING NOTES ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">📚</div>
+
       <h3>Nursing Notes</h3>
-      <p>Organised study notes for nursing students.</p>
+
+      <p>
+        Core nursing concepts, clinical skills and
+        professional nursing knowledge.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+          <details>
+            <summary>Fundamentals of Nursing</summary>
+
+            <ul>
+              <li>Introduction to Nursing</li>
+              <li>Roles and Responsibilities of a Nurse</li>
+              <li>Nursing Process</li>
+              <li>Assessment</li>
+              <li>Nursing Diagnosis</li>
+              <li>Planning</li>
+              <li>Implementation</li>
+              <li>Evaluation</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Vital Signs</summary>
+
+            <ul>
+              <li>Temperature</li>
+              <li>Pulse</li>
+              <li>Respiratory Rate</li>
+              <li>Blood Pressure</li>
+              <li>Oxygen Saturation</li>
+              <li>Pain Assessment</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Infection Prevention</summary>
+
+            <ul>
+              <li>Chain of Infection</li>
+              <li>Hand Hygiene</li>
+              <li>Standard Precautions</li>
+              <li>Transmission-Based Precautions</li>
+              <li>Personal Protective Equipment</li>
+              <li>Biomedical Waste Management</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Patient Safety</summary>
+
+            <ul>
+              <li>Patient Identification</li>
+              <li>Fall Prevention</li>
+              <li>Medication Safety</li>
+              <li>Pressure Injury Prevention</li>
+              <li>Safe Patient Transfer</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Communication</summary>
+
+            <ul>
+              <li>Therapeutic Communication</li>
+              <li>Active Listening</li>
+              <li>SBAR</li>
+              <li>Patient Education</li>
+              <li>Health Teaching</li>
+            </ul>
+
+          </details>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">🧬</div>
+
+
+    <!-- ================= PATHOLOGY ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">🔬</div>
+
       <h3>Pathology</h3>
-      <p>Understand disease processes in simple language.</p>
+
+      <p>
+        Understand disease processes and pathological changes
+        in simple language.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+
+          <details>
+            <summary>Cell Injury</summary>
+
+            <ul>
+              <li>Causes of Cell Injury</li>
+              <li>Hypoxia</li>
+              <li>Ischaemia</li>
+              <li>Reversible Cell Injury</li>
+              <li>Irreversible Cell Injury</li>
+              <li>Cell Death</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Inflammation</summary>
+
+            <ul>
+              <li>Acute Inflammation</li>
+              <li>Chronic Inflammation</li>
+              <li>Cardinal Signs</li>
+              <li>Inflammatory Mediators</li>
+              <li>Neutrophils</li>
+              <li>Macrophages</li>
+              <li>Healing and Repair</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Immune System</summary>
+
+            <ul>
+              <li>Innate Immunity</li>
+              <li>Adaptive Immunity</li>
+              <li>B Cells</li>
+              <li>T Cells</li>
+              <li>CD4 and CD8 Cells</li>
+              <li>MHC Class I and II</li>
+              <li>Hypersensitivity</li>
+              <li>Autoimmune Disease</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Haematology</summary>
+
+            <ul>
+              <li>Haemostasis</li>
+              <li>Coagulation</li>
+              <li>Anaemia</li>
+              <li>Thrombocytopenia</li>
+              <li>ITP</li>
+              <li>DIC</li>
+              <li>DVT</li>
+              <li>Thrombosis</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Neoplasia</summary>
+
+            <ul>
+              <li>Hyperplasia</li>
+              <li>Neoplasia</li>
+              <li>Benign Tumours</li>
+              <li>Malignant Tumours</li>
+              <li>Oncogenes</li>
+              <li>Tumour Suppressor Genes</li>
+              <li>Angiogenesis</li>
+              <li>Metastasis</li>
+              <li>Immune Surveillance</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Respiratory Pathology</summary>
+
+            <ul>
+              <li>Asthma</li>
+              <li>COPD</li>
+              <li>Tuberculosis</li>
+              <li>Pneumonia</li>
+              <li>Bronchiectasis</li>
+              <li>Cystic Fibrosis</li>
+              <li>Pulmonary Fibrosis</li>
+              <li>Sarcoidosis</li>
+            </ul>
+
+          </details>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">💊</div>
+
+
+    <!-- ================= PHARMACOLOGY ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">💊</div>
+
       <h3>Pharmacology</h3>
-      <p>Medication learning resources and concepts.</p>
+
+      <p>
+        Learn medicines through drug classes, mechanisms,
+        uses and nursing considerations.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+
+          <details>
+            <summary>General Pharmacology</summary>
+
+            <ul>
+              <li>Pharmacokinetics</li>
+              <li>Pharmacodynamics</li>
+              <li>Absorption</li>
+              <li>Distribution</li>
+              <li>Metabolism</li>
+              <li>Excretion</li>
+              <li>Half-Life</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Routes of Administration</summary>
+
+            <ul>
+              <li>Oral</li>
+              <li>Subcutaneous</li>
+              <li>Intramuscular</li>
+              <li>Intradermal</li>
+              <li>Intravenous</li>
+              <li>Topical</li>
+              <li>Inhalation</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Cardiovascular Drugs</summary>
+
+            <ul>
+              <li>Antihypertensives</li>
+              <li>ACE Inhibitors</li>
+              <li>Beta Blockers</li>
+              <li>Calcium Channel Blockers</li>
+              <li>Diuretics</li>
+              <li>Antiarrhythmics</li>
+              <li>Anticoagulants</li>
+              <li>Antiplatelet Drugs</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Respiratory Drugs</summary>
+
+            <ul>
+              <li>Bronchodilators</li>
+              <li>Beta-2 Agonists</li>
+              <li>Anticholinergics</li>
+              <li>Corticosteroids</li>
+              <li>Leukotriene Modifiers</li>
+              <li>Mucolytics</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Antimicrobial Drugs</summary>
+
+            <ul>
+              <li>Penicillins</li>
+              <li>Cephalosporins</li>
+              <li>Macrolides</li>
+              <li>Aminoglycosides</li>
+              <li>Fluoroquinolones</li>
+              <li>Antitubercular Drugs</li>
+              <li>Antifungal Drugs</li>
+              <li>Antiviral Drugs</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Analgesics</summary>
+
+            <ul>
+              <li>Paracetamol</li>
+              <li>NSAIDs</li>
+              <li>Opioids</li>
+              <li>Adverse Effects</li>
+              <li>Pain Management</li>
+            </ul>
+
+          </details>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">🫀</div>
+
+
+    <!-- ================= MEDICAL SURGICAL ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">🫀</div>
+
       <h3>Medical-Surgical Nursing</h3>
-      <p>Structured clinical learning resources.</p>
+
+      <p>
+        Clinical nursing knowledge for medical and surgical
+        conditions.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+
+          <details>
+            <summary>Cardiovascular Nursing</summary>
+
+            <ul>
+              <li>Hypertension</li>
+              <li>Heart Failure</li>
+              <li>Myocardial Infarction</li>
+              <li>Angina</li>
+              <li>Arrhythmias</li>
+              <li>Valvular Heart Disease</li>
+              <li>Cardiac Surgery</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Respiratory Nursing</summary>
+
+            <ul>
+              <li>Asthma</li>
+              <li>COPD</li>
+              <li>Pneumonia</li>
+              <li>Tuberculosis</li>
+              <li>Pulmonary Embolism</li>
+              <li>Respiratory Failure</li>
+              <li>Oxygen Therapy</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Neurological Nursing</summary>
+
+            <ul>
+              <li>Stroke</li>
+              <li>Seizures</li>
+              <li>Epilepsy</li>
+              <li>Head Injury</li>
+              <li>Raised Intracranial Pressure</li>
+              <li>Parkinson's Disease</li>
+              <li>Multiple Sclerosis</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Gastrointestinal Nursing</summary>
+
+            <ul>
+              <li>Gastritis</li>
+              <li>Peptic Ulcer Disease</li>
+              <li>Gastroenteritis</li>
+              <li>Hepatitis</li>
+              <li>Cirrhosis</li>
+              <li>Cholelithiasis</li>
+              <li>Pancreatitis</li>
+              <li>Appendicitis</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Renal & Urinary Nursing</summary>
+
+            <ul>
+              <li>Acute Kidney Injury</li>
+              <li>Chronic Kidney Disease</li>
+              <li>Urinary Tract Infection</li>
+              <li>Renal Stones</li>
+              <li>Dialysis</li>
+              <li>Fluid and Electrolyte Balance</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Endocrine Nursing</summary>
+
+            <ul>
+              <li>Diabetes Mellitus</li>
+              <li>Hypoglycaemia</li>
+              <li>Hyperglycaemia</li>
+              <li>Thyroid Disorders</li>
+              <li>Hyperthyroidism</li>
+              <li>Hypothyroidism</li>
+              <li>Adrenal Disorders</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Perioperative Nursing</summary>
+
+            <ul>
+              <li>Pre-operative Assessment</li>
+              <li>Patient Preparation</li>
+              <li>Informed Consent</li>
+              <li>Post-operative Assessment</li>
+              <li>Pain Management</li>
+              <li>Wound Care</li>
+              <li>Post-operative Complications</li>
+            </ul>
+
+          </details>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">🧠</div>
+
+
+    <!-- ================= ANATOMY ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">🧠</div>
+
       <h3>Anatomy & Physiology</h3>
-      <p>Build the foundation behind clinical practice.</p>
+
+      <p>
+        Build the anatomical and physiological foundation
+        required for clinical nursing.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+
+          <details>
+            <summary>Basic Anatomy</summary>
+
+            <ul>
+              <li>Anatomical Position</li>
+              <li>Body Planes</li>
+              <li>Body Cavities</li>
+              <li>Tissues</li>
+              <li>Organs</li>
+              <li>Body Systems</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Cardiovascular System</summary>
+
+            <ul>
+              <li>Heart Anatomy</li>
+              <li>Heart Chambers</li>
+              <li>Heart Valves</li>
+              <li>Blood Vessels</li>
+              <li>Cardiac Cycle</li>
+              <li>Cardiac Output</li>
+              <li>Blood Pressure</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Respiratory System</summary>
+
+            <ul>
+              <li>Nose and Pharynx</li>
+              <li>Larynx</li>
+              <li>Trachea</li>
+              <li>Bronchi</li>
+              <li>Lungs</li>
+              <li>Alveoli</li>
+              <li>Gas Exchange</li>
+              <li>Mechanics of Breathing</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Nervous System</summary>
+
+            <ul>
+              <li>Brain</li>
+              <li>Spinal Cord</li>
+              <li>Neurons</li>
+              <li>Cranial Nerves</li>
+              <li>Autonomic Nervous System</li>
+              <li>Sympathetic System</li>
+              <li>Parasympathetic System</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Digestive System</summary>
+
+            <ul>
+              <li>Mouth</li>
+              <li>Oesophagus</li>
+              <li>Stomach</li>
+              <li>Small Intestine</li>
+              <li>Large Intestine</li>
+              <li>Liver</li>
+              <li>Gallbladder</li>
+              <li>Pancreas</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Urinary System</summary>
+
+            <ul>
+              <li>Kidneys</li>
+              <li>Nephrons</li>
+              <li>Ureters</li>
+              <li>Urinary Bladder</li>
+              <li>Urethra</li>
+              <li>Urine Formation</li>
+              <li>Fluid Balance</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Endocrine System</summary>
+
+            <ul>
+              <li>Pituitary Gland</li>
+              <li>Thyroid Gland</li>
+              <li>Parathyroid Glands</li>
+              <li>Adrenal Glands</li>
+              <li>Pancreas</li>
+              <li>Hormones</li>
+            </ul>
+
+          </details>
+
+
+          <details>
+            <summary>Musculoskeletal System</summary>
+
+            <ul>
+              <li>Bones</li>
+              <li>Joints</li>
+              <li>Skeletal Muscles</li>
+              <li>Muscle Contraction</li>
+              <li>Fractures</li>
+              <li>Movement</li>
+            </ul>
+
+          </details>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">📝</div>
-      <h3>Care Plans</h3>
-      <p>Structured nursing care-plan learning tools.</p>
+
+
+    <!-- ================= CARE PLANS ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">📝</div>
+
+      <h3>Nursing Care Plans</h3>
+
+      <p>
+        Learn how to organise patient assessment,
+        nursing diagnoses and care planning.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+          <ul>
+            <li>Assessment</li>
+            <li>NANDA Nursing Diagnosis</li>
+            <li>Goals and Expected Outcomes</li>
+            <li>Nursing Interventions</li>
+            <li>Rationales</li>
+            <li>Implementation</li>
+            <li>Evaluation</li>
+            <li>Gibbs Reflective Cycle</li>
+            <li>SBAR</li>
+          </ul>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">🔬</div>
-      <h3>Research</h3>
-      <p>Research guidance and nursing research resources.</p>
+
+
+    <!-- ================= RESEARCH ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">🔎</div>
+
+      <h3>Nursing Research</h3>
+
+      <p>
+        Basic research concepts for nursing students.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+          <ul>
+            <li>Introduction to Research</li>
+            <li>Research Problem</li>
+            <li>Research Question</li>
+            <li>Literature Review</li>
+            <li>Quantitative Research</li>
+            <li>Qualitative Research</li>
+            <li>Study Design</li>
+            <li>Sampling</li>
+            <li>Data Collection</li>
+            <li>Ethics in Research</li>
+            <li>Evidence-Based Practice</li>
+            <li>PRISMA</li>
+          </ul>
+
+        </div>
+
+      </details>
+
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">🎯</div>
+
+
+    <!-- ================= NCLEX ================= -->
+
+    <div class="notes-card">
+
+      <div class="notes-icon">🎯</div>
+
       <h3>NCLEX Preparation</h3>
-      <p>Future question banks and learning resources.</p>
-    </div>
 
-  </div>
+      <p>
+        Develop clinical reasoning and nursing decision-making.
+      </p>
+
+      <details>
+
+        <summary>View Topics</summary>
+
+        <div class="subtopics">
+
+          <ul>
+            <li>Fundamentals</li>
+            <li>Pharmacology Questions</li>
+            <li>Medical-Surgical Questions</li>
+            <li>Prioritisation</li>
+            <li>Delegation</li>
+            <li>Safety Questions</li>
+            <li>Patient Education</li>
+            <li>Clinical Judgement</li>
+            <li>Case-Based Questions</li>
+          </ul>
+
+        </div>
+
+      </details>
+
+    </div>
 
 </section>
 <!-- =========================================================
@@ -1579,7 +2396,7 @@ footer {
   <div class="creator-card">
 
     <img
-      src="images/jashikesh.jpg"
+      src="images/jashikesh.JPG"
       alt="K. Jashikesh"
       class="creator-photo"
     >
@@ -1610,8 +2427,8 @@ footer {
       </a>
 
       <div class="creator-quote">
-        “Keep learning, keep improving, and never stop becoming
-        the kind of nurse you want to be.”
+        “Every LESSON you master becomes a
+        WEAPON against the limits of your past”
       </div>
 
     </div>
