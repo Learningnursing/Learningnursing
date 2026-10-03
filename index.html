@@ -1,0 +1,2876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LearningNursing.com | Learn Nursing. Understand Better. Care Better.</title>
+
+<meta name="description" content="LearningNursing.com — simple, visual and practical nursing education resources and clinical procedure guides.">
+
+<style>
+/* =========================================================
+   LEARNINGNURSING.COM
+   Single-file website prototype
+   HTML + CSS + JavaScript
+   ========================================================= */
+
+:root {
+  --navy: #0b2545;
+  --blue: #1769aa;
+  --blue-light: #eaf4ff;
+  --teal: #0f8b8d;
+  --teal-light: #e8f8f7;
+  --white: #ffffff;
+  --bg: #f6f9fc;
+  --text: #172033;
+  --muted: #667085;
+  --border: #e4eaf1;
+  --success: #16794c;
+  --warning: #a05a00;
+  --shadow: 0 10px 35px rgba(11,37,69,.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  max-width: 1250px;
+  margin: auto;
+  min-height: 72px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 215px;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.logo-text {
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.5px;
+}
+
+.logo-text span {
+  color: var(--teal);
+}
+
+.nav-search {
+  flex: 1;
+  position: relative;
+}
+
+.nav-search input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0 18px 0 44px;
+  outline: none;
+  background: #f8fafc;
+}
+
+.nav-search input:focus {
+  border-color: var(--blue);
+  background: white;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 19px;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-links button {
+  border: 0;
+  background: transparent;
+  color: #344054;
+  font-weight: 600;
+}
+
+.nav-links button:hover {
+  color: var(--blue);
+}
+
+.mobile-menu {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 25px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  max-width: 1250px;
+  margin: auto;
+  padding: 80px 22px 60px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.eyebrow {
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  color: var(--navy);
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  color: var(--teal);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 650px;
+  margin-bottom: 30px;
+}
+
+.hero-search {
+  display: flex;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 7px;
+  max-width: 650px;
+}
+
+.hero-search input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  padding: 13px;
+  min-width: 0;
+}
+
+.primary-btn {
+  border: 0;
+  background: var(--navy);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 11px;
+  font-weight: 700;
+}
+
+.primary-btn:hover {
+  background: #123861;
+}
+
+.secondary-btn {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--navy);
+  padding: 13px 20px;
+  border-radius: 11px;
+  font-weight: 700;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.hero-art {
+  background: linear-gradient(145deg,#eaf6ff,#e8f8f7);
+  border-radius: 35px;
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-art::before,
+.hero-art::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.55);
+}
+
+.hero-art::before {
+  width: 180px;
+  height: 180px;
+  top: -50px;
+  right: -30px;
+}
+
+.hero-art::after {
+  width: 130px;
+  height: 130px;
+  bottom: -40px;
+  left: -30px;
+}
+
+.nurse-illustration {
+  position: relative;
+  z-index: 2;
+  width: 290px;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+  max-width: 1250px;
+  margin: 0 auto 30px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+}
+
+.stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 25px;
+  color: var(--navy);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ================= GENERAL SECTIONS ================= */
+
+.section {
+  max-width: 1250px;
+  margin: auto;
+  padding: 75px 22px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: 32px;
+  letter-spacing: -.8px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+}
+
+.category-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: #cbd9e7;
+}
+
+.category-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--blue-light);
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.category-card h3 {
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.category-card p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* ================= PROCEDURES ================= */
+
+.procedure-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: white;
+  color: #475467;
+  border-radius: 30px;
+  padding: 9px 16px;
+  font-weight: 600;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+.procedure-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.procedure-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .25s;
+  cursor: pointer;
+}
+
+.procedure-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.procedure-art {
+  height: 185px;
+  background: linear-gradient(145deg,#edf7ff,#effaf8);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.procedure-art svg {
+  width: 130px;
+  height: 130px;
+}
+
+.procedure-body {
+  padding: 18px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 9px;
+  background: #edf6ff;
+  color: var(--blue);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.procedure-body h3 {
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.procedure-body p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 8px 0 15px;
+}
+
+.view-link {
+  color: var(--teal);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* ================= FEATURE PANEL ================= */
+
+.feature-panel {
+  background: var(--navy);
+  border-radius: 28px;
+  padding: 45px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.feature-panel h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-bottom: 15px;
+}
+
+.feature-panel p {
+  color: #cbd7e5;
+}
+
+.feature-list {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.feature-list div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #e8eef5;
+}
+
+.feature-list span {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.feature-visual {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 22px;
+  padding: 30px;
+}
+
+/* ================= RESOURCES ================= */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+}
+
+.resource-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.resource-card .resource-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.resource-card h3 {
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.resource-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+/* ================= PROCEDURE VIEW ================= */
+
+#procedure-view {
+  display: none;
+}
+
+.procedure-page {
+  max-width: 1050px;
+  margin: auto;
+  padding: 50px 22px 80px;
+}
+
+.back-button {
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.procedure-header {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 35px;
+  margin-bottom: 22px;
+}
+
+.procedure-header .label {
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.procedure-header h1 {
+  color: var(--navy);
+  font-size: 42px;
+  line-height: 1.1;
+  margin: 8px 0 14px;
+}
+
+.procedure-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.meta {
+  background: #f4f7fa;
+  border-radius: 30px;
+  padding: 7px 13px;
+  font-size: 13px;
+  color: #475467;
+}
+
+.notice {
+  padding: 15px 18px;
+  background: #fff8e8;
+  border: 1px solid #f2dfad;
+  color: #694a00;
+  border-radius: 13px;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.procedure-content {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 25px;
+}
+
+.toc {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 18px;
+}
+
+.toc h4 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.toc button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.toc button:hover {
+  color: var(--blue);
+}
+
+.article-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 18px;
+}
+
+.article-section h2 {
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.article-section p {
+  color: #475467;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+}
+
+.equipment {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fafcff;
+}
+
+.equipment-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.steps {
+  display: grid;
+  gap: 20px;
+}
+
+.step {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.step-top {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  align-items: center;
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.step h3 {
+  color: var(--navy);
+}
+
+.step-body {
+  padding: 0 20px 22px;
+  color: #475467;
+}
+
+.step-visual {
+  min-height: 190px;
+  background: linear-gradient(145deg,#eef7ff,#effaf8);
+  display: grid;
+  place-items: center;
+  padding: 25px;
+}
+
+.step-visual svg {
+  width: 160px;
+  height: 160px;
+}
+
+.quick-guide {
+  display: none;
+}
+
+.quick-guide.active {
+  display: block;
+}
+
+.detailed-guide {
+  display: block;
+}
+
+.detailed-guide.hidden {
+  display: none;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.mode-buttons button {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-weight: 700;
+}
+
+.mode-buttons button.active {
+  background: var(--navy);
+  color: white;
+}
+
+.check-list {
+  display: grid;
+  gap: 9px;
+}
+
+.check-list div {
+  padding: 10px 13px;
+  background: #f7fafc;
+  border-radius: 10px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  background: var(--navy);
+  color: white;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1250px;
+  margin: auto;
+  padding: 55px 22px 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-brand p {
+  color: #bdc9d8;
+  max-width: 360px;
+  margin-top: 12px;
+}
+
+.footer-column h4 {
+  margin-bottom: 12px;
+}
+
+.footer-column button {
+  display: block;
+  background: transparent;
+  border: 0;
+  color: #bdc9d8;
+  margin: 8px 0;
+  text-align: left;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  margin-top: 35px;
+  padding-top: 20px;
+  color: #9eacbd;
+  font-size: 13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 950px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 55px;
+  }
+
+  .hero-art {
+    min-height: 300px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .procedure-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .resource-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .feature-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .procedure-content {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    position: static;
+  }
+}
+
+@media(max-width: 600px) {
+  .navbar {
+    gap: 10px;
+  }
+
+  .logo {
+    min-width: auto;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-search {
+    display: block;
+    padding: 8px;
+  }
+
+  .hero-search input {
+    width: 100%;
+    margin-bottom: 7px;
+  }
+
+  .hero-search button {
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .stats,
+  .category-grid,
+  .procedure-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 55px 17px;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .feature-panel {
+    padding: 28px;
+  }
+
+  .feature-panel h2 {
+    font-size: 28px;
+  }
+
+  .procedure-header {
+    padding: 25px;
+  }
+
+  .procedure-header h1 {
+    font-size: 32px;
+  }
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-section {
+    padding: 22px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="header">
+  <nav class="navbar">
+
+    <a href="#" class="logo" onclick="showHome()">
+      <div class="logo-mark">LN</div>
+      <div class="logo-text">
+        Learning<span>Nursing</span>.com
+      </div>
+    </a>
+
+    <div class="nav-search">
+      <span class="search-icon">⌕</span>
+      <input
+        type="search"
+        id="navSearch"
+        placeholder="Search procedures, topics, resources..."
+        oninput="searchProcedures(this.value)"
+      >
+    </div>
+
+    <div class="nav-links">
+      <button onclick="showHome()">Home</button>
+      <button onclick="scrollToSection('categories')">Categories</button>
+      <button onclick="scrollToSection('procedures')">Procedures</button>
+      <button onclick="scrollToSection('resources')">Resources</button>
+    </div>
+
+    <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+
+  </nav>
+</header>
+
+
+<!-- =========================================================
+     HOME
+     ========================================================= -->
+
+<main id="home">
+
+<section class="hero">
+
+  <div>
+
+    <div class="eyebrow">
+      Visual Nursing Education
+    </div>
+
+    <h1>
+      Learn Nursing.<br>
+      <span>Understand Better.</span>
+    </h1>
+
+    <p>
+      Simple, visual and practical nursing learning resources
+      designed to help students understand clinical knowledge
+      with less confusion and more clarity.
+    </p>
+
+    <div class="hero-search">
+
+      <input
+        type="search"
+        id="heroSearch"
+        placeholder="What do you want to learn? Try “hand hygiene”"
+        oninput="searchProcedures(this.value)"
+      >
+
+      <button class="primary-btn" onclick="runHeroSearch()">
+        Search
+      </button>
+
+    </div>
+
+    <div class="hero-actions">
+      <button class="primary-btn" onclick="scrollToSection('procedures')">
+        Explore Procedures
+      </button>
+
+      <button class="secondary-btn" onclick="scrollToSection('categories')">
+        Browse Categories
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="hero-art">
+
+    <svg class="nurse-illustration"
+         viewBox="0 0 300 300"
+         xmlns="http://www.w3.org/2000/svg">
+
+      <circle cx="150" cy="150" r="105" fill="#ffffff"/>
+
+      <circle cx="150" cy="90" r="38" fill="#f1c7a8"/>
+
+      <path d="M112 89 Q150 42 188 89 Q178 65 150 62 Q122 65 112 89"
+            fill="#24364b"/>
+
+      <path d="M104 135 Q150 115 196 135 L215 235
+               Q150 258 85 235 Z"
+            fill="#ffffff"
+            stroke="#0b2545"
+            stroke-width="4"/>
+
+      <path d="M150 137 L150 228"
+            stroke="#dce5ee"
+            stroke-width="4"/>
+
+      <circle cx="150" cy="154" r="9" fill="#0f8b8d"/>
+
+      <path d="M102 145 L65 195"
+            stroke="#f1c7a8"
+            stroke-width="18"
+            stroke-linecap="round"/>
+
+      <path d="M198 145 L235 195"
+            stroke="#f1c7a8"
+            stroke-width="18"
+            stroke-linecap="round"/>
+
+      <rect x="47" y="187" width="38" height="48"
+            rx="8"
+            fill="#1769aa"/>
+
+      <path d="M70 196 V226 M61 211 H79"
+            stroke="white"
+            stroke-width="4"/>
+
+      <circle cx="220" cy="215" r="27"
+              fill="#e8f8f7"
+              stroke="#0f8b8d"
+              stroke-width="4"/>
+
+      <path d="M208 215 H232 M220 203 V227"
+            stroke="#0f8b8d"
+            stroke-width="4"/>
+
+    </svg>
+
+  </div>
+
+</section>
+
+
+<section class="stats">
+
+  <div class="stat">
+    <strong>8+</strong>
+    <span>Demo procedures</span>
+  </div>
+
+  <div class="stat">
+    <strong>11</strong>
+    <span>Learning categories</span>
+  </div>
+
+  <div class="stat">
+    <strong>Visual</strong>
+    <span>Step-by-step learning</span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>Learning access</span>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CATEGORIES
+     ========================================================= -->
+
+<section class="section" id="categories">
+
+  <div class="section-heading">
+    <div>
+      <h2>Explore Nursing Categories</h2>
+      <p>Find the area of nursing you want to study.</p>
+    </div>
+  </div>
+
+  <div class="category-grid">
+
+    <div class="category-card" onclick="filterCategory('infection-control')">
+      <div class="category-icon">🧼</div>
+      <h3>Infection Control</h3>
+      <p>Hand hygiene, PPE and infection prevention.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('patient-assessment')">
+      <div class="category-icon">🩺</div>
+      <h3>Patient Assessment</h3>
+      <p>Vital signs and clinical observations.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('medication-administration')">
+      <div class="category-icon">💊</div>
+      <h3>Medication Administration</h3>
+      <p>Learn medication-related clinical skills.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('patient-care')">
+      <div class="category-icon">🛏️</div>
+      <h3>Patient Care</h3>
+      <p>Essential bedside nursing skills.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('clinical-skills')">
+      <div class="category-icon">🩹</div>
+      <h3>Clinical Skills</h3>
+      <p>Practical skills for nursing students.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('wound-care')">
+      <div class="category-icon">🩹</div>
+      <h3>Wound Care</h3>
+      <p>Wound assessment and care resources.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('specimen-collection')">
+      <div class="category-icon">🧪</div>
+      <h3>Specimen Collection</h3>
+      <p>Learn common specimen procedures.</p>
+    </div>
+
+    <div class="category-card" onclick="filterCategory('respiratory-care')">
+      <div class="category-icon">🫁</div>
+      <h3>Respiratory Care</h3>
+      <p>Respiratory assessment and care.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCEDURES
+     ========================================================= -->
+
+<section class="section" id="procedures">
+
+  <div class="section-heading">
+
+    <div>
+      <h2>Nursing Procedures</h2>
+      <p>
+        Learn essential procedures through visual,
+        step-by-step guides.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="procedure-toolbar">
+
+    <button class="filter-btn active"
+            onclick="filterCategory('all')">
+      All
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('infection-control')">
+      Infection Control
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('patient-assessment')">
+      Patient Assessment
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('medication-administration')">
+      Medication
+    </button>
+
+    <button class="filter-btn"
+            onclick="filterCategory('patient-care')">
+      Patient Care
+    </button>
+
+  </div>
+
+  <div class="procedure-grid" id="procedureGrid"></div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURE
+     ========================================================= -->
+
+<section class="section">
+
+  <div class="feature-panel">
+
+    <div>
+
+      <h2>
+        Nursing procedures,
+        explained visually.
+      </h2>
+
+      <p>
+        Instead of forcing students to read long paragraphs,
+        LearningNursing is designed around visual learning:
+        see the step, understand the action, then read the
+        clinical explanation.
+      </p>
+
+      <div class="feature-list">
+
+        <div>
+          <span>✓</span>
+          Simple explanations
+        </div>
+
+        <div>
+          <span>✓</span>
+          Visual step-by-step guides
+        </div>
+
+        <div>
+          <span>✓</span>
+          Mobile-friendly learning
+        </div>
+
+        <div>
+          <span>✓</span>
+          Designed for future multilingual support
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="feature-visual">
+
+      <svg viewBox="0 0 500 300"
+           xmlns="http://www.w3.org/2000/svg">
+
+        <rect x="20" y="20"
+              width="460"
+              height="260"
+              rx="25"
+              fill="#ffffff"/>
+
+        <rect x="50" y="55"
+              width="90"
+              height="170"
+              rx="15"
+              fill="#eaf4ff"/>
+
+        <circle cx="95" cy="100"
+                r="28"
+                fill="#1769aa"/>
+
+        <path d="M78 100 L90 112 L115 85"
+              fill="none"
+              stroke="white"
+              stroke-width="7"/>
+
+        <rect x="160" y="55"
+              width="270"
+              height="25"
+              rx="12"
+              fill="#dce8f2"/>
+
+        <rect x="160" y="95"
+              width="220"
+              height="15"
+              rx="7"
+              fill="#e8edf2"/>
+
+        <rect x="160" y="125"
+              width="240"
+              height="15"
+              rx="7"
+              fill="#e8edf2"/>
+
+        <rect x="160" y="170"
+              width="100"
+              height="35"
+              rx="10"
+              fill="#0f8b8d"/>
+
+        <text x="180"
+              y="193"
+              font-size="14"
+              font-family="Arial"
+              fill="white">
+          STEP 01
+        </text>
+
+      </svg>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESOURCES
+     ========================================================= -->
+
+<section class="section" id="resources">
+
+  <div class="section-heading">
+
+    <div>
+      <h2>Explore Learning Resources</h2>
+      <p>
+        The long-term LearningNursing library will go beyond procedures.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="resource-grid">
+
+    <div class="resource-card">
+      <div class="resource-icon">📚</div>
+      <h3>Nursing Notes</h3>
+      <p>Organised study notes for nursing students.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🧬</div>
+      <h3>Pathology</h3>
+      <p>Understand disease processes in simple language.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">💊</div>
+      <h3>Pharmacology</h3>
+      <p>Medication learning resources and concepts.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🫀</div>
+      <h3>Medical-Surgical Nursing</h3>
+      <p>Structured clinical learning resources.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🧠</div>
+      <h3>Anatomy & Physiology</h3>
+      <p>Build the foundation behind clinical practice.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📝</div>
+      <h3>Care Plans</h3>
+      <p>Structured nursing care-plan learning tools.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🔬</div>
+      <h3>Research</h3>
+      <p>Research guidance and nursing research resources.</p>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🎯</div>
+      <h3>NCLEX Preparation</h3>
+      <p>Future question banks and learning resources.</p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     PROCEDURE DETAIL VIEW
+     ========================================================= -->
+
+<section id="procedure-view">
+
+  <div class="procedure-page">
+
+    <button class="back-button" onclick="showHome()">
+      ← Back to LearningNursing
+    </button>
+
+    <div id="procedureContent"></div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="logo-text"
+             style="color:white;font-size:20px;">
+          Learning<span>Nursing</span>.com
+        </div>
+
+        <p>
+          Learn nursing. Understand better. Care better.
+          A visual-first nursing education platform.
+        </p>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Learn</h4>
+
+        <button onclick="scrollToSection('procedures')">
+          Procedures
+        </button>
+
+        <button onclick="scrollToSection('categories')">
+          Categories
+        </button>
+
+        <button onclick="scrollToSection('resources')">
+          Resources
+        </button>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Future</h4>
+
+        <button>Care Plans</button>
+        <button>Research Hub</button>
+        <button>NCLEX Resources</button>
+        <button>AI Nursing Assistant</button>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Platform</h4>
+
+        <button>About</button>
+        <button>Contact</button>
+        <button>Report an Issue</button>
+        <button>Privacy</button>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 LearningNursing.com · Educational content should
+      always be checked against current professional and institutional guidance.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+/* =========================================================
+   PROCEDURE DATABASE
+   ========================================================= */
+
+const procedures = [
+
+  {
+    id: "hand-hygiene",
+    title: "Hand Hygiene",
+    category: "infection-control",
+    categoryName: "Infection Control",
+    difficulty: "Beginner",
+    description: "Learn the basic sequence of hand hygiene through a visual guide.",
+    keywords: ["hand washing","handwash","hand rub","hygiene","infection"],
+    illustration: "hands",
+    overview:
+      "Hand hygiene is the practice of cleaning the hands to help reduce the spread of microorganisms.",
+    why:
+      "Effective hand hygiene is an important part of infection prevention and safe patient care.",
+    equipment: [
+      ["🧼","Soap or approved hand hygiene product"],
+      ["💧","Clean running water when applicable"],
+      ["🧴","Alcohol-based hand rub when applicable"]
+    ],
+    steps: [
+      {
+        title: "Prepare",
+        instruction: "Prepare for hand hygiene.",
+        explanation:
+          "Use the appropriate hand hygiene method according to the clinical situation and your current institutional guidance.",
+        art: "hands"
+      },
+      {
+        title: "Apply",
+        instruction: "Apply the appropriate hand hygiene product.",
+        explanation:
+          "Use the product and technique required by your institution's current guidance.",
+        art: "soap"
+      },
+      {
+        title: "Rub",
+        instruction: "Clean all relevant hand surfaces.",
+        explanation:
+          "Follow the approved technique and required duration used by your clinical setting.",
+        art: "rub"
+      },
+      {
+        title: "Finish",
+        instruction: "Complete the process appropriately.",
+        explanation:
+          "Follow your institution's current procedure for completing hand hygiene.",
+        art: "hands"
+      }
+    ]
+  },
+
+  {
+    id: "blood-pressure",
+    title: "Blood Pressure Measurement",
+    category: "patient-assessment",
+    categoryName: "Patient Assessment",
+    difficulty: "Beginner",
+    description: "Understand the basic process of measuring blood pressure.",
+    keywords: ["BP","blood pressure","vital signs","observations"],
+    illustration: "bp",
+    overview:
+      "Blood pressure measurement assesses the pressure of circulating blood against arterial walls.",
+    why:
+      "Blood pressure is an important component of routine patient assessment.",
+    equipment: [
+      ["🩺","Blood pressure device"],
+      ["📏","Appropriate cuff"],
+      ["⏱️","Timer when required"]
+    ],
+    steps: [
+      {
+        title: "Prepare",
+        instruction: "Prepare the patient and equipment.",
+        explanation:
+          "Explain the procedure and prepare the appropriate equipment according to current clinical guidance.",
+        art: "bp"
+      },
+      {
+        title: "Position",
+        instruction: "Position the patient appropriately.",
+        explanation:
+          "Use the position and arm placement required by your institution's current procedure.",
+        art: "bp"
+      },
+      {
+        title: "Measure",
+        instruction: "Obtain the blood pressure reading.",
+        explanation:
+          "Use the approved measurement technique for the equipment available.",
+        art: "bp"
+      },
+      {
+        title: "Record",
+        instruction: "Record and communicate the result.",
+        explanation:
+          "Document the measurement accurately according to local documentation requirements.",
+        art: "bp"
+      }
+    ]
+  },
+
+  {
+    id: "temperature",
+    title: "Temperature Measurement",
+    category: "patient-assessment",
+    categoryName: "Patient Assessment",
+    difficulty: "Beginner",
+    description: "Learn the basic principles of measuring body temperature.",
+    keywords: ["temperature","thermometer","fever","vital signs"],
+    illustration: "thermometer",
+    overview:
+      "Temperature measurement provides an assessment of the body's temperature.",
+    why:
+      "Temperature can contribute important information to a patient's overall assessment.",
+    equipment: [
+      ["🌡️","Appropriate thermometer"],
+      ["🧤","Personal protective equipment when indicated"]
+    ],
+    steps: [
+      {
+        title: "Prepare",
+        instruction: "Prepare the equipment and patient.",
+        explanation:
+          "Select an appropriate measurement method and equipment according to current guidance.",
+        art: "thermometer"
+      },
+      {
+        title: "Position",
+        instruction: "Position the thermometer correctly.",
+        explanation:
+          "Use the technique appropriate to the device and measurement site.",
+        art: "thermometer"
+      },
+      {
+        title: "Measure",
+        instruction: "Obtain the temperature.",
+        explanation:
+          "Follow the manufacturer's instructions and local clinical procedure.",
+        art: "thermometer"
+      },
+      {
+        title: "Record",
+        instruction: "Record the result.",
+        explanation:
+          "Document the result and measurement method accurately.",
+        art: "thermometer"
+      }
+    ]
+  },
+
+  {
+    id: "pulse",
+    title: "Pulse Assessment",
+    category: "patient-assessment",
+    categoryName: "Patient Assessment",
+    difficulty: "Beginner",
+    description: "Learn the basic process of assessing a peripheral pulse.",
+    keywords: ["pulse","heart rate","radial pulse","vital signs"],
+    illustration: "pulse",
+    overview:
+      "Pulse assessment involves evaluating the arterial pulse at an appropriate site.",
+    why:
+      "Pulse assessment can provide useful information about cardiovascular status.",
+    equipment: [
+      ["⏱️","Watch or timer"],
+      ["📝","Documentation system or chart"]
+    ],
+    steps: [
+      {
+        title: "Prepare",
+        instruction: "Prepare the patient and explain the assessment.",
+        explanation:
+          "Use an appropriate pulse site and follow your institution's assessment procedure.",
+        art: "pulse"
+      },
+      {
+        title: "Locate",
+        instruction: "Locate the pulse.",
+        explanation:
+          "Use the appropriate fingers and anatomical location according to clinical teaching.",
+        art: "pulse"
+      },
+      {
+        title: "Assess",
+        instruction: "Assess the pulse.",
+        explanation:
+          "Assess the characteristics required by your clinical procedure.",
+        art: "pulse"
+      },
+      {
+        title: "Record",
+        instruction: "Document the findings.",
+        explanation:
+          "Record the relevant assessment findings accurately.",
+        art: "pulse"
+      }
+    ]
+  },
+
+  {
+    id: "respiratory-rate",
+    title: "Respiratory Rate Assessment",
+    category: "patient-assessment",
+    categoryName: "Patient Assessment",
+    difficulty: "Beginner",
+    description: "Learn how respiratory rate is assessed and documented.",
+    keywords: ["respiratory rate","breathing","respiration","vital signs"],
+    illustration: "lungs",
+    overview:
+      "Respiratory rate is the number of breaths taken over a specified period.",
+    why:
+      "Changes in breathing can provide important information about a patient's condition.",
+    equipment: [
+      ["⏱️","Watch or timer"],
+      ["📝","Documentation system or chart"]
+    ],
+    steps: [
+      {
+        title: "Observe",
+        instruction: "Observe the patient's breathing.",
+        explanation:
+          "Assess breathing discreetly and follow the appropriate clinical procedure.",
+        art: "lungs"
+      },
+      {
+        title: "Count",
+        instruction: "Count the respirations.",
+        explanation:
+          "Use the timing method specified by your institution.",
+        art: "lungs"
+      },
+      {
+        title: "Assess",
+        instruction: "Consider relevant breathing characteristics.",
+        explanation:
+          "Follow your assessment framework for the characteristics that should be recorded.",
+        art: "lungs"
+      },
+      {
+        title: "Record",
+        instruction: "Document the findings.",
+        explanation:
+          "Record the result accurately and communicate concerning findings through the appropriate clinical pathway.",
+        art: "lungs"
+      }
+    ]
+  },
+
+  {
+    id: "bed-making",
+    title: "Bed Making",
+    category: "patient-care",
+    categoryName: "Patient Care",
+    difficulty: "Beginner",
+    description: "Learn the basic principles of preparing a clean patient bed.",
+    keywords: ["bed","bed making","linen","sheets","patient care"],
+    illustration: "bed",
+    overview:
+      "Bed making involves preparing a clean, safe and comfortable patient bed.",
+    why:
+      "A properly prepared bed supports comfort, hygiene and patient safety.",
+    equipment: [
+      ["🛏️","Appropriate bed"],
+      ["🧺","Clean linen"],
+      ["🧤","PPE when indicated"]
+    ],
+    steps: [
+      {
+        title: "Prepare",
+        instruction: "Prepare the environment and equipment.",
+        explanation:
+          "Gather the required linen and follow local infection prevention procedures.",
+        art: "bed"
+      },
+      {
+        title: "Remove",
+        instruction: "Remove used linen appropriately.",
+        explanation:
+          "Handle used linen according to institutional infection-control procedures.",
+        art: "bed"
+      },
+      {
+        title: "Make",
+        instruction: "Apply clean linen correctly.",
+        explanation:
+          "Follow your nursing school's approved bed-making technique.",
+        art: "bed"
+      },
+      {
+        title: "Check",
+        instruction: "Check the finished bed.",
+        explanation:
+          "Ensure the bed is clean, safe and appropriate for the patient's needs.",
+        art: "bed"
+      }
+    ]
+  },
+
+  {
+    id: "oral-medication",
+    title: "Oral Medication Administration",
+    category: "medication-administration",
+    categoryName: "Medication Administration",
+    difficulty: "Intermediate",
+    description: "Explore the principles involved in oral medication administration.",
+    keywords: ["oral medication","tablets","medicine","medication","pills"],
+    illustration: "medicine",
+    overview:
+      "Oral medication administration involves giving medication by mouth according to an authorised prescription and clinical procedure.",
+    why:
+      "Safe medication administration is a core nursing responsibility.",
+    equipment: [
+      ["💊","Prescribed medication"],
+      ["🥤","Appropriate fluid when indicated"],
+      ["📝","Medication record"]
+    ],
+    steps: [
+      {
+        title: "Verify",
+        instruction: "Verify the medication order and patient.",
+        explanation:
+          "Follow your institution's medication safety checks and scope of practice.",
+        art: "medicine"
+      },
+      {
+        title: "Prepare",
+        instruction: "Prepare the medication safely.",
+        explanation:
+          "Use the approved medication preparation process.",
+        art: "medicine"
+      },
+      {
+        title: "Administer",
+        instruction: "Administer the medication safely.",
+        explanation:
+          "Follow the prescribed route, local policy and medication safety requirements.",
+        art: "medicine"
+      },
+      {
+        title: "Document",
+        instruction: "Document the administration.",
+        explanation:
+          "Record medication administration according to the applicable documentation system.",
+        art: "medicine"
+      }
+    ]
+  },
+
+  {
+    id: "im-injection",
+    title: "Intramuscular Injection",
+    category: "medication-administration",
+    categoryName: "Medication Administration",
+    difficulty: "Intermediate",
+    description: "Learn the principles behind intramuscular medication administration.",
+    keywords: ["IM","injection","intramuscular","syringe","needle"],
+    illustration: "injection",
+    overview:
+      "An intramuscular injection delivers medication into muscle tissue.",
+    why:
+      "Intramuscular administration is one of several medication routes used in clinical practice.",
+    equipment: [
+      ["💉","Appropriate syringe and needle"],
+      ["💊","Prescribed medication"],
+      ["🧤","Appropriate PPE"]
+    ],
+    steps: [
+      {
+        title: "Verify",
+        instruction: "Verify the medication and patient.",
+        explanation:
+          "Complete the medication safety checks required by your institution.",
+        art: "injection"
+      },
+      {
+        title: "Prepare",
+        instruction: "Prepare the medication and equipment.",
+        explanation:
+          "Use an approved preparation and aseptic technique.",
+        art: "injection"
+      },
+      {
+        title: "Administer",
+        instruction: "Administer using the approved technique.",
+        explanation:
+          "Injection site, needle selection and technique must follow current clinical guidance and patient-specific factors.",
+        art: "injection"
+      },
+      {
+        title: "Document",
+        instruction: "Document the medication administration.",
+        explanation:
+          "Record the required details in the medication record.",
+        art: "injection"
+      }
+    ]
+  }
+
+];
+
+
+/* =========================================================
+   SVG ILLUSTRATION ENGINE
+   ========================================================= */
+
+function illustration(type) {
+
+  const common = `
+    <svg viewBox="0 0 200 200"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
+  `;
+
+  let art = "";
+
+  if(type === "hands" || type === "rub") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#eaf4ff"/>
+
+      <path d="M65 125
+               C48 112 50 91 63 83
+               L78 72
+               L85 45
+               Q88 35 96 40
+               L95 78
+               L103 43
+               Q106 33 114 39
+               L111 82
+               L119 49
+               Q122 40 130 45
+               L125 87
+               L135 60
+               Q139 52 145 58
+               L132 104
+               Q127 125 109 139
+               Z"
+            fill="#f1c7a8"
+            stroke="#0b2545"
+            stroke-width="3"/>
+
+      <circle cx="65" cy="60" r="6" fill="#ffffff"/>
+      <circle cx="145" cy="75" r="5" fill="#ffffff"/>
+      <circle cx="58" cy="78" r="4" fill="#ffffff"/>
+    `;
+
+  } else if(type === "soap") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#e8f8f7"/>
+
+      <rect x="55" y="85"
+            width="90"
+            height="70"
+            rx="12"
+            fill="#ffffff"
+            stroke="#0f8b8d"
+            stroke-width="4"/>
+
+      <rect x="72" y="65"
+            width="56"
+            height="22"
+            rx="8"
+            fill="#0f8b8d"/>
+
+      <path d="M100 65 V45"
+            stroke="#0f8b8d"
+            stroke-width="6"
+            stroke-linecap="round"/>
+
+      <circle cx="100" cy="35" r="9"
+              fill="#d8f3f1"/>
+
+      <text x="70" y="120"
+            font-family="Arial"
+            font-size="15"
+            font-weight="700"
+            fill="#0b2545">
+        SOAP
+      </text>
+    `;
+
+  } else if(type === "bp") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#edf7ff"/>
+
+      <rect x="35" y="78"
+            width="100"
+            height="50"
+            rx="12"
+            fill="#ffffff"
+            stroke="#1769aa"
+            stroke-width="4"/>
+
+      <circle cx="85" cy="103"
+              r="22"
+              fill="#eaf4ff"
+              stroke="#1769aa"
+              stroke-width="3"/>
+
+      <path d="M85 103 L99 93"
+            stroke="#0b2545"
+            stroke-width="3"/>
+
+      <path d="M135 102
+               Q160 100 162 125"
+            fill="none"
+            stroke="#0b2545"
+            stroke-width="5"/>
+
+      <path d="M43 75
+               Q100 50 140 76"
+            fill="none"
+            stroke="#1769aa"
+            stroke-width="14"
+            stroke-linecap="round"/>
+    `;
+
+  } else if(type === "thermometer") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#e8f8f7"/>
+
+      <rect x="88" y="42"
+            width="24"
+            height="100"
+            rx="12"
+            fill="#ffffff"
+            stroke="#0f8b8d"
+            stroke-width="4"/>
+
+      <circle cx="100" cy="148"
+              r="22"
+              fill="#0f8b8d"/>
+
+      <rect x="96" y="70"
+            width="8"
+            height="80"
+            fill="#0f8b8d"/>
+
+      <text x="65" y="35"
+            font-family="Arial"
+            font-size="15"
+            font-weight="700"
+            fill="#0b2545">
+        °C
+      </text>
+    `;
+
+  } else if(type === "pulse") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#fff1f3"/>
+
+      <path d="M35 105
+               H65
+               L78 70
+               L92 135
+               L108 85
+               L122 112
+               H165"
+            fill="none"
+            stroke="#d83b55"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+    `;
+
+  } else if(type === "lungs") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#edf7ff"/>
+
+      <path d="M96 62
+               C72 68 52 90 55 122
+               C58 148 78 151 91 133
+               L98 100
+               Z"
+            fill="#ffffff"
+            stroke="#1769aa"
+            stroke-width="4"/>
+
+      <path d="M104 62
+               C128 68 148 90 145 122
+               C142 148 122 151 109 133
+               L102 100
+               Z"
+            fill="#ffffff"
+            stroke="#1769aa"
+            stroke-width="4"/>
+
+      <path d="M100 55 V135"
+            stroke="#0b2545"
+            stroke-width="5"/>
+
+      <path d="M100 72 Q83 80 73 93"
+            fill="none"
+            stroke="#0f8b8d"
+            stroke-width="4"/>
+    `;
+
+  } else if(type === "bed") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#eaf4ff"/>
+
+      <rect x="45" y="88"
+            width="115"
+            height="52"
+            rx="8"
+            fill="#ffffff"
+            stroke="#0b2545"
+            stroke-width="4"/>
+
+      <rect x="45" y="70"
+            width="45"
+            height="35"
+            rx="8"
+            fill="#dce8f2"/>
+
+      <path d="M45 140 V157 M150 140 V157"
+            stroke="#0b2545"
+            stroke-width="5"/>
+
+      <path d="M90 88
+               Q125 65 160 88"
+            fill="none"
+            stroke="#1769aa"
+            stroke-width="8"/>
+    `;
+
+  } else if(type === "medicine") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#e8f8f7"/>
+
+      <rect x="55" y="70"
+            width="90"
+            height="75"
+            rx="12"
+            fill="#ffffff"
+            stroke="#0f8b8d"
+            stroke-width="4"/>
+
+      <rect x="78" y="52"
+            width="44"
+            height="22"
+            rx="6"
+            fill="#1769aa"/>
+
+      <circle cx="82" cy="105"
+              r="10"
+              fill="#1769aa"/>
+
+      <circle cx="105" cy="105"
+              r="10"
+              fill="#0f8b8d"/>
+
+      <circle cx="128" cy="105"
+              r="10"
+              fill="#1769aa"/>
+    `;
+
+  } else if(type === "injection") {
+
+    art = `
+      <circle cx="100" cy="100" r="80" fill="#edf7ff"/>
+
+      <rect x="52" y="83"
+            width="88"
+            height="38"
+            rx="8"
+            fill="#ffffff"
+            stroke="#0b2545"
+            stroke-width="4"/>
+
+      <rect x="75" y="89"
+            width="42"
+            height="26"
+            fill="#eaf4ff"/>
+
+      <path d="M140 102 H173"
+            stroke="#0b2545"
+            stroke-width="5"/>
+
+      <path d="M173 102 L187 102"
+            stroke="#1769aa"
+            stroke-width="2"/>
+
+      <path d="M52 102 H28"
+            stroke="#0b2545"
+            stroke-width="7"/>
+
+      <path d="M35 92 V112"
+            stroke="#0b2545"
+            stroke-width="4"/>
+    `;
+  }
+
+  return common + art + "</svg>";
+}
+
+
+/* =========================================================
+   PROCEDURE CARDS
+   ========================================================= */
+
+let currentCategory = "all";
+
+function renderProcedures(list = procedures) {
+
+  const grid = document.getElementById("procedureGrid");
+
+  if(!list.length) {
+
+    grid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        background:white;
+        padding:40px;
+        border-radius:20px;
+        text-align:center;
+        border:1px solid var(--border);
+      ">
+        <h3>No procedures found</h3>
+        <p style="color:var(--muted);margin-top:8px;">
+          Try another search term or category.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML = list.map(p => `
+
+    <article class="procedure-card"
+             onclick="openProcedure('${p.id}')">
+
+      <div class="procedure-art">
+        ${illustration(p.illustration)}
+      </div>
+
+      <div class="procedure-body">
+
+        <span class="badge">
+          ${p.categoryName}
+        </span>
+
+        <h3>${p.title}</h3>
+
+        <p>${p.description}</p>
+
+        <span class="view-link">
+          View Procedure →
+        </span>
+
+      </div>
+
+    </article>
+
+  `).join("");
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function searchProcedures(query) {
+
+  const value = query.toLowerCase().trim();
+
+  if(!value) {
+
+    if(currentCategory === "all") {
+      renderProcedures(procedures);
+    } else {
+      renderProcedures(
+        procedures.filter(p => p.category === currentCategory)
+      );
+    }
+
+    return;
+  }
+
+  const results = procedures.filter(p => {
+
+    const searchable = [
+
+      p.title,
+      p.categoryName,
+      p.description,
+      ...p.keywords
+
+    ].join(" ").toLowerCase();
+
+    return searchable.includes(value);
+
+  });
+
+  renderProcedures(results);
+
+  document.getElementById("procedures")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+}
+
+
+function runHeroSearch() {
+
+  const value = document.getElementById("heroSearch").value;
+
+  searchProcedures(value);
+
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function filterCategory(category) {
+
+  currentCategory = category;
+
+  document.querySelectorAll(".filter-btn")
+    .forEach(btn => btn.classList.remove("active"));
+
+  if(category === "all") {
+
+    document.querySelector(".filter-btn")
+      ?.classList.add("active");
+
+    renderProcedures(procedures);
+
+  } else {
+
+    const results =
+      procedures.filter(p => p.category === category);
+
+    renderProcedures(results);
+
+  }
+
+  document.getElementById("procedures")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+}
+
+
+/* =========================================================
+   OPEN PROCEDURE
+   ========================================================= */
+
+function openProcedure(id) {
+
+  const p = procedures.find(item => item.id === id);
+
+  if(!p) return;
+
+  document.getElementById("home").style.display = "none";
+  document.getElementById("procedure-view").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"instant"
+  });
+
+  const content =
+    document.getElementById("procedureContent");
+
+  content.innerHTML = `
+
+    <div class="procedure-header">
+
+      <div class="label">
+        ${p.categoryName}
+      </div>
+
+      <h1>${p.title}</h1>
+
+      <p style="color:var(--muted);max-width:700px;">
+        ${p.description}
+      </p>
+
+      <div class="procedure-meta">
+
+        <span class="meta">
+          ${p.difficulty}
+        </span>
+
+        <span class="meta">
+          Visual Guide
+        </span>
+
+        <span class="meta">
+          Educational Resource
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="notice">
+      <strong>Educational notice:</strong>
+      This prototype contains educational demonstration content.
+      Always follow your institution's current policies,
+      professional standards and applicable clinical guidance.
+    </div>
+
+    <div class="procedure-content">
+
+      <aside class="toc">
+
+        <h4>On this page</h4>
+
+        <button onclick="jumpTo('overview')">
+          Overview
+        </button>
+
+        <button onclick="jumpTo('why')">
+          Why it matters
+        </button>
+
+        <button onclick="jumpTo('equipment')">
+          Equipment
+        </button>
+
+        <button onclick="jumpTo('steps')">
+          Visual Steps
+        </button>
+
+        <button onclick="jumpTo('safety')">
+          Safety
+        </button>
+
+        <button onclick="jumpTo('references')">
+          References
+        </button>
+
+      </aside>
+
+
+      <article>
+
+        <section class="article-section" id="overview">
+
+          <h2>Quick Overview</h2>
+
+          <p>${p.overview}</p>
+
+        </section>
+
+
+        <section class="article-section" id="why">
+
+          <h2>Why Is It Important?</h2>
+
+          <p>${p.why}</p>
+
+        </section>
+
+
+        <section class="article-section" id="equipment">
+
+          <h2>Equipment</h2>
+
+          <div class="equipment-grid">
+
+            ${p.equipment.map(item => `
+
+              <div class="equipment">
+
+                <div class="equipment-icon">
+                  ${item[0]}
+                </div>
+
+                <strong>
+                  ${item[1]}
+                </strong>
+
+              </div>
+
+            `).join("")}
+
+          </div>
+
+        </section>
+
+
+        <section class="article-section" id="steps">
+
+          <h2>Step-by-Step Visual Guide</h2>
+
+          <p style="margin-bottom:20px;">
+            Learn the sequence visually first, then read the
+            explanation for each step.
+          </p>
+
+
+          <div class="mode-buttons">
+
+            <button
+              class="active"
+              id="quickButton"
+              onclick="setGuideMode('quick')">
+              Quick Visual Guide
+            </button>
+
+            <button
+              id="detailButton"
+              onclick="setGuideMode('detail')">
+              Detailed Guide
+            </button>
+
+          </div>
+
+
+          <div id="quickGuide" class="quick-guide active">
+
+            <div class="steps">
+
+              ${p.steps.map((step,index) => `
+
+                <div class="step">
+
+                  <div class="step-visual">
+                    ${illustration(step.art)}
+                  </div>
+
+                  <div class="step-top">
+
+                    <div class="step-number">
+                      ${index + 1}
+                    </div>
+
+                    <div>
+                      <h3>${step.title}</h3>
+                    </div>
+
+                  </div>
+
+                  <div class="step-body">
+
+                    <strong>
+                      ${step.instruction}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              `).join("")}
+
+            </div>
+
+          </div>
+
+
+          <div id="detailedGuide"
+               class="detailed-guide hidden">
+
+            <div class="steps">
+
+              ${p.steps.map((step,index) => `
+
+                <div class="step">
+
+                  <div class="step-top">
+
+                    <div class="step-number">
+                      ${index + 1}
+                    </div>
+
+                    <div>
+                      <h3>${step.title}</h3>
+                    </div>
+
+                  </div>
+
+                  <div class="step-visual">
+                    ${illustration(step.art)}
+                  </div>
+
+                  <div class="step-body">
+
+                    <p>
+                      <strong>
+                        ${step.instruction}
+                      </strong>
+                    </p>
+
+                    <p style="margin-top:8px;">
+                      ${step.explanation}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              `).join("")}
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section class="article-section" id="safety">
+
+          <h2>Safety & Precautions</h2>
+
+          <div class="check-list">
+
+            <div>
+              ✓ Follow current institutional guidance.
+            </div>
+
+            <div>
+              ✓ Confirm patient-specific requirements.
+            </div>
+
+            <div>
+              ✓ Use appropriate infection-prevention measures.
+            </div>
+
+            <div>
+              ✓ Escalate unexpected or concerning findings through
+              the appropriate clinical pathway.
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section class="article-section">
+
+          <h2>Documentation</h2>
+
+          <p>
+            Document relevant findings or actions according to
+            the applicable clinical documentation requirements.
+          </p>
+
+        </section>
+
+
+        <section class="article-section" id="references">
+
+          <h2>References</h2>
+
+          <p>
+            References will be added when this procedure is
+            formally reviewed and published.
+          </p>
+
+          <p style="margin-top:12px;font-size:13px;">
+            Last reviewed:
+            <strong>Not yet reviewed</strong>
+          </p>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   GUIDE MODE
+   ========================================================= */
+
+function setGuideMode(mode) {
+
+  const quick =
+    document.getElementById("quickGuide");
+
+  const detailed =
+    document.getElementById("detailedGuide");
+
+  const qb =
+    document.getElementById("quickButton");
+
+  const db =
+    document.getElementById("detailButton");
+
+  if(mode === "quick") {
+
+    quick.classList.add("active");
+    detailed.classList.add("hidden");
+
+    qb.classList.add("active");
+    db.classList.remove("active");
+
+  } else {
+
+    quick.classList.remove("active");
+    detailed.classList.remove("hidden");
+
+    qb.classList.remove("active");
+    db.classList.add("active");
+
+  }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function showHome() {
+
+  document.getElementById("procedure-view").style.display = "none";
+  document.getElementById("home").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function scrollToSection(id) {
+
+  showHome();
+
+  setTimeout(() => {
+
+    document.getElementById(id)
+      ?.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+  },100);
+
+}
+
+
+function jumpTo(id) {
+
+  document.getElementById(id)
+    ?.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
+
+
+function toggleMobileMenu() {
+
+  const nav = document.querySelector(".nav-links");
+
+  if(nav.style.display === "flex") {
+
+    nav.style.display = "none";
+
+  } else {
+
+    nav.style.display = "flex";
+    nav.style.flexDirection = "column";
+    nav.style.position = "absolute";
+    nav.style.top = "72px";
+    nav.style.left = "0";
+    nav.style.right = "0";
+    nav.style.padding = "20px";
+    nav.style.background = "white";
+    nav.style.borderBottom = "1px solid var(--border)";
+
+  }
+
+}
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+renderProcedures(procedures);
+
+</script>
+
+</body>
+</html>
