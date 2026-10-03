@@ -9,7 +9,107 @@
 <meta name="description" content="LearningNursing.com — simple, visual and practical nursing education resources and clinical procedure guides.">
 
 <style>
-/* =========================================================
+/* ================= CREATOR PROFILE ================= */
+
+.creator-section {
+  max-width: 1250px;
+  margin: auto;
+  padding: 55px 22px 20px;
+}
+
+.creator-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  box-shadow: var(--shadow);
+}
+
+.creator-photo {
+  width: 145px;
+  height: 145px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--blue-light);
+  flex-shrink: 0;
+}
+
+.creator-info {
+  flex: 1;
+}
+
+.creator-label {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.creator-info h2 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 3px;
+}
+
+.creator-role {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.creator-message {
+  color: var(--muted);
+  max-width: 700px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.creator-email {
+  display: inline-block;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.creator-email:hover {
+  text-decoration: underline;
+}
+
+.creator-quote {
+  background: var(--blue-light);
+  border-left: 4px solid var(--teal);
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  max-width: 700px;
+}
+
+@media(max-width:600px) {
+  .creator-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .creator-photo {
+    width: 125px;
+    height: 125px;
+  }
+
+  .creator-quote {
+    text-align: left;
+  }
+}
+   /* =========================================================
    LEARNINGNURSING.COM
    Single-file website prototype
    HTML + CSS + JavaScript
@@ -1470,7 +1570,56 @@ footer {
   </div>
 
 </section>
+<!-- =========================================================
+     ABOUT THE CREATOR
+     ========================================================= -->
 
+<section class="creator-section">
+
+  <div class="creator-card">
+
+    <img
+      src="images/jashikesh.jpg"
+      alt="K. Jashikesh"
+      class="creator-photo"
+    >
+
+    <div class="creator-info">
+
+      <div class="creator-label">
+        About the Creator
+      </div>
+
+      <h2>K. Jashikesh</h2>
+
+      <div class="creator-role">
+        Nursing Student & Creator of LearningNursing
+      </div>
+
+      <p class="creator-message">
+        LearningNursing was created with one simple goal:
+        to make nursing education easier to understand,
+        more practical, and accessible to students.
+      </p>
+
+      <a
+        href="mailto:jasi.bala2003@gmail.com"
+        class="creator-email"
+      >
+        jasi.bala2003@gmail.com
+      </a>
+
+      <div class="creator-quote">
+        “Keep learning, keep improving, and never stop becoming
+        the kind of nurse you want to be.”
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+   
 </main>
 
 
