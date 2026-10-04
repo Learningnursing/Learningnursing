@@ -555,6 +555,12 @@ a {
   width: 130px;
   height: 130px;
 }
+  .procedure-art .procedure-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 
 .procedure-body {
   padding: 18px;
@@ -1859,7 +1865,7 @@ footer {
     </div>
 
     <div class="feature-visual">
-
+        
       <svg viewBox="0 0 500 300"
            xmlns="http://www.w3.org/2000/svg">
 
@@ -3488,6 +3494,36 @@ const procedures = [
    ========================================================= */
 
 function illustration(type) {
+   // Display uploaded image when illustration is an image path
+  if (
+    typeof type === "string" &&
+    (
+      type.endsWith(".jpg") ||
+      type.endsWith(".jpeg") ||
+      type.endsWith(".png") ||
+      type.endsWith(".webp") ||
+      type.endsWith(".JPG") ||
+      type.endsWith(".JPEG") ||
+      type.endsWith(".PNG") ||
+      type.endsWith(".WEBP")
+    )
+  ) {
+    return `
+      <img
+        src="${type}"
+        alt="Procedure illustration"
+        class="procedure-image"
+      >
+    `;
+  }
+
+  const common = `
+    <svg viewBox="0 0 200 200"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
+  `;
+
+  let art = "";
 
   const common = `
     <svg viewBox="0 0 200 200"
