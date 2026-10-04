@@ -1417,6 +1417,42 @@ footer {
   }
 }
 
+/* ===== Nursing Background ===== */
+
+body {
+
+  position: relative;
+
+  background: #ffffff;
+
+}
+
+/* Background image layer */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image: url("nursing-background.JPG");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  opacity: 0.12;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+}
+
 </style>
 </head>
 
