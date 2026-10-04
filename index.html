@@ -1190,6 +1190,227 @@ footer {
   }
 }
   
+
+/* ================= NEW VISUAL LEARNING ADDITIONS ================= */
+
+.video-learning-section {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px 22px 55px;
+}
+
+.nursing-video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--navy);
+  box-shadow: var(--shadow);
+}
+
+.nursing-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 620px;
+  object-fit: cover;
+  background: #06182d;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+  pointer-events: none;
+  background: linear-gradient(transparent 45%, rgba(11,37,69,.72));
+}
+
+.video-overlay-content {
+  color: white;
+  max-width: 600px;
+}
+
+.video-overlay-content h2 {
+  font-size: clamp(24px, 4vw, 40px);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.video-overlay-content p {
+  color: #e5edf6;
+  font-size: 14px;
+}
+
+.learning-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+}
+
+.learning-module {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  cursor: pointer;
+}
+
+.learning-module:hover,
+.learning-module:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: #cbd9e7;
+}
+
+.learning-module .module-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--blue-light);
+  font-size: 23px;
+  margin-bottom: 14px;
+}
+
+.learning-module h3 {
+  color: var(--navy);
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.learning-module p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.module-pop {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.trending-wrap {
+  position: relative;
+}
+
+.trending-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 5px 3px 18px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  touch-action: pan-x;
+  cursor: grab;
+}
+
+.trending-scroller.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.trending-card {
+  flex: 0 0 min(310px, 82vw);
+  scroll-snap-align: start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.trending-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.trending-number {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.trending-card h3 {
+  color: var(--navy);
+  margin: 7px 0;
+  font-size: 18px;
+}
+
+.trending-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.trending-card button {
+  margin-top: 14px;
+  border: 0;
+  background: var(--navy);
+  color: white;
+  border-radius: 10px;
+  padding: 9px 13px;
+  font-weight: 700;
+}
+
+.scroll-hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:950px) {
+  .learning-modules-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px) {
+  .video-learning-section {
+    padding: 5px 17px 35px;
+  }
+
+  .nursing-video-card {
+    border-radius: 20px;
+  }
+
+  .video-overlay {
+    padding: 18px;
+  }
+
+  .video-overlay-content p {
+    display: none;
+  }
+
+  .learning-modules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trending-card {
+    flex-basis: 82vw;
+  }
+}
+
 </style>
 </head>
 
@@ -1223,6 +1444,8 @@ footer {
       <button onclick="showHome()">Home</button>
       <button onclick="scrollToSection('categories')">Categories</button>
       <button onclick="scrollToSection('procedures')">Procedures</button>
+      <button onclick="scrollToSection('learning-modules')">Modules</button>
+      <button onclick="scrollToSection('trending')">Trending</button>
       <button onclick="scrollToSection('resources')">Resources</button>
     </div>
 
@@ -1297,6 +1520,32 @@ footer {
   </div>
 
 </section>
+
+
+<section class="video-learning-section scroll-reveal" id="nursing-video">
+  <div class="nursing-video-card">
+    <video
+      class="nursing-video"
+      id="nursingVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-label="LearningNursing nursing video">
+      <source src="nursingvideo.MP4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="video-overlay">
+      <div class="video-overlay-content">
+        <h2>See Nursing. Learn Nursing.</h2>
+        <p>Visual learning designed to make clinical knowledge easier to understand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <section class="stats">
@@ -1443,6 +1692,123 @@ footer {
 
 </section>
 
+
+
+<section class="section scroll-reveal" id="learning-modules">
+  <div class="section-heading">
+    <div>
+      <h2>Learning Modules</h2>
+      <p>Organised learning paths for nursing students.</p>
+    </div>
+  </div>
+
+  <div class="learning-modules-grid">
+    <article class="learning-module">
+      <div class="module-icon">🩺</div>
+      <h3>Clinical Assessment</h3>
+      <p>Build confidence with vital signs, observations and patient assessment.</p>
+      <div class="module-pop">Explore assessment skills →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">🧼</div>
+      <h3>Infection Prevention</h3>
+      <p>Study hand hygiene, PPE, precautions and safe clinical practice.</p>
+      <div class="module-pop">Explore infection control →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">💊</div>
+      <h3>Medication Safety</h3>
+      <p>Review administration principles, routes, monitoring and safety.</p>
+      <div class="module-pop">Explore medication →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">🫁</div>
+      <h3>Respiratory Care</h3>
+      <p>Connect respiratory assessment with oxygen therapy and patient care.</p>
+      <div class="module-pop">Explore respiratory care →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">🫀</div>
+      <h3>Medical-Surgical</h3>
+      <p>Review common medical and surgical conditions from a nursing perspective.</p>
+      <div class="module-pop">Explore medical-surgical →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">🧠</div>
+      <h3>Neurological Nursing</h3>
+      <p>Build a foundation in neurological assessment and patient care.</p>
+      <div class="module-pop">Explore neurology →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">🩹</div>
+      <h3>Wound Care</h3>
+      <p>Learn wound assessment, dressing principles and documentation.</p>
+      <div class="module-pop">Explore wound care →</div>
+    </article>
+
+    <article class="learning-module">
+      <div class="module-icon">📚</div>
+      <h3>Exam Revision</h3>
+      <p>Use organised notes and procedure guides for focused revision.</p>
+      <div class="module-pop">Start revision →</div>
+    </article>
+  </div>
+</section>
+
+<section class="section scroll-reveal" id="trending">
+  <div class="section-heading">
+    <div>
+      <h2>Trending Nursing Skills</h2>
+      <p>Touch, drag or scroll horizontally to explore.</p>
+    </div>
+  </div>
+
+  <div class="trending-wrap">
+    <div class="trending-scroller" id="trendingScroller">
+      <article class="trending-card">
+        <div class="trending-number">Trending 01</div>
+        <h3>Oxygen Therapy</h3>
+        <p>Review oxygen delivery, monitoring and safe nursing care.</p>
+        <button onclick="openProcedure('oxygen-therapy')">Open Guide →</button>
+      </article>
+
+      <article class="trending-card">
+        <div class="trending-number">Trending 02</div>
+        <h3>Pulse Oximetry</h3>
+        <p>Understand SpO₂ monitoring as part of respiratory assessment.</p>
+        <button onclick="openProcedure('pulse-oximetry')">Open Guide →</button>
+      </article>
+
+      <article class="trending-card">
+        <div class="trending-number">Trending 03</div>
+        <h3>Blood Glucose</h3>
+        <p>Review the basic workflow for point-of-care glucose testing.</p>
+        <button onclick="openProcedure('blood-glucose')">Open Guide →</button>
+      </article>
+
+      <article class="trending-card">
+        <div class="trending-number">Trending 04</div>
+        <h3>IV Site Assessment</h3>
+        <p>Recognise common peripheral IV site concerns early.</p>
+        <button onclick="openProcedure('iv-site-assessment')">Open Guide →</button>
+      </article>
+
+      <article class="trending-card">
+        <div class="trending-number">Trending 05</div>
+        <h3>Safe Patient Transfer</h3>
+        <p>Focus on assessment, preparation and safe movement.</p>
+        <button onclick="openProcedure('patient-transfer')">Open Guide →</button>
+      </article>
+    </div>
+    <div class="scroll-hint">Swipe on mobile or use Shift + mouse wheel / trackpad to explore →</div>
+  </div>
+</section>
 
 <!-- =========================================================
      FEATURE
@@ -2901,6 +3267,208 @@ const procedures = [
       }
     ]
   }
+,
+
+  {
+    id: "oxygen-therapy",
+    title: "Oxygen Therapy",
+    category: "respiratory-care",
+    categoryName: "Respiratory Care",
+    difficulty: "Beginner",
+    description: "Learn the basic nursing approach to safe oxygen therapy.",
+    keywords: ["oxygen","oxygen therapy","nasal cannula","respiratory","spo2"],
+    illustration: "respiratory",
+    overview: "Oxygen therapy provides supplemental oxygen when clinically indicated.",
+    why: "Correct oxygen delivery and monitoring support safe respiratory care.",
+    equipment: [["🫁","Oxygen delivery device"],["📟","Pulse oximeter"],["🧤","PPE when indicated"]],
+    steps: [
+      {title:"Assess",instruction:"Assess the patient and oxygen requirement.",explanation:"Check the patient's respiratory status and follow the prescribed or local clinical guidance.",art:"respiratory"},
+      {title:"Prepare",instruction:"Prepare the prescribed oxygen equipment.",explanation:"Select the appropriate device and check the equipment before use.",art:"respiratory"},
+      {title:"Apply",instruction:"Apply the oxygen device correctly.",explanation:"Position the device safely and provide the prescribed oxygen delivery.",art:"respiratory"},
+      {title:"Monitor",instruction:"Monitor the patient's response.",explanation:"Reassess respiratory status and oxygen saturation and document findings.",art:"respiratory"}
+    ]
+  },
+
+
+  {
+    id: "pulse-oximetry",
+    title: "Pulse Oximetry",
+    category: "respiratory-care",
+    categoryName: "Respiratory Care",
+    difficulty: "Beginner",
+    description: "Learn the basic process of obtaining and interpreting an SpO₂ reading.",
+    keywords: ["SpO2","oxygen saturation","pulse oximeter","oxygen"],
+    illustration: "respiratory",
+    overview: "Pulse oximetry provides a non-invasive estimate of peripheral oxygen saturation.",
+    why: "SpO₂ can support assessment of a patient's respiratory status when used appropriately.",
+    equipment: [["📟","Pulse oximeter"],["🧼","Hand hygiene supplies"]],
+    steps: [
+      {title:"Prepare",instruction:"Prepare the patient and device.",explanation:"Explain the procedure and check that the device is ready for use.",art:"respiratory"},
+      {title:"Position",instruction:"Place the sensor appropriately.",explanation:"Use a suitable measurement site and ensure the sensor is positioned correctly.",art:"respiratory"},
+      {title:"Read",instruction:"Allow the reading to stabilise.",explanation:"Assess the displayed value together with the patient's clinical condition.",art:"respiratory"},
+      {title:"Record",instruction:"Document the result.",explanation:"Record the reading and relevant clinical observations according to local requirements.",art:"respiratory"}
+    ]
+  },
+
+  {
+    id: "blood-glucose",
+    title: "Capillary Blood Glucose",
+    category: "patient-assessment",
+    categoryName: "Patient Assessment",
+    difficulty: "Intermediate",
+    description: "Learn the basic workflow for capillary blood glucose monitoring.",
+    keywords: ["blood glucose","glucose","glucometer","finger prick","diabetes"],
+    illustration: "blood",
+    overview: "Capillary blood glucose testing provides a point-of-care measurement of blood glucose.",
+    why: "Glucose monitoring can support assessment and management of patients with altered glucose levels.",
+    equipment: [["🩸","Glucose meter"],["🧪","Test strip"],["🧤","Gloves"],["🩹","Sharps disposal container"]],
+    steps: [
+      {title:"Prepare",instruction:"Prepare the meter and supplies.",explanation:"Check the device, test strip and required infection-control supplies.",art:"blood"},
+      {title:"Prepare Site",instruction:"Prepare the selected finger or approved site.",explanation:"Use the approved site-preparation technique for the device and local policy.",art:"blood"},
+      {title:"Test",instruction:"Obtain and apply the blood sample.",explanation:"Use the manufacturer's instructions and current clinical procedure.",art:"blood"},
+      {title:"Document",instruction:"Record and respond to the result.",explanation:"Document the reading and follow the relevant escalation or treatment pathway when indicated.",art:"blood"}
+    ]
+  },
+
+  {
+    id: "wound-dressing",
+    title: "Wound Dressing",
+    category: "wound-care",
+    categoryName: "Wound Care",
+    difficulty: "Intermediate",
+    description: "Learn the structured approach to wound assessment and dressing care.",
+    keywords: ["wound","dressing","wound care","aseptic","infection"],
+    illustration: "wound",
+    overview: "Wound dressing involves assessment, appropriate preparation and application of the selected dressing.",
+    why: "Consistent wound care supports healing and helps identify complications early.",
+    equipment: [["🧤","Appropriate gloves"],["🩹","Prescribed dressing"],["🧼","Cleaning solution as indicated"],["🗑️","Clinical waste container"]],
+    steps: [
+      {title:"Assess",instruction:"Assess the wound and surrounding skin.",explanation:"Observe relevant wound characteristics and compare with previous documentation where available.",art:"wound"},
+      {title:"Prepare",instruction:"Prepare the equipment and environment.",explanation:"Maintain the required infection-prevention and aseptic measures for the procedure.",art:"wound"},
+      {title:"Dress",instruction:"Clean and dress the wound as indicated.",explanation:"Use the prescribed or approved wound-care technique and dressing.",art:"wound"},
+      {title:"Document",instruction:"Document wound care findings.",explanation:"Record the wound assessment, care provided and patient's response.",art:"wound"}
+    ]
+  },
+
+  {
+    id: "urinary-catheter-care",
+    title: "Urinary Catheter Care",
+    category: "patient-care",
+    categoryName: "Patient Care",
+    difficulty: "Intermediate",
+    description: "Learn essential principles of caring for a patient with an indwelling urinary catheter.",
+    keywords: ["urinary catheter","catheter care","Foley","urine","UTI"],
+    illustration: "catheter",
+    overview: "Urinary catheter care aims to maintain a closed system and reduce preventable complications.",
+    why: "Appropriate catheter care supports patient comfort and infection prevention.",
+    equipment: [["🧤","Gloves"],["🧼","Approved cleansing supplies"],["🗑️","Waste container"]],
+    steps: [
+      {title:"Assess",instruction:"Assess the catheter system and patient.",explanation:"Check comfort, drainage and the integrity of the catheter system.",art:"catheter"},
+      {title:"Maintain",instruction:"Maintain the drainage system appropriately.",explanation:"Keep the system secure and follow current infection-prevention guidance.",art:"catheter"},
+      {title:"Provide Care",instruction:"Provide routine catheter hygiene.",explanation:"Use the approved technique and avoid unnecessary manipulation of the system.",art:"catheter"},
+      {title:"Document",instruction:"Document care and observations.",explanation:"Record relevant findings, urine output when required and any concerns.",art:"catheter"}
+    ]
+  },
+
+  {
+    id: "nasogastric-feeding",
+    title: "Nasogastric Tube Feeding",
+    category: "patient-care",
+    categoryName: "Patient Care",
+    difficulty: "Intermediate",
+    description: "Review the nursing principles involved in enteral feeding through an NG tube.",
+    keywords: ["NG tube","nasogastric","enteral feeding","tube feeding"],
+    illustration: "tube",
+    overview: "Nasogastric feeding delivers prescribed nutrition or fluids through a feeding tube.",
+    why: "Safe enteral feeding requires appropriate patient assessment, tube verification and monitoring.",
+    equipment: [["🧪","Prescribed feed"],["🧴","Enteral feeding equipment"],["🧤","Gloves"],["💧","Flush solution as prescribed"]],
+    steps: [
+      {title:"Assess",instruction:"Assess the patient before feeding.",explanation:"Check the patient's condition and follow the current enteral-feeding protocol.",art:"tube"},
+      {title:"Verify",instruction:"Verify tube placement using the approved method.",explanation:"Do not proceed until tube placement has been confirmed according to current clinical guidance.",art:"tube"},
+      {title:"Feed",instruction:"Administer the prescribed feed safely.",explanation:"Use the prescribed method, rate and precautions for the patient.",art:"tube"},
+      {title:"Monitor",instruction:"Monitor tolerance and document care.",explanation:"Observe for complications and record the feed, flushes and patient response as required.",art:"tube"}
+    ]
+  },
+
+  {
+    id: "iv-site-assessment",
+    title: "Peripheral IV Site Assessment",
+    category: "clinical-skills",
+    categoryName: "Clinical Skills",
+    difficulty: "Intermediate",
+    description: "Learn how to assess a peripheral IV site for common complications.",
+    keywords: ["IV","intravenous","cannula","infiltration","phlebitis"],
+    illustration: "iv",
+    overview: "Peripheral IV site assessment checks the insertion site and surrounding tissue for complications.",
+    why: "Early recognition of infiltration, phlebitis or other complications supports patient safety.",
+    equipment: [["🧤","Gloves"],["🩹","Dressing supplies when required"],["💉","IV equipment as applicable"]],
+    steps: [
+      {title:"Inspect",instruction:"Inspect the IV insertion site.",explanation:"Look for changes such as redness, swelling, leakage or other abnormal findings.",art:"iv"},
+      {title:"Assess",instruction:"Assess the patient and site.",explanation:"Ask about pain or discomfort and assess the site according to local policy.",art:"iv"},
+      {title:"Check",instruction:"Check the IV system as required.",explanation:"Review patency and the prescribed infusion without unnecessary manipulation.",art:"iv"},
+      {title:"Act",instruction:"Report or manage concerns appropriately.",explanation:"Follow local escalation and device-management guidance when abnormalities are identified.",art:"iv"}
+    ]
+  },
+
+  {
+    id: "specimen-collection",
+    title: "Urine Specimen Collection",
+    category: "specimen-collection",
+    categoryName: "Specimen Collection",
+    difficulty: "Beginner",
+    description: "Learn the basic principles of collecting and labelling a urine specimen.",
+    keywords: ["urine specimen","specimen","urinalysis","sample collection"],
+    illustration: "specimen",
+    overview: "Urine specimen collection obtains a sample for laboratory or point-of-care testing.",
+    why: "Correct collection and labelling help maintain specimen quality and patient safety.",
+    equipment: [["🧪","Appropriate specimen container"],["🧤","Gloves"],["🏷️","Patient identification label"],["🗑️","Waste container"]],
+    steps: [
+      {title:"Identify",instruction:"Confirm the patient and required specimen.",explanation:"Use the approved patient-identification process and check the test requested.",art:"specimen"},
+      {title:"Collect",instruction:"Collect the specimen using the required method.",explanation:"Use the collection method specified for the requested test.",art:"specimen"},
+      {title:"Label",instruction:"Label the specimen correctly.",explanation:"Follow local specimen-labelling requirements before transport.",art:"specimen"},
+      {title:"Send",instruction:"Transport the specimen appropriately.",explanation:"Follow the laboratory's current handling and transport requirements.",art:"specimen"}
+    ]
+  },
+
+  {
+    id: "oral-care",
+    title: "Oral Care",
+    category: "patient-care",
+    categoryName: "Patient Care",
+    difficulty: "Beginner",
+    description: "Learn a structured approach to oral hygiene for dependent patients.",
+    keywords: ["oral care","mouth care","hygiene","dependent patient"],
+    illustration: "mouth",
+    overview: "Oral care maintains oral cleanliness, comfort and tissue health.",
+    why: "Regular oral care supports comfort and can reduce avoidable oral complications.",
+    equipment: [["🪥","Toothbrush or oral-care equipment"],["💧","Water or approved solution"],["🧤","Gloves"],["🗑️","Waste container"]],
+    steps: [
+      {title:"Assess",instruction:"Assess the patient's oral condition.",explanation:"Observe the mouth, lips, teeth, tongue and relevant symptoms before care.",art:"mouth"},
+      {title:"Prepare",instruction:"Prepare the patient and equipment.",explanation:"Position the patient safely and explain the procedure.",art:"mouth"},
+      {title:"Clean",instruction:"Provide oral hygiene using the appropriate technique.",explanation:"Clean the mouth gently according to the patient's needs and current clinical guidance.",art:"mouth"},
+      {title:"Finish",instruction:"Reassess comfort and document as required.",explanation:"Ensure the patient is comfortable and record relevant findings or care provided.",art:"mouth"}
+    ]
+  },
+
+  {
+    id: "patient-transfer",
+    title: "Safe Patient Transfer",
+    category: "patient-care",
+    categoryName: "Patient Care",
+    difficulty: "Intermediate",
+    description: "Learn the safety principles for transferring a patient between surfaces.",
+    keywords: ["patient transfer","mobility","moving patient","safe transfer","falls"],
+    illustration: "transfer",
+    overview: "Safe patient transfer uses assessment, appropriate equipment and coordinated movement.",
+    why: "Good transfer technique reduces avoidable injury risk for patients and staff.",
+    equipment: [["🛏️","Bed or transfer surface"],["♿","Wheelchair when required"],["🦯","Mobility aid when indicated"],["🧤","PPE as required"]],
+    steps: [
+      {title:"Assess",instruction:"Assess mobility and transfer needs.",explanation:"Consider the patient's condition, strength, cognition and required assistance.",art:"transfer"},
+      {title:"Prepare",instruction:"Prepare the environment and equipment.",explanation:"Position equipment safely and remove avoidable environmental hazards.",art:"transfer"},
+      {title:"Transfer",instruction:"Perform the transfer with appropriate assistance.",explanation:"Use the approved technique and equipment for the patient's assessed needs.",art:"transfer"},
+      {title:"Reassess",instruction:"Reassess the patient after transfer.",explanation:"Ensure the patient is safe, comfortable and positioned appropriately.",art:"transfer"}
+    ]
+  },
 
 ];
 
@@ -3790,6 +4358,87 @@ function toggleMobileMenu() {
 
   }
 
+}
+
+
+
+/* =========================================================
+   VIDEO + SCROLL INTERACTIONS
+   ========================================================= */
+
+const nursingVideo = document.getElementById("nursingVideo");
+
+if(nursingVideo) {
+  nursingVideo.play().catch(() => {
+    nursingVideo.muted = true;
+    nursingVideo.play().catch(() => {});
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if(!document.hidden) {
+      nursingVideo.play().catch(() => {});
+    }
+  });
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".scroll-reveal")
+  .forEach(element => revealObserver.observe(element));
+
+
+/* =========================================================
+   TRENDING TOUCH / DRAG SCROLLER
+   ========================================================= */
+
+const trendingScroller = document.getElementById("trendingScroller");
+
+if(trendingScroller) {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  trendingScroller.addEventListener("pointerdown", (event) => {
+    isDown = true;
+    trendingScroller.classList.add("dragging");
+    startX = event.pageX - trendingScroller.offsetLeft;
+    scrollLeft = trendingScroller.scrollLeft;
+  });
+
+  trendingScroller.addEventListener("pointerleave", () => {
+    isDown = false;
+    trendingScroller.classList.remove("dragging");
+  });
+
+  trendingScroller.addEventListener("pointerup", () => {
+    isDown = false;
+    trendingScroller.classList.remove("dragging");
+  });
+
+  trendingScroller.addEventListener("pointermove", (event) => {
+    if(!isDown) return;
+    event.preventDefault();
+    const x = event.pageX - trendingScroller.offsetLeft;
+    const walk = (x - startX) * 1.25;
+    trendingScroller.scrollLeft = scrollLeft - walk;
+  });
+
+  trendingScroller.addEventListener("wheel", (event) => {
+    if(Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+      trendingScroller.scrollLeft += event.deltaY;
+    }
+  }, { passive: true });
 }
 
 
