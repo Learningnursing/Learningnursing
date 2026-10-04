@@ -1785,19 +1785,11 @@ footer {
         <button onclick="openProcedure('pulse-oximetry')">Open Guide →</button>
       </article>
 
-      <article class="trending-card">
-         <div class="trending-image">
-            <img src="images/Glucose.jpg" alt="Blood Glucose Testing">
-        </div>
-
+       <article class="trending-card">
         <div class="trending-number">Trending 03</div>
-
         <h3>Blood Glucose</h3>
-        
         <p>Review the basic workflow for point-of-care glucose testing.</p>
-        
-        <button onclick="openProcedure('blood-glucose')">Open Guide →
-        </button>
+        <button onclick="openProcedure('blood-glucose')">Open Guide →</button>
       </article>
 
       <article class="trending-card">
@@ -2887,7 +2879,7 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic sequence of hand hygiene through a visual guide.",
     keywords: ["hand washing","handwash","hand rub","hygiene","infection"],
-    illustration: "hands",
+    illustration: "images/Handwashing.jpg",
     overview:
       "Hand hygiene is the practice of cleaning the hands to help reduce the spread of microorganisms.",
     why:
@@ -2937,7 +2929,7 @@ const procedures = [
     difficulty: "Beginner",
     description: "Understand the basic process of measuring blood pressure.",
     keywords: ["BP","blood pressure","vital signs","observations"],
-    illustration: "bp",
+    illustration: "images/Pressure.jpg",
     overview:
       "Blood pressure measurement assesses the pressure of circulating blood against arterial walls.",
     why:
@@ -2987,8 +2979,8 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic principles of measuring body temperature.",
     keywords: ["temperature","thermometer","fever","vital signs"],
-    illustration: "thermometer",
-    overview:
+    illustration: "images/Temperature.jpg",
+    overview:  
       "Temperature measurement provides an assessment of the body's temperature.",
     why:
       "Temperature can contribute important information to a patient's overall assessment.",
@@ -3036,7 +3028,7 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic process of assessing a peripheral pulse.",
     keywords: ["pulse","heart rate","radial pulse","vital signs"],
-    illustration: "pulse",
+    illustration: "images/Pulse.jpg",
     overview:
       "Pulse assessment involves evaluating the arterial pulse at an appropriate site.",
     why:
@@ -3085,7 +3077,7 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn how respiratory rate is assessed and documented.",
     keywords: ["respiratory rate","breathing","respiration","vital signs"],
-    illustration: "lungs",
+    illustration: "images/Rr.jpg",
     overview:
       "Respiratory rate is the number of breaths taken over a specified period.",
     why:
@@ -3134,7 +3126,7 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic principles of preparing a clean patient bed.",
     keywords: ["bed","bed making","linen","sheets","patient care"],
-    illustration: "bed",
+    illustration: "images/Bedmacking.jpg",
     overview:
       "Bed making involves preparing a clean, safe and comfortable patient bed.",
     why:
@@ -3184,7 +3176,7 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Explore the principles involved in oral medication administration.",
     keywords: ["oral medication","tablets","medicine","medication","pills"],
-    illustration: "medicine",
+    illustration: "images/Oralmedication.jpg",
     overview:
       "Oral medication administration involves giving medication by mouth according to an authorised prescription and clinical procedure.",
     why:
@@ -3234,7 +3226,7 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Learn the principles behind intramuscular medication administration.",
     keywords: ["IM","injection","intramuscular","syringe","needle"],
-    illustration: "injection",
+    illustration: "images/Im.jpg",
     overview:
       "An intramuscular injection delivers medication into muscle tissue.",
     why:
@@ -3285,8 +3277,9 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic nursing approach to safe oxygen therapy.",
     keywords: ["oxygen","oxygen therapy","nasal cannula","respiratory","spo2"],
-    illustration: "respiratory",
-    overview: "Oxygen therapy provides supplemental oxygen when clinically indicated.",
+    illustration: "images/Oxygentherapy.jpg",
+    overview: 
+      "Oxygen therapy provides supplemental oxygen when clinically indicated.",
     why: "Correct oxygen delivery and monitoring support safe respiratory care.",
     equipment: [["🫁","Oxygen delivery device"],["📟","Pulse oximeter"],["🧤","PPE when indicated"]],
     steps: [
@@ -3306,8 +3299,9 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic process of obtaining and interpreting an SpO₂ reading.",
     keywords: ["SpO2","oxygen saturation","pulse oximeter","oxygen"],
-    illustration: "respiratory",
-    overview: "Pulse oximetry provides a non-invasive estimate of peripheral oxygen saturation.",
+    illustration: "images/Pulseoximetry.jpg",
+    overview:
+      "Pulse oximetry provides a non-invasive estimate of peripheral oxygen saturation.",
     why: "SpO₂ can support assessment of a patient's respiratory status when used appropriately.",
     equipment: [["📟","Pulse oximeter"],["🧼","Hand hygiene supplies"]],
     steps: [
@@ -3326,8 +3320,9 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Learn the basic workflow for capillary blood glucose monitoring.",
     keywords: ["blood glucose","glucose","glucometer","finger prick","diabetes"],
-    illustration: "blood",
-    overview: "Capillary blood glucose testing provides a point-of-care measurement of blood glucose.",
+    illustration: "images/Glucoce.jpg",
+    overview: 
+      "Capillary blood glucose testing provides a point-of-care measurement of blood glucose.",
     why: "Glucose monitoring can support assessment and management of patients with altered glucose levels.",
     equipment: [["🩸","Glucose meter"],["🧪","Test strip"],["🧤","Gloves"],["🩹","Sharps disposal container"]],
     steps: [
@@ -3346,8 +3341,9 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Learn the structured approach to wound assessment and dressing care.",
     keywords: ["wound","dressing","wound care","aseptic","infection"],
-    illustration: "wound",
-    overview: "Wound dressing involves assessment, appropriate preparation and application of the selected dressing.",
+    illustration: "images/Wounddressing.jpg",
+    overview: 
+      "Wound dressing involves assessment, appropriate preparation and application of the selected dressing.",
     why: "Consistent wound care supports healing and helps identify complications early.",
     equipment: [["🧤","Appropriate gloves"],["🩹","Prescribed dressing"],["🧼","Cleaning solution as indicated"],["🗑️","Clinical waste container"]],
     steps: [
@@ -3366,8 +3362,9 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Learn essential principles of caring for a patient with an indwelling urinary catheter.",
     keywords: ["urinary catheter","catheter care","Foley","urine","UTI"],
-    illustration: "catheter",
-    overview: "Urinary catheter care aims to maintain a closed system and reduce preventable complications.",
+    illustration: "images/Urinary.jpg",
+    overview: 
+      "Urinary catheter care aims to maintain a closed system and reduce preventable complications.",
     why: "Appropriate catheter care supports patient comfort and infection prevention.",
     equipment: [["🧤","Gloves"],["🧼","Approved cleansing supplies"],["🗑️","Waste container"]],
     steps: [
@@ -3386,8 +3383,9 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Review the nursing principles involved in enteral feeding through an NG tube.",
     keywords: ["NG tube","nasogastric","enteral feeding","tube feeding"],
-    illustration: "tube",
-    overview: "Nasogastric feeding delivers prescribed nutrition or fluids through a feeding tube.",
+    illustration: "images/Ng.jpg",
+    overview: 
+      "Nasogastric feeding delivers prescribed nutrition or fluids through a feeding tube.",
     why: "Safe enteral feeding requires appropriate patient assessment, tube verification and monitoring.",
     equipment: [["🧪","Prescribed feed"],["🧴","Enteral feeding equipment"],["🧤","Gloves"],["💧","Flush solution as prescribed"]],
     steps: [
@@ -3406,8 +3404,9 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Learn how to assess a peripheral IV site for common complications.",
     keywords: ["IV","intravenous","cannula","infiltration","phlebitis"],
-    illustration: "iv",
-    overview: "Peripheral IV site assessment checks the insertion site and surrounding tissue for complications.",
+    illustration: "images/Iv.jpg",
+    overview:
+      "Peripheral IV site assessment checks the insertion site and surrounding tissue for complications.",
     why: "Early recognition of infiltration, phlebitis or other complications supports patient safety.",
     equipment: [["🧤","Gloves"],["🩹","Dressing supplies when required"],["💉","IV equipment as applicable"]],
     steps: [
@@ -3426,8 +3425,9 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn the basic principles of collecting and labelling a urine specimen.",
     keywords: ["urine specimen","specimen","urinalysis","sample collection"],
-    illustration: "specimen",
-    overview: "Urine specimen collection obtains a sample for laboratory or point-of-care testing.",
+    illustration: "images/Urine.jpg",
+    overview: 
+      "Urine specimen collection obtains a sample for laboratory or point-of-care testing.",
     why: "Correct collection and labelling help maintain specimen quality and patient safety.",
     equipment: [["🧪","Appropriate specimen container"],["🧤","Gloves"],["🏷️","Patient identification label"],["🗑️","Waste container"]],
     steps: [
@@ -3446,8 +3446,9 @@ const procedures = [
     difficulty: "Beginner",
     description: "Learn a structured approach to oral hygiene for dependent patients.",
     keywords: ["oral care","mouth care","hygiene","dependent patient"],
-    illustration: "mouth",
-    overview: "Oral care maintains oral cleanliness, comfort and tissue health.",
+    illustration: "images/Oralcare.jpg",
+    overview: 
+      "Oral care maintains oral cleanliness, comfort and tissue health.",
     why: "Regular oral care supports comfort and can reduce avoidable oral complications.",
     equipment: [["🪥","Toothbrush or oral-care equipment"],["💧","Water or approved solution"],["🧤","Gloves"],["🗑️","Waste container"]],
     steps: [
@@ -3466,8 +3467,9 @@ const procedures = [
     difficulty: "Intermediate",
     description: "Learn the safety principles for transferring a patient between surfaces.",
     keywords: ["patient transfer","mobility","moving patient","safe transfer","falls"],
-    illustration: "transfer",
-    overview: "Safe patient transfer uses assessment, appropriate equipment and coordinated movement.",
+    illustration: "images/Pt.jpg",
+    overview: 
+      "Safe patient transfer uses assessment, appropriate equipment and coordinated movement.",
     why: "Good transfer technique reduces avoidable injury risk for patients and staff.",
     equipment: [["🛏️","Bed or transfer surface"],["♿","Wheelchair when required"],["🦯","Mobility aid when indicated"],["🧤","PPE as required"]],
     steps: [
