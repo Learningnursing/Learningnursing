@@ -1418,13 +1418,35 @@ footer {
   }
 }
 
-/* ===== TEST BACKGROUND ===== */
+/* ===== Nursing 3D Background ===== */
 
 body {
-  background-image: url("nursing-background.JPG") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
+  position: relative;
+  background: #ffffff;
+}
+
+/* Blurred background layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20px;
+
+  background-image: url("nursing-background.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.15;
+  filter: blur(7px);
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Keep website content sharp */
+body > * {
+  position: relative;
+  z-index: 1;
 }
   
 /* =========================================================
