@@ -1429,17 +1429,49 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  
+  inset: -15px;
+
   background-image: url("nursing-background.JPG");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   opacity: 0.10;
-  
+
+  filter: blur(7px);
+
+  transform: scale(1.03);
+
   z-index: -1;
   pointer-events: none;
+}
+  /* ================================
+   3D CARD DEPTH
+   ================================ */
+
+.procedure-card,
+.module-card,
+.feature-card {
+  position: relative;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Floating effect when cursor moves over a card */
+.procedure-card:hover,
+.module-card:hover,
+.feature-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.10);
 }
 
 </style>
