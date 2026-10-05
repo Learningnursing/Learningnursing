@@ -1535,6 +1535,812 @@ body > * {
   transform: translateY(1px);
 }
 
+/* =========================================================
+   NURSE CALLIE — FLOATING CALCULATOR BUTTON
+   ========================================================= */
+
+#nurseCallieButton {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+
+  width: 92px;
+  height: 92px;
+
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
+  cursor: pointer;
+
+  z-index: 9998;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  filter:
+    drop-shadow(0 12px 18px rgba(11, 37, 69, 0.22));
+
+  animation: callieFloat 3.2s ease-in-out infinite;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+#nurseCallieButton img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+#nurseCallieButton:hover {
+  transform: translateY(-7px) scale(1.05);
+
+  filter:
+    drop-shadow(0 18px 25px rgba(11, 37, 69, 0.30));
+}
+
+#nurseCallieButton:active {
+  transform: scale(0.94);
+}
+
+@keyframes callieFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* Small label */
+
+.callie-label {
+  position: fixed;
+
+  right: 25px;
+  bottom: 120px;
+
+  background: rgba(11, 37, 69, 0.94);
+  color: white;
+
+  padding: 9px 13px;
+
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  pointer-events: none;
+
+  z-index: 9997;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+#nurseCallieButton:hover + .callie-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   NURSING CALCULATOR APP
+   ========================================================= */
+
+#nursingCalculatorApp {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10000;
+
+  display: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(23, 105, 170, 0.22),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(15, 139, 141, 0.18),
+      transparent 35%
+    ),
+    #071a31;
+
+  color: white;
+
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+#nursingCalculatorApp.active {
+  display: block;
+}
+
+
+/* futuristic background grid */
+
+.nursing-calc-grid {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.08;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.15) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+
+/* Main calculator shell */
+
+.nursing-calc-shell {
+  position: relative;
+
+  width: min(1100px, calc(100% - 30px));
+
+  margin: 0 auto;
+
+  padding:
+    30px
+    0
+    80px;
+}
+
+
+/* Top bar */
+
+.nursing-calc-topbar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 35px;
+}
+
+.nursing-calc-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.nursing-calc-brand-icon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1769aa,
+      #0f8b8d
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+
+  box-shadow:
+    0 8px 25px rgba(23, 105, 170, 0.30);
+}
+
+.nursing-calc-brand strong {
+  display: block;
+
+  font-size: 18px;
+}
+
+.nursing-calc-brand span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: rgba(255,255,255,0.60);
+
+  font-size: 11px;
+}
+
+
+.nursing-calc-close {
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(255,255,255,0.07);
+
+  color: white;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  transition: 0.2s ease;
+}
+
+.nursing-calc-close:hover {
+  background: rgba(255,255,255,0.14);
+
+  transform: rotate(5deg);
+}
+
+
+/* Calculator home */
+
+.nursing-calc-home-title {
+  margin-bottom: 25px;
+}
+
+.nursing-calc-home-title h1 {
+  margin: 0;
+
+  font-size: clamp(28px, 5vw, 48px);
+
+  letter-spacing: -1px;
+}
+
+.nursing-calc-home-title p {
+  margin: 9px 0 0;
+
+  color: rgba(255,255,255,0.62);
+
+  max-width: 650px;
+
+  line-height: 1.6;
+}
+
+
+/* Category cards */
+
+.nursing-calc-categories {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.nursing-calc-category {
+  position: relative;
+
+  min-height: 150px;
+
+  border:
+    1px solid rgba(255,255,255,0.10);
+
+  border-radius: 20px;
+
+  padding: 22px;
+
+  text-align: left;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.11),
+      rgba(255,255,255,0.035)
+    );
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nursing-calc-category::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -40px;
+  bottom: -45px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(23,105,170,0.18);
+
+  filter: blur(10px);
+}
+
+.nursing-calc-category:hover {
+  transform:
+    translateY(-7px);
+
+  border-color:
+    rgba(65,190,220,0.45);
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.25);
+}
+
+.nursing-calc-category-icon {
+  font-size: 30px;
+
+  margin-bottom: 18px;
+}
+
+.nursing-calc-category strong {
+  display: block;
+
+  font-size: 17px;
+
+  margin-bottom: 6px;
+}
+
+.nursing-calc-category span {
+  color:
+    rgba(255,255,255,0.55);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* Calculator screen */
+
+.nursing-calc-screen {
+  display: none;
+}
+
+.nursing-calc-screen.active {
+  display: block;
+}
+
+.nursing-calc-back {
+  border: none;
+
+  background: transparent;
+
+  color:
+    rgba(255,255,255,0.75);
+
+  padding: 0;
+
+  margin-bottom: 20px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.nursing-calc-back:hover {
+  color: white;
+}
+
+
+.nursing-calc-panel {
+  width: min(720px, 100%);
+
+  margin: 0 auto;
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  border-radius: 26px;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.045)
+    );
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35);
+}
+
+.nursing-calc-panel h2 {
+  margin: 0 0 8px;
+
+  font-size: 28px;
+}
+
+.nursing-calc-panel-description {
+  margin: 0 0 25px;
+
+  color:
+    rgba(255,255,255,0.58);
+
+  line-height: 1.5;
+
+  font-size: 13px;
+}
+
+
+/* Input fields */
+
+.nursing-calc-fields {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.nursing-calc-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.nursing-calc-field.full {
+  grid-column: 1 / -1;
+}
+
+.nursing-calc-field label {
+  font-size: 12px;
+
+  color:
+    rgba(255,255,255,0.65);
+
+  font-weight: 600;
+}
+
+.nursing-calc-field input,
+.nursing-calc-field select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 15px;
+
+  border:
+    1px solid rgba(255,255,255,0.13);
+
+  border-radius: 13px;
+
+  background:
+    rgba(0,0,0,0.22);
+
+  color: white;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.nursing-calc-field select option {
+  color: #172033;
+
+  background: white;
+}
+
+.nursing-calc-field input:focus,
+.nursing-calc-field select:focus {
+  border-color:
+    #1769aa;
+
+  box-shadow:
+    0 0 0 3px rgba(23,105,170,0.16);
+}
+
+
+/* Calculate button */
+
+.nursing-calc-action {
+  width: 100%;
+
+  margin-top: 22px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 15px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1769aa,
+      #0f8b8d
+    );
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(15,139,141,0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nursing-calc-action:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 35px rgba(15,139,141,0.30);
+}
+
+
+/* Result */
+
+.nursing-calc-result {
+  margin-top: 22px;
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(0,0,0,0.20);
+
+  border:
+    1px solid rgba(255,255,255,0.10);
+
+  text-align: center;
+}
+
+.nursing-calc-result-value {
+  font-size: clamp(32px, 7vw, 52px);
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  line-height: 1.1;
+}
+
+.nursing-calc-result-unit {
+  color:
+    rgba(255,255,255,0.55);
+
+  font-size: 13px;
+
+  margin-top: 5px;
+}
+
+
+/* Status */
+
+.nursing-calc-status {
+  margin-top: 15px;
+
+  font-weight: 800;
+
+  font-size: 14px;
+
+  letter-spacing: 0.3px;
+}
+
+.calc-status-normal {
+  color: #6ee7a0;
+}
+
+.calc-status-caution {
+  color: #ffd166;
+}
+
+.calc-status-danger {
+  color: #ff5c5c;
+}
+
+
+/* Nursing action box */
+
+.nursing-calc-nursing-action {
+  display: none;
+
+  margin-top: 18px;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 50, 50, 0.08);
+
+  border:
+    1px solid rgba(255, 80, 80, 0.30);
+
+  text-align: left;
+}
+
+.nursing-calc-nursing-action.visible {
+  display: block;
+}
+
+.nursing-calc-nursing-action h3 {
+  margin: 0 0 12px;
+
+  color: #ff5c5c;
+
+  font-size: 15px;
+}
+
+.nursing-calc-nursing-action ol {
+  margin: 0;
+
+  padding-left: 20px;
+
+  color:
+    rgba(255,255,255,0.80);
+
+  line-height: 1.7;
+
+  font-size: 13px;
+}
+
+.nursing-calc-nursing-action strong {
+  color: white;
+}
+
+
+/* Safety notice */
+
+.nursing-calc-safety {
+  margin-top: 25px;
+
+  padding: 15px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color:
+    rgba(255,255,255,0.55);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+  .nursing-calc-categories {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  #nurseCallieButton {
+    width: 72px;
+    height: 72px;
+
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .callie-label {
+    right: 16px;
+    bottom: 95px;
+  }
+
+  .nursing-calc-shell {
+    width: min(100% - 20px, 1100px);
+
+    padding-top: 20px;
+  }
+
+  .nursing-calc-topbar {
+    margin-bottom: 25px;
+  }
+
+  .nursing-calc-categories {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .nursing-calc-category {
+    min-height: 130px;
+
+    padding: 16px;
+
+    border-radius: 17px;
+  }
+
+  .nursing-calc-category-icon {
+    font-size: 25px;
+
+    margin-bottom: 12px;
+  }
+
+  .nursing-calc-category strong {
+    font-size: 14px;
+  }
+
+  .nursing-calc-category span {
+    font-size: 10px;
+  }
+
+  .nursing-calc-panel {
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .nursing-calc-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .nursing-calc-field.full {
+    grid-column: auto;
+  }
+
+}
+  
 </style>
 </head>
 
@@ -2987,6 +3793,333 @@ body > * {
 
 </footer>
 
+<!-- =========================================================
+     NURSE CALLIE FLOATING CALCULATOR BUTTON
+     ========================================================= -->
+
+<button
+  id="nurseCallieButton"
+  type="button"
+  aria-label="Open Nursing Calculator"
+  onclick="openNursingCalculator()"
+>
+  <img
+    src="Nurse-Callie.png"
+    alt="Nurse Callie - Nursing Calculator"
+  >
+</button>
+
+<div class="callie-label">
+  Nursing Calculator
+</div>
+
+
+<!-- =========================================================
+     NURSING CALCULATOR APP
+     ========================================================= -->
+
+<div id="nursingCalculatorApp">
+
+  <div class="nursing-calc-grid"></div>
+
+  <div class="nursing-calc-shell">
+
+    <!-- TOP BAR -->
+
+    <div class="nursing-calc-topbar">
+
+      <div class="nursing-calc-brand">
+
+        <div class="nursing-calc-brand-icon">
+          +
+        </div>
+
+        <div>
+          <strong>Nursing Calculator</strong>
+          <span>Clinical calculation tools</span>
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-close"
+        type="button"
+        onclick="closeNursingCalculator()"
+        aria-label="Close calculator"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         HOME
+         ===================================================== -->
+
+    <div id="nursingCalcHome">
+
+      <div class="nursing-calc-home-title">
+
+        <h1>Choose a calculator.</h1>
+
+        <p>
+          Quick calculation tools designed for nursing
+          learning and clinical practice.
+        </p>
+
+      </div>
+
+
+      <div class="nursing-calc-categories">
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('dose')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            💊
+          </div>
+
+          <strong>Drug Dose</strong>
+
+          <span>
+            Calculate dose from ordered and available medication.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('weightDose')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            ⚖️
+          </div>
+
+          <strong>Weight Dose</strong>
+
+          <span>
+            Dose based on patient weight.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('iv')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            💧
+          </div>
+
+          <strong>IV Rate</strong>
+
+          <span>
+            Calculate mL/hr from volume and time.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('drop')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            💦
+          </div>
+
+          <strong>Drop Rate</strong>
+
+          <span>
+            Calculate drops per minute.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('infusion')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            ⏱️
+          </div>
+
+          <strong>Infusion Time</strong>
+
+          <span>
+            Calculate how long an infusion will take.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('bmi')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            📊
+          </div>
+
+          <strong>BMI</strong>
+
+          <span>
+            Adult BMI screening calculation.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('map')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            ❤️
+          </div>
+
+          <strong>MAP</strong>
+
+          <span>
+            Mean arterial pressure calculation.
+          </span>
+
+        </button>
+
+
+        <button
+          class="nursing-calc-category"
+          onclick="openNursingCalcType('conversion')"
+        >
+
+          <div class="nursing-calc-category-icon">
+            🔄
+          </div>
+
+          <strong>Conversions</strong>
+
+          <span>
+            Common nursing unit conversions.
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CALCULATOR SCREEN
+         ===================================================== -->
+
+    <div
+      id="nursingCalcScreen"
+      class="nursing-calc-screen"
+    >
+
+      <button
+        class="nursing-calc-back"
+        onclick="showNursingCalcHome()"
+      >
+        ← Back to calculators
+      </button>
+
+
+      <div class="nursing-calc-panel">
+
+        <h2 id="nursingCalcTitle">
+          Calculator
+        </h2>
+
+        <p
+          id="nursingCalcDescription"
+          class="nursing-calc-panel-description"
+        >
+        </p>
+
+
+        <!-- DYNAMIC CALCULATOR -->
+
+        <div id="nursingCalcForm"></div>
+
+
+        <!-- RESULT -->
+
+        <div
+          id="nursingCalcResult"
+          class="nursing-calc-result"
+          style="display:none;"
+        >
+
+          <div
+            id="nursingCalcResultValue"
+            class="nursing-calc-result-value"
+          >
+          </div>
+
+          <div
+            id="nursingCalcResultUnit"
+            class="nursing-calc-result-unit"
+          >
+          </div>
+
+          <div
+            id="nursingCalcStatus"
+            class="nursing-calc-status"
+          >
+          </div>
+
+        </div>
+
+
+        <!-- NURSING ACTION -->
+
+        <div
+          id="nursingCalcNursingAction"
+          class="nursing-calc-nursing-action"
+        >
+
+          <h3>
+            ⚠ Nursing priority / escalation
+          </h3>
+
+          <ol id="nursingCalcActionList"></ol>
+
+        </div>
+
+
+        <div class="nursing-calc-safety">
+
+          <strong>Educational safety notice:</strong>
+          These calculations are aids to learning and clinical
+          checking. Always verify the prescription, medication
+          concentration, patient-specific factors, local policy,
+          required monitoring and senior/medical guidance.
+          A mathematical result does not by itself establish
+          that a treatment is clinically safe.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <script>
 /* =========================================================
@@ -4604,6 +5737,1139 @@ if(trendingScroller) {
 
 renderProcedures(procedures);
 
+  /* =========================================================
+   NURSING CALCULATOR
+   ========================================================= */
+
+let currentNursingCalc = "";
+
+
+/* ---------------------------------------------------------
+   OPEN / CLOSE CALCULATOR
+   --------------------------------------------------------- */
+
+function openNursingCalculator() {
+
+  const app =
+    document.getElementById("nursingCalculatorApp");
+
+  app.classList.add("active");
+
+  document.body.style.overflow = "hidden";
+
+  showNursingCalcHome();
+}
+
+
+function closeNursingCalculator() {
+
+  const app =
+    document.getElementById("nursingCalculatorApp");
+
+  app.classList.remove("active");
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* ---------------------------------------------------------
+   HOME
+   --------------------------------------------------------- */
+
+function showNursingCalcHome() {
+
+  document.getElementById("nursingCalcHome")
+    .style.display = "block";
+
+  document.getElementById("nursingCalcScreen")
+    .classList.remove("active");
+
+  document.getElementById("nursingCalcResult")
+    .style.display = "none";
+
+  document.getElementById("nursingCalcNursingAction")
+    .classList.remove("visible");
+
+}
+
+
+/* ---------------------------------------------------------
+   OPEN CALCULATOR TYPE
+   --------------------------------------------------------- */
+
+function openNursingCalcType(type) {
+
+  currentNursingCalc = type;
+
+  document.getElementById("nursingCalcHome")
+    .style.display = "none";
+
+  document.getElementById("nursingCalcScreen")
+    .classList.add("active");
+
+  document.getElementById("nursingCalcResult")
+    .style.display = "none";
+
+  document.getElementById("nursingCalcNursingAction")
+    .classList.remove("visible");
+
+
+  const title =
+    document.getElementById("nursingCalcTitle");
+
+  const description =
+    document.getElementById("nursingCalcDescription");
+
+  const form =
+    document.getElementById("nursingCalcForm");
+
+
+  if (type === "dose") {
+
+    title.textContent = "Drug Dose";
+
+    description.textContent =
+      "Calculate the volume to administer from the ordered dose and available concentration.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Ordered dose</label>
+          <input
+            id="doseOrdered"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 500"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Available dose</label>
+          <input
+            id="doseAvailable"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 250"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Available volume (mL)</label>
+          <input
+            id="doseVolume"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 5"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingDose()"
+      >
+        Calculate dose
+      </button>
+    `;
+  }
+
+
+  else if (type === "weightDose") {
+
+    title.textContent = "Weight-Based Dose";
+
+    description.textContent =
+      "Calculate a dose from a prescribed dose per kilogram and patient weight.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Dose (mg/kg)</label>
+          <input
+            id="weightDosePerKg"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 10"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Patient weight (kg)</label>
+          <input
+            id="weightDoseWeight"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 65"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingWeightDose()"
+      >
+        Calculate dose
+      </button>
+    `;
+  }
+
+
+  else if (type === "iv") {
+
+    title.textContent = "IV Rate";
+
+    description.textContent =
+      "Calculate an infusion rate in mL/hour.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Total volume (mL)</label>
+          <input
+            id="ivVolume"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 1000"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Time (hours)</label>
+          <input
+            id="ivHours"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 8"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingIV()"
+      >
+        Calculate IV rate
+      </button>
+    `;
+  }
+
+
+  else if (type === "drop") {
+
+    title.textContent = "Drop Rate";
+
+    description.textContent =
+      "Calculate drops per minute using the prescribed volume, time and giving-set drop factor.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Volume (mL)</label>
+          <input
+            id="dropVolume"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 500"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Time (minutes)</label>
+          <input
+            id="dropTime"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 240"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Drop factor (drops/mL)</label>
+          <input
+            id="dropFactor"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 20"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingDrop()"
+      >
+        Calculate drop rate
+      </button>
+    `;
+  }
+
+
+  else if (type === "infusion") {
+
+    title.textContent = "Infusion Time";
+
+    description.textContent =
+      "Calculate infusion duration from volume and infusion rate.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Volume (mL)</label>
+          <input
+            id="infusionVolume"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 1000"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Rate (mL/hour)</label>
+          <input
+            id="infusionRate"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 125"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingInfusion()"
+      >
+        Calculate time
+      </button>
+    `;
+  }
+
+
+  else if (type === "bmi") {
+
+    title.textContent = "BMI";
+
+    description.textContent =
+      "Adult BMI screening calculation. BMI categories are not diagnostic and are not intended for pregnancy or children.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Weight (kg)</label>
+          <input
+            id="bmiWeight"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 65"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Height (cm)</label>
+          <input
+            id="bmiHeight"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 170"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingBMI()"
+      >
+        Calculate BMI
+      </button>
+    `;
+  }
+
+
+  else if (type === "map") {
+
+    title.textContent = "Mean Arterial Pressure";
+
+    description.textContent =
+      "Approximate MAP using systolic and diastolic blood pressure.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Systolic BP (mmHg)</label>
+          <input
+            id="mapSystolic"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 120"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+          <label>Diastolic BP (mmHg)</label>
+          <input
+            id="mapDiastolic"
+            type="number"
+            min="0"
+            step="any"
+            placeholder="e.g. 80"
+          >
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingMAP()"
+      >
+        Calculate MAP
+      </button>
+    `;
+  }
+
+
+  else if (type === "conversion") {
+
+    title.textContent = "Unit Conversion";
+
+    description.textContent =
+      "Convert common nursing measurements.";
+
+    form.innerHTML = `
+
+      <div class="nursing-calc-fields">
+
+        <div class="nursing-calc-field">
+          <label>Value</label>
+          <input
+            id="conversionValue"
+            type="number"
+            step="any"
+            placeholder="Enter value"
+          >
+        </div>
+
+        <div class="nursing-calc-field">
+
+          <label>Conversion</label>
+
+          <select id="conversionType">
+
+            <option value="mg_g">
+              mg → g
+            </option>
+
+            <option value="g_mg">
+              g → mg
+            </option>
+
+            <option value="mcg_mg">
+              mcg → mg
+            </option>
+
+            <option value="mg_mcg">
+              mg → mcg
+            </option>
+
+            <option value="ml_l">
+              mL → L
+            </option>
+
+            <option value="l_ml">
+              L → mL
+            </option>
+
+            <option value="kg_g">
+              kg → g
+            </option>
+
+            <option value="g_kg">
+              g → kg
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <button
+        class="nursing-calc-action"
+        onclick="calculateNursingConversion()"
+      >
+        Convert
+      </button>
+    `;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   RESULT DISPLAY
+   --------------------------------------------------------- */
+
+function showNursingResult(
+  value,
+  unit,
+  status = "",
+  statusClass = "",
+  nursingSteps = []
+) {
+
+  const result =
+    document.getElementById("nursingCalcResult");
+
+  const resultValue =
+    document.getElementById("nursingCalcResultValue");
+
+  const resultUnit =
+    document.getElementById("nursingCalcResultUnit");
+
+  const statusBox =
+    document.getElementById("nursingCalcStatus");
+
+  const actionBox =
+    document.getElementById("nursingCalcNursingAction");
+
+  const actionList =
+    document.getElementById("nursingCalcActionList");
+
+
+  result.style.display = "block";
+
+  resultValue.textContent = value;
+
+  resultUnit.textContent = unit;
+
+  statusBox.textContent = status;
+
+  statusBox.className =
+    "nursing-calc-status " + statusClass;
+
+
+  if (nursingSteps.length > 0) {
+
+    actionBox.classList.add("visible");
+
+    actionList.innerHTML =
+      nursingSteps
+        .map(step => `<li>${step}</li>`)
+        .join("");
+
+  } else {
+
+    actionBox.classList.remove("visible");
+
+    actionList.innerHTML = "";
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   VALIDATION
+   --------------------------------------------------------- */
+
+function nursingValid(...values) {
+
+  return values.every(
+    value =>
+      Number.isFinite(value) &&
+      value >= 0
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   DRUG DOSE
+   Formula:
+   Ordered dose / Available dose × Available volume
+   --------------------------------------------------------- */
+
+function calculateNursingDose() {
+
+  const ordered =
+    Number(document.getElementById("doseOrdered").value);
+
+  const available =
+    Number(document.getElementById("doseAvailable").value);
+
+  const volume =
+    Number(document.getElementById("doseVolume").value);
+
+
+  if (
+    !nursingValid(ordered, available, volume) ||
+    available === 0
+  ) {
+
+    alert("Please enter valid values.");
+
+    return;
+  }
+
+
+  const result =
+    (ordered / available) * volume;
+
+
+  showNursingResult(
+    result.toFixed(2),
+    "mL to administer",
+    "CALCULATION COMPLETE — VERIFY PRESCRIPTION",
+    "calc-status-caution",
+    [
+      "<strong>Check the prescription and medication label.</strong>",
+      "Confirm the patient's identity using your approved identification procedure.",
+      "Verify drug, dose, route, concentration, allergies and relevant patient factors.",
+      "Perform an independent double-check when required by local policy.",
+      "Administer according to local medication policy and monitor the patient."
+    ]
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   WEIGHT DOSE
+   --------------------------------------------------------- */
+
+function calculateNursingWeightDose() {
+
+  const dose =
+    Number(document.getElementById("weightDosePerKg").value);
+
+  const weight =
+    Number(document.getElementById("weightDoseWeight").value);
+
+
+  if (
+    !nursingValid(dose, weight) ||
+    dose === 0 ||
+    weight === 0
+  ) {
+
+    alert("Please enter valid values.");
+
+    return;
+  }
+
+
+  const result = dose * weight;
+
+
+  showNursingResult(
+    result.toFixed(2),
+    "mg",
+    "CALCULATION COMPLETE — VERIFY CLINICAL DOSE",
+    "calc-status-caution",
+    [
+      "<strong>Do not assume the calculated amount is automatically safe.</strong>",
+      "Check the prescribed dose range and indication.",
+      "Verify patient weight and whether the prescribed dosing weight is appropriate.",
+      "Check renal/hepatic considerations and maximum dose where relevant.",
+      "Confirm the medication order and local protocol before administration."
+    ]
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   IV RATE
+   --------------------------------------------------------- */
+
+function calculateNursingIV() {
+
+  const volume =
+    Number(document.getElementById("ivVolume").value);
+
+  const hours =
+    Number(document.getElementById("ivHours").value);
+
+
+  if (
+    !nursingValid(volume, hours) ||
+    hours === 0
+  ) {
+
+    alert("Please enter valid values.");
+
+    return;
+  }
+
+
+  const result =
+    volume / hours;
+
+
+  showNursingResult(
+    result.toFixed(2),
+    "mL/hour",
+    "CALCULATED RATE — VERIFY PRESCRIBED RATE",
+    "calc-status-caution",
+    [
+      "<strong>A calculated rate is not automatically a clinically safe rate.</strong>",
+      "Check the prescription/order and prescribed fluid.",
+      "Verify patient identity, fluid type, route and access.",
+      "Check the prescribed volume and duration against local policy.",
+      "Monitor the patient and IV site according to clinical need."
+    ]
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   DROP RATE
+   --------------------------------------------------------- */
+
+function calculateNursingDrop() {
+
+  const volume =
+    Number(document.getElementById("dropVolume").value);
+
+  const time =
+    Number(document.getElementById("dropTime").value);
+
+  const factor =
+    Number(document.getElementById("dropFactor").value);
+
+
+  if (
+    !nursingValid(volume, time, factor) ||
+    time === 0
+  ) {
+
+    alert("Please enter valid values.");
+
+    return;
+  }
+
+
+  const result =
+    (volume * factor) / time;
+
+
+  showNursingResult(
+    Math.round(result),
+    "drops/min",
+    "CALCULATED DROP RATE — VERIFY GIVING SET",
+    "calc-status-caution",
+    [
+      "<strong>Check the giving-set drop factor.</strong>",
+      "Verify the prescribed volume and duration.",
+      "Confirm the fluid and patient-specific restrictions.",
+      "Use an infusion pump when prescribed or clinically appropriate.",
+      "Reassess the patient and infusion according to local policy."
+    ]
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   INFUSION TIME
+   --------------------------------------------------------- */
+
+function calculateNursingInfusion() {
+
+  const volume =
+    Number(document.getElementById("infusionVolume").value);
+
+  const rate =
+    Number(document.getElementById("infusionRate").value);
+
+
+  if (
+    !nursingValid(volume, rate) ||
+    rate === 0
+  ) {
+
+    alert("Please enter valid values.");
+
+    return;
+  }
+
+
+  const hours =
+    volume / rate;
+
+  const wholeHours =
+    Math.floor(hours);
+
+  const minutes =
+    Math.round((hours - wholeHours) * 60);
+
+
+  showNursingResult(
+    `${wholeHours} h ${minutes} min`,
+    "estimated infusion time",
+    "CALCULATED TIME — VERIFY PRESCRIPTION",
+    "calc-status-caution",
+    [
+      "<strong>Confirm the prescribed infusion duration.</strong>",
+      "Check the fluid, volume and prescribed rate.",
+      "Check the patient's clinical condition and fluid restrictions.",
+      "Monitor the infusion and patient response according to local policy."
+    ]
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   BMI
+   Adult screening categories
+   --------------------------------------------------------- */
+
+function calculateNursingBMI() {
+
+  const weight =
+    Number(document.getElementById("bmiWeight").value);
+
+  const heightCm =
+    Number(document.getElementById("bmiHeight").value);
+
+
+  if (
+    !nursingValid(weight, heightCm) ||
+    weight === 0 ||
+    heightCm === 0
+  ) {
+
+    alert("Please enter valid values.");
+
+    return;
+  }
+
+
+  const heightM =
+    heightCm / 100;
+
+  const bmi =
+    weight / (heightM * heightM);
+
+
+  let status = "";
+  let statusClass = "";
+  let steps = [];
+
+
+  if (bmi < 18.5) {
+
+    status = "BELOW ADULT REFERENCE RANGE";
+    statusClass = "calc-status-caution";
+
+    steps = [
+      "Assess nutritional status and relevant history.",
+      "Consider dietary intake, weight history and possible underlying causes.",
+      "Document findings and escalate concerns according to local policy."
+    ];
+
+  }
+
+  else if (bmi < 25) {
+
+    status = "ADULT REFERENCE RANGE";
+    statusClass = "calc-status-normal";
+
+  }
+
+  else if (bmi < 30) {
+
+    status = "ABOVE ADULT REFERENCE RANGE";
+    statusClass = "calc-status-caution";
+
+    steps = [
+      "Consider the patient's overall clinical picture rather than BMI alone.",
+      "Assess relevant lifestyle, nutritional and cardiovascular risk factors.",
+      "Provide appropriate education and follow local assessment pathways."
+    ];
+
+  }
+
+  else {
+
+    status = "HIGH ADULT BMI CATEGORY";
+    statusClass = "calc-status-caution";
+
+    steps = [
+      "Assess the patient's overall health and relevant risk factors.",
+      "Avoid judging risk from BMI alone.",
+      "Consider appropriate assessment, education and referral according to local practice."
+    ];
+
+  }
+
+
+  showNursingResult(
+    bmi.toFixed(1),
+    "kg/m²",
+    status,
+    statusClass,
+    steps
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   MAP
+   Approximation:
+   MAP = (SBP + 2 × DBP) / 3
+   --------------------------------------------------------- */
+
+function calculateNursingMAP() {
+
+  const systolic =
+    Number(document.getElementById("mapSystolic").value);
+
+  const diastolic =
+    Number(document.getElementById("mapDiastolic").value);
+
+
+  if (
+    !nursingValid(systolic, diastolic) ||
+    systolic === 0 ||
+    diastolic === 0 ||
+    systolic < diastolic
+  ) {
+
+    alert(
+      "Please enter a valid blood pressure. Systolic pressure should be higher than diastolic pressure."
+    );
+
+    return;
+  }
+
+
+  const map =
+    (systolic + (2 * diastolic)) / 3;
+
+
+  let status;
+  let statusClass;
+  let steps = [];
+
+
+  if (map < 65) {
+
+    status =
+      "LOW — CLINICAL REVIEW REQUIRED";
+
+    statusClass =
+      "calc-status-danger";
+
+
+    steps = [
+
+      "<strong>Assess the patient immediately using an ABCDE approach.</strong>",
+
+      "Check airway and breathing; assess respiratory rate, oxygen saturation and work of breathing.",
+
+      "Assess circulation: repeat BP, pulse, skin perfusion and other relevant observations.",
+
+      "Check level of consciousness and look for signs of acute deterioration.",
+
+      "Call for senior/medical assistance or the appropriate emergency response according to local escalation policy.",
+
+      "Repeat observations and reassess response while awaiting help; document findings and escalation."
+
+    ];
+
+  }
+
+  else if (map <= 100) {
+
+    status =
+      "COMMON REFERENCE RANGE — INTERPRET IN CONTEXT";
+
+    statusClass =
+      "calc-status-normal";
+
+  }
+
+  else {
+
+    status =
+      "ELEVATED — ASSESS CLINICAL CONTEXT";
+
+    statusClass =
+      "calc-status-caution";
+
+
+    steps = [
+
+      "Repeat the blood pressure if the result is unexpected and assess the patient clinically.",
+
+      "Assess for symptoms and other abnormal observations.",
+
+      "Review relevant history, medications and prescribed treatment.",
+
+      "Calculate/use the appropriate early-warning system where applicable.",
+
+      "Escalate according to the patient's clinical condition and local policy."
+
+    ];
+
+  }
+
+
+  showNursingResult(
+    map.toFixed(1),
+    "mmHg",
+    status,
+    statusClass,
+    steps
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   UNIT CONVERSION
+   --------------------------------------------------------- */
+
+function calculateNursingConversion() {
+
+  const value =
+    Number(document.getElementById("conversionValue").value);
+
+  const type =
+    document.getElementById("conversionType").value;
+
+
+  if (!Number.isFinite(value)) {
+
+    alert("Please enter a valid value.");
+
+    return;
+  }
+
+
+  let result;
+  let unit;
+
+
+  switch (type) {
+
+    case "mg_g":
+      result = value / 1000;
+      unit = "g";
+      break;
+
+    case "g_mg":
+      result = value * 1000;
+      unit = "mg";
+      break;
+
+    case "mcg_mg":
+      result = value / 1000;
+      unit = "mg";
+      break;
+
+    case "mg_mcg":
+      result = value * 1000;
+      unit = "mcg";
+      break;
+
+    case "ml_l":
+      result = value / 1000;
+      unit = "L";
+      break;
+
+    case "l_ml":
+      result = value * 1000;
+      unit = "mL";
+      break;
+
+    case "kg_g":
+      result = value * 1000;
+      unit = "g";
+      break;
+
+    case "g_kg":
+      result = value / 1000;
+      unit = "kg";
+      break;
+
+    default:
+      return;
+  }
+
+
+  showNursingResult(
+    Number(result.toFixed(6)),
+    unit,
+    "CONVERSION COMPLETE",
+    "calc-status-normal"
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   ESC KEY
+   --------------------------------------------------------- */
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+
+    const app =
+      document.getElementById("nursingCalculatorApp");
+
+    if (
+      app &&
+      app.classList.contains("active")
+    ) {
+
+      closeNursingCalculator();
+
+    }
+
+  }
+
+});
+  
 </script>
 
 </body>
