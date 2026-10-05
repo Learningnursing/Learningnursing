@@ -9,6 +9,266 @@
 <meta name="description" content="LearningNursing.com — simple, visual and practical nursing education resources and clinical procedure guides.">
 
 <style>
+/* =========================================================
+   3D DEPTH + BLURRED BACKGROUND EFFECT
+   ========================================================= */
+
+/* Blurred full-page background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20px;
+
+  background-image: url("nursing-background.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.10;
+  filter: blur(8px);
+
+  transform: scale(1.05);
+
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Keeps the website content sharp */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   3D CARDS
+   ========================================================= */
+
+.procedure-card,
+.module-card,
+.feature-card {
+  position: relative;
+
+  transform: translateZ(0);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Floating effect */
+.procedure-card:hover,
+.module-card:hover,
+.feature-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   3D IMAGES
+   ========================================================= */
+
+.procedure-card img,
+.module-card img,
+.feature-card img {
+  display: block;
+
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.16);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.procedure-card:hover img,
+.module-card:hover img,
+.feature-card:hover img {
+  transform: translateY(-3px) scale(1.015);
+
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   3D BUTTONS
+   ========================================================= */
+
+button,
+.filter-btn,
+.back-button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover,
+.filter-btn:hover,
+.back-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+button:active,
+.filter-btn:active,
+.back-button:active {
+  transform: translateY(1px);
+
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   GLASS DEPTH
+   ========================================================= */
+
+.glass-3d {
+  background: rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================================================
+   PHONE / 3D SCREEN
+   ========================================================= */
+
+.phone-3d {
+  position: relative;
+
+  border-radius: 35px;
+
+  transform:
+    perspective(1200px)
+    rotateX(2deg)
+    rotateY(-4deg);
+
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.25),
+    0 15px 30px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.phone-3d:hover {
+  transform:
+    perspective(1200px)
+    rotateX(0deg)
+    rotateY(0deg)
+    translateY(-8px);
+
+  box-shadow:
+    0 50px 100px rgba(0, 0, 0, 0.30),
+    0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   BACKGROUND INSIDE PHONE
+   ========================================================= */
+
+.phone-background {
+  position: absolute;
+  inset: -15px;
+
+  background-image: url("nursing-background.JPG");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.14;
+
+  filter: blur(8px);
+
+  transform: scale(1.05);
+
+  z-index: 0;
+}
+
+
+/* Sharp phone content */
+.phone-content {
+  position: relative;
+
+  z-index: 2;
+
+  filter: none;
+}
+
+
+/* =========================================================
+   FLOATING ELEMENT
+   ========================================================= */
+
+.float-3d {
+  position: relative;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.16);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.float-3d:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .procedure-card:hover,
+  .module-card:hover,
+  .feature-card:hover {
+    transform: none;
+  }
+
+  .phone-3d {
+    transform:
+      perspective(1000px)
+      rotateX(1deg)
+      rotateY(-2deg);
+  }
+
+}
+  
 /* ================= CREATOR PROFILE ================= */
 
 .creator-section {
