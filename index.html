@@ -1445,33 +1445,90 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
-  /* ================================
-   3D CARD DEPTH
-   ================================ */
+  /* =========================================================
+   3D DEPTH — LEARNING NURSING
+   ========================================================= */
 
 .procedure-card,
-.module-card,
-.feature-card {
+.learning-module,
+.category-card,
+.resource-card,
+.notes-card,
+.trending-card,
+.creator-card,
+.stat {
   position: relative;
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.12),
-    0 4px 10px rgba(0, 0, 0, 0.08);
+    0 10px 25px rgba(11, 37, 69, 0.10),
+    0 3px 8px rgba(11, 37, 69, 0.06);
 
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-/* Floating effect when cursor moves over a card */
+
+/* ===== Floating 3D effect ===== */
+
 .procedure-card:hover,
-.module-card:hover,
-.feature-card:hover {
-  transform: translateY(-6px);
+.learning-module:hover,
+.category-card:hover,
+.resource-card:hover,
+.notes-card:hover,
+.trending-card:hover,
+.creator-card:hover,
+.stat:hover {
+  transform: translateY(-8px);
 
   box-shadow:
-    0 25px 45px rgba(0, 0, 0, 0.18),
-    0 8px 18px rgba(0, 0, 0, 0.10);
+    0 25px 50px rgba(11, 37, 69, 0.18),
+    0 8px 18px rgba(11, 37, 69, 0.10);
+}
+
+
+/* ===== Sharp images with depth ===== */
+
+.procedure-card img,
+.creator-card img {
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.procedure-card:hover img,
+.creator-card:hover img {
+  transform: translateY(-3px) scale(1.015);
+}
+
+
+/* ===== 3D buttons ===== */
+
+.primary-btn,
+.secondary-btn,
+.filter-btn,
+.trending-card button,
+.back-button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.filter-btn:hover,
+.trending-card button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 18px rgba(11, 37, 69, 0.18);
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.filter-btn:active,
+.trending-card button:active {
+  transform: translateY(1px);
 }
 
 </style>
