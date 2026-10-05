@@ -1422,7 +1422,7 @@ footer {
 
 body {
   position: relative;
-  background: #ffffff;
+  background: transparent;
 }
 
 body::before {
@@ -1440,16 +1440,11 @@ body::before {
 
   transform: scale(1.03);
 
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
-
-/* Keep website content above the background */
-body > * {
-  position: relative;
-  z-index: 1;
-}
-  /* =========================================================
+  
+/* =========================================================
    3D DEPTH — LEARNING NURSING
    ========================================================= */
 
