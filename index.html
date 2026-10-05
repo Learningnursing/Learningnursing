@@ -1429,7 +1429,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: -20px;
+  inset: 0;
   
   background-image: url("nursing-background.JPG");
   background-size: cover;
@@ -1437,11 +1437,8 @@ body::before {
   background-repeat: no-repeat;
 
   opacity: 0.10;
-  filter: blur(8px);
-
-  transform: scale(1.05);
-
-  z-index: -2;
+  
+  z-index: -1;
   pointer-events: none;
 }
 
