@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://learningnursing.com/sitemap.xml
+Sitemap: https://learningnursing.github.io/Learningnursing/sitemap.xml
