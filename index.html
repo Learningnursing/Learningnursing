@@ -5716,19 +5716,48 @@ function openProcedure(id) {
 
         <section class="article-section" id="references">
 
-          <h2>References</h2>
+  <h2>References</h2>
 
-          <p>
-            References will be added when this procedure is
-            formally reviewed and published.
-          </p>
+  <div class="reference-list">
 
-          <p style="margin-top:12px;font-size:13px;">
-            Last reviewed:
-            <strong>Not yet reviewed</strong>
-          </p>
+    ${
+      p.references && p.references.length
+      ? p.references.map(ref => `
+          <div style="
+              padding:14px 16px;
+              margin-bottom:10px;
+              background:var(--blue-light);
+              border-radius:10px;
+          ">
+              <a
+                  href="${ref.url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="
+                      color:var(--navy);
+                      font-weight:700;
+                      text-decoration:none;
+                  "
+              >
+                  ${ref.title} ↗
+              </a>
+          </div>
+        `).join("")
+      : `
+        <p>
+          No references have been added yet.
+        </p>
+      `
+    }
 
-        </section>
+  </div>
+
+  <p style="margin-top:18px;font-size:13px;">
+      Last reviewed:
+      <strong>${p.lastReviewed || "Not yet reviewed"}</strong>
+  </p>
+
+</section>
 
       </article>
 
