@@ -24,7 +24,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .top h1{font-size:19px;color:var(--navy);flex:1}
 .burger{display:none;border:1px solid var(--border);background:#fff;border-radius:8px;padding:6px 10px}
 .content{padding:26px;max-width:1100px}
-.btn{border:1px solid var(--border);background:#fff;border-radius:9px;padding:8px 14px;font-weight:600;cursor:pointer}
+.btn{border:1px solid var(--border);background:#fff;border-radius:9px;padding:8px 14px;font-weight:600;cursor:pointer;display:inline-block}
 .btn:hover{border-color:var(--blue)}
 .btn.pri{background:var(--navy);color:#fff;border-color:var(--navy)}
 .btn.pri:hover{background:#123861}
@@ -44,8 +44,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .lrow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:8px;flex-wrap:wrap}
 .lmain{flex:1;min-width:180px}.lmain small{display:block;color:var(--muted)}
 .lact{display:flex;gap:6px;flex-wrap:wrap}
-.lact button{border:1px solid var(--border);background:#fff;border-radius:8px;padding:4px 9px;font-size:12px;cursor:pointer}
-.lact button:hover{border-color:var(--blue)}.lact .danger{color:var(--danger)}
+.lact button,.lact a{border:1px solid var(--border);background:#fff;border-radius:8px;padding:4px 9px;font-size:12px;cursor:pointer}
+.lact button:hover,.lact a:hover{border-color:var(--blue)}.lact .danger{color:var(--danger)}
 .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:#f2f4f7;color:var(--muted)}
 .pill.ok{background:#e7f6ee;color:var(--ok)}
 .empty{padding:30px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--border);border-radius:12px}
@@ -75,6 +75,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .mbox{background:#fff;border-radius:16px;padding:20px;width:min(760px,100%);max-height:88vh;overflow:auto}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:10px;z-index:200;display:none;max-width:90vw}
 code{background:#eef3f8;padding:1px 6px;border-radius:5px;font-size:12px}
+details.bgd{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+details.bgd>summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none;display:flex;gap:10px;align-items:center}
+details.bgd[open]>summary{margin-bottom:12px}
 @media(max-width:860px){
   .app{grid-template-columns:1fr}
   .side{position:fixed;left:-260px;width:250px;z-index:60;transition:left .2s}
@@ -106,6 +109,8 @@ code{background:#eef3f8;padding:1px 6px;border-radius:5px;font-size:12px}
 <div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
 <div class="toast" id="toast"></div>
 
+<script>window.LN_NO_AUTORUN=true;</script>
+<script src="../site-extras.js"></script>
 <script>
 /* =========================================================
    LearningNursing ADMIN
@@ -116,6 +121,8 @@ code{background:#eef3f8;padding:1px 6px;border-radius:5px;font-size:12px}
      which commits them to GitHub (token never in this file)
    • "Import from current website" fills everything from your
      existing index.html the first time, so nothing is lost
+   • NEW: Pages (add your own pages), per-page backgrounds,
+     theme colours, banner, menus, custom CSS
    ========================================================= */
 'use strict';
 const $=(s,r=document)=>r.querySelector(s);
@@ -125,15 +132,23 @@ const slug=s=>String(s).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(
 const getP=(o,p)=>p.split('.').reduce((a,k)=>a==null?a:a[k],o);
 const setP=(o,p,v)=>{const k=p.split('.'),l=k.pop();k.reduce((a,x)=>a[x],o)[l]=v;};
 const today=()=>new Date().toISOString().slice(0,10);
+const b64=s=>btoa(unescape(encodeURIComponent(s)));
+const SITE_URL=location.origin+location.pathname.replace(/admin\/?(index\.html)?$/,'');
 
 /* ---------- data ---------- */
-const FILES={procedures:'content/procedures.json',notes:'content/notes.json',videos:'content/videos.json',resources:'content/resources.json',site:'content/site.json',media:'content/media.json'};
-const DB={procedures:{categories:[],items:[]},notes:{items:[]},videos:{items:[]},resources:{modules:[],trending:[]},site:{text:[],images:[]},media:{items:[]}};
-const DIRTY=new Set(), LOADED={};
+const FILES={procedures:'content/procedures.json',notes:'content/notes.json',videos:'content/videos.json',resources:'content/resources.json',site:'content/site.json',media:'content/media.json',pages:'content/pages.json',settings:'content/settings.json'};
+const DEFAULT_SETTINGS=()=>({theme:{},font:'',customCss:'',banner:{enabled:false,text:'',link:'',bg:'#0f8b8d',color:'#ffffff'},header:{links:[]},footer:{links:[]},backgrounds:{}});
+const DB={procedures:{categories:[],items:[]},notes:{items:[]},videos:{items:[]},resources:{modules:[],trending:[]},site:{text:[],images:[]},media:{items:[]},pages:{items:[]},settings:DEFAULT_SETTINGS()};
+const DIRTY=new Set(), LOADED={}, PAGE_TOUCH=new Set();
 let view='dashboard', EDIT=null, PICK=null; const UI={};
 const cfg={get url(){return (localStorage.getItem('ln_worker')||'').replace(/\/$/,'')},get pw(){return sessionStorage.getItem('ln_pw')||''}};
 const ART=['hands','rub','soap','bp','thermometer','pulse','lungs','bed','medicine','injection'];
 const DEFAULT_PRECAUTIONS=['Follow current institutional guidance.','Confirm patient-specific requirements.','Use appropriate infection-prevention measures.','Escalate unexpected or concerning findings through the appropriate clinical pathway.'];
+const RESERVED=['index','admin','page','content','images','videos','sitemap','favicon','pages','404','about','contact','privacy','terms','report-issue','all-guides','nursing-notes','pathology','pharmacology','medical-surgical-nursing','anatomy-physiology','nursing-care-plans','nursing-research','nclex-preparation'];
+const STATIC_BG=[['all-guides','All guides'],['about','About'],['contact','Contact'],['report-issue','Report an issue'],['privacy','Privacy'],['terms','Terms'],['404','404 page']];
+const SUBJECT_BG=[['nursing-notes','Nursing Notes'],['pathology','Pathology'],['pharmacology','Pharmacology'],['medical-surgical-nursing','Medical-Surgical Nursing'],['anatomy-physiology','Anatomy & Physiology'],['nursing-care-plans','Nursing Care Plans'],['nursing-research','Nursing Research'],['nclex-preparation','NCLEX Preparation']];
+const THEME_VARS=[['navy','Main dark colour (header logo, buttons, footer)','#0b2545'],['blue','Link / accent blue','#1769aa'],['teal','Accent teal','#0f8b8d'],['blueLight','Light blue panels','#eaf4ff'],['bg','Page background colour','#f6f9fc'],['text','Body text colour','#172033'],['muted','Soft grey text','#667085'],['border','Border lines','#e4eaf1']];
+const FONTS=[['','Default (Inter / Arial)'],['Georgia, serif','Georgia (serif)'],['"Times New Roman", serif','Times New Roman (serif)'],['Verdana, sans-serif','Verdana'],['"Trebuchet MS", sans-serif','Trebuchet MS'],['Tahoma, sans-serif','Tahoma'],['system-ui, sans-serif','Phone / system font'],['"Courier New", monospace','Courier (monospace)']];
 
 /* Website-text registry: label, group, CSS selector, optional attribute.
    To make a NEW piece of text editable later, add a line here (or use
@@ -141,6 +156,8 @@ const DEFAULT_PRECAUTIONS=['Follow current institutional guidance.','Confirm pat
 const TEXT_DEFAULTS=[
 ['Browser tab title','Site & SEO','title'],
 ['Search-engine description','Site & SEO','meta[name="description"]','content'],
+['Logo letters','Header','.logo-mark'],
+['Logo name (HTML allowed)','Header','.header .logo-text'],
 ['Menu: Home','Navigation','.nav-links button:nth-child(1)'],
 ['Menu: Categories','Navigation','.nav-links button:nth-child(2)'],
 ['Menu: Procedures','Navigation','.nav-links button:nth-child(3)'],
@@ -163,11 +180,14 @@ const TEXT_DEFAULTS=[
 ['Procedures heading','Section headings','#procedures .section-heading h2'],['Procedures description','Section headings','#procedures .section-heading p'],
 ['Modules heading','Section headings','#learning-modules .section-heading h2'],['Modules description','Section headings','#learning-modules .section-heading p'],
 ['Trending heading','Section headings','#trending .section-heading h2'],['Trending description','Section headings','#trending .section-heading p'],
+['Trending swipe hint','Section headings','.scroll-hint'],
 ['Notes heading','Section headings','#resources .section-heading h2'],['Notes description','Section headings','#resources .section-heading p'],
 ['Feature panel heading','About / Feature','.feature-panel h2'],['Feature panel text','About / Feature','.feature-panel > div:first-child > p'],
 ['Creator label','About / Creator','.creator-label'],['Creator name','About / Creator','.creator-info h2'],['Creator role','About / Creator','.creator-role'],
 ['Creator message','About / Creator','.creator-message'],['Creator email (shown text)','About / Creator','.creator-email'],['Creator quote','About / Creator','.creator-quote'],
-['Footer description','Footer','.footer-brand p'],['Footer copyright line','Footer','.footer-bottom'],
+['Footer description','Footer','.footer-brand p'],['Footer heading: Learn','Footer','.footer-grid .footer-column:nth-child(2) h4'],['Footer heading: Future','Footer','.footer-grid .footer-column:nth-child(3) h4'],['Footer heading: Platform','Footer','.footer-grid .footer-column:nth-child(4) h4'],['Footer copyright line','Footer','.footer-bottom'],
+['Calculator button label','Calculator','.callie-label'],['Calculator title','Calculator','.nursing-calc-brand strong'],['Calculator subtitle','Calculator','.nursing-calc-brand span'],
+['Calculator home heading','Calculator','.nursing-calc-home-title h1'],['Calculator home text','Calculator','.nursing-calc-home-title p'],
 ];
 /* Image slots: label, selector, how to apply (src | bg | favicon), current default */
 const IMAGE_DEFAULTS=[
@@ -188,6 +208,10 @@ const SPECS={
   name:o=>o.title,sub:o=>`${(o.topics||[]).length} topic groups · ${(o.blocks||[]).length} content blocks`,
   blank:()=>({id:'',title:'',icon:'📚',description:'',subject:'',topics:[],blocks:[],references:[],published:true,author:'',updated:''}),
   form:()=>noteForm()},
+ pages:{label:'page',plural:'Pages',file:'pages',id:true,arr:()=>DB.pages.items,
+  name:o=>o.title,sub:o=>`/${o.id||'…'}.html · ${(o.blocks||[]).length} blocks${o.showInMenu?' · in menu':''}${o.static?' · static file':' · dynamic only'}`,
+  blank:()=>({id:'',title:'',label:'',intro:'',description:'',seoTitle:'',shareImage:'',width:'normal',showHeader:true,blocks:[],bg:{image:'',color:'',blur:'',overlay:'',none:false},showInMenu:false,menuLabel:'',showInFooter:false,published:true,static:false}),
+  form:()=>pageForm()},
  videos:{label:'video',plural:'Videos',file:'videos',id:true,arr:()=>DB.videos.items,
   name:o=>o.title,sub:o=>o.src,
   blank:()=>({id:'',title:'',description:'',src:'',poster:'',autoplay:false,muted:true,loop:false,controls:true,featured:false,published:true}),
@@ -206,22 +230,40 @@ const SPECS={
    {l:'Show as a card in "Explore Nursing Categories"',k:'card',type:'check'},{l:'Show as a filter button above procedures',k:'filter',type:'check'},{l:'Filter button label (optional, shorter)',k:'filterLabel'}]},
 };
 const TPL={step:{title:'',instruction:'',explanation:'',art:''},equip:['',''],ref:{title:'',url:''},topic:{title:'',items:[]},
- b_heading:{type:'heading',text:''},b_paragraph:{type:'paragraph',text:''},b_bullets:{type:'bullets',items:[]},b_table:{type:'table',rows:''},b_image:{type:'image',src:'',caption:''},b_link:{type:'link',text:'',url:''},
- pimg:{src:'',caption:''},pvid:{src:'',title:'',poster:''}};
+ b_heading:{type:'heading',text:''},b_paragraph:{type:'paragraph',text:''},b_bullets:{type:'bullets',items:[]},b_table:{type:'table',rows:''},b_image:{type:'image',src:'',caption:''},b_link:{type:'link',text:'',url:''},pimg:{src:'',caption:''},pvid:{src:'',title:'',poster:''},
+ p_heading:{type:'heading',text:'',level:'h2'},p_paragraph:{type:'paragraph',text:''},p_bullets:{type:'bullets',items:[]},p_numbered:{type:'numbered',items:[]},p_table:{type:'table',rows:''},
+ p_image:{type:'image',src:'',alt:'',caption:''},p_video:{type:'video',src:'',poster:''},p_button:{type:'button',text:'',url:'',style:'primary'},p_callout:{type:'callout',text:'',style:'info'},
+ p_cards:{type:'cards',rows:''},p_faq:{type:'faq',rows:''},p_divider:{type:'divider'},p_html:{type:'html',html:''},
+ link:{label:'',url:''}};
 
 /* ---------- helpers ---------- */
 const mediaUrl=p=>!p?'':(/^(https?:)?\/\/|^data:/.test(p)?p:'../'+p.replace(/^\//,''));
-function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',3200);}
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',3600);}
 function dirty(k){DIRTY.add(k);updateTag();}
 function updateTag(){const t=$('#dirtyTag');t.style.display=DIRTY.size?'':'none';t.textContent=DIRTY.size+' unpublished change'+(DIRTY.size>1?'s':'');}
-function download(name,obj){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));a.download=name;a.click();}
+function download(name,obj){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([typeof obj==='string'?obj:JSON.stringify(obj,null,2)],{type:typeof obj==='string'?'text/html':'application/json'}));a.download=name;a.click();}
 
 /* ---------- load ---------- */
+function mergeDefaults(){
+  const have=new Set(DB.site.text.map(f=>f.label));
+  TEXT_DEFAULTS.forEach(([label,group,selector,attr])=>{if(!have.has(label))DB.site.text.push({label,group,selector,attr:attr||'',value:''});});
+  const hi=new Set(DB.site.images.map(f=>f.label));
+  IMAGE_DEFAULTS.forEach(([label,selector,attr])=>{if(!hi.has(label))DB.site.images.push({label,selector,attr,value:''});});
+}
+function normalise(){
+  DB.pages.items=DB.pages.items||[];DB.pages.items.forEach(p=>{p.bg=p.bg||{image:'',color:'',blur:'',overlay:'',none:false};p.blocks=p.blocks||[];});
+  const d=DEFAULT_SETTINGS(),s=DB.settings||{};
+  DB.settings=Object.assign(d,s);DB.settings.theme=s.theme||{};DB.settings.banner=Object.assign(d.banner,s.banner||{});
+  DB.settings.header=s.header||{links:[]};DB.settings.footer=s.footer||{links:[]};DB.settings.backgrounds=s.backgrounds||{};
+  DB.settings.header.links=DB.settings.header.links||[];DB.settings.footer.links=DB.settings.footer.links||[];
+}
 async function loadAll(){
   for(const [k,f] of Object.entries(FILES)){
     try{const r=await fetch('../'+f+'?t='+Date.now());if(!r.ok)throw 0;DB[k]=await r.json();LOADED[k]=true;}catch{LOADED[k]=false;}
   }
-  if(!LOADED.site) DB.site={text:TEXT_DEFAULTS.map(([label,group,selector,attr])=>({label,group,selector,attr:attr||'',value:''})),images:IMAGE_DEFAULTS.map(([label,selector,attr])=>({label,selector,attr,value:''}))};
+  if(!LOADED.site) DB.site={text:[],images:[]};
+  DB.site.text=DB.site.text||[];DB.site.images=DB.site.images||[];
+  mergeDefaults();normalise();
   render();
 }
 
@@ -271,7 +313,8 @@ async function importFromSite(){
     items.forEach(p=>{add(p.illustration,p.title);p.steps.forEach(s=>/\.(jpe?g|png|webp|gif|svg)$/i.test(s.art)&&add(s.art));});
     DB.site.images.forEach(i=>add(i.value,i.label));DB.videos.items.forEach(x=>{add(x.src,x.title);add(x.poster);});
     DB.media={items:mi};
-    Object.keys(FILES).forEach(k=>{LOADED[k]=true;dirty(k);});
+    ['procedures','notes','videos','resources','site','media'].forEach(k=>{LOADED[k]=true;dirty(k);});
+    mergeDefaults();
     toast('Imported '+items.length+' procedures, '+notes.length+' notes. Review, then press Publish changes.');render();
   }catch(err){alert('Import failed: '+err.message);}
 }
@@ -282,19 +325,52 @@ async function api(path,body){
   const r=await fetch(cfg.url+path,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+cfg.pw},body:JSON.stringify(body)});
   const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||('Server error '+r.status));return j;
 }
+/* Writes a real <slug>.html file for each changed page (best for Google) and updates sitemap.xml */
+async function publishStatics(){
+  const out={ok:0,fail:0,msg:''};
+  if(!window.LN||!window.LN.buildPage){out.fail=PAGE_TOUCH.size;out.msg='site-extras.js was not found next to your site.';PAGE_TOUCH.clear();return out;}
+  for(const id of [...PAGE_TOUCH]){
+    const pg=DB.pages.items.find(p=>p.id===id);if(!pg)continue;
+    try{await api('/api/upload',{path:pg.id+'.html',base64:b64(LN.buildPage(pg,{site:SITE_URL}))});pg.static=pg.published!==false;out.ok++;}
+    catch(err){pg.static=false;out.fail++;out.msg=err.message;}
+  }
+  PAGE_TOUCH.clear();
+  if(out.ok){
+    try{
+      const r=await fetch('../sitemap.xml?t='+Date.now());let xml=r.ok?await r.text():'';
+      const blocks=[...xml.matchAll(/<url>[\s\S]*?<\/url>/g)].map(m=>m[0]);
+      const keep=blocks.filter(bk=>{const loc=(bk.match(/<loc>([^<]+)<\/loc>/)||[])[1];const pg=DB.pages.items.find(p=>SITE_URL+p.id+'.html'===loc);return !pg||(pg.published!==false&&pg.static);});
+      DB.pages.items.forEach(p=>{const u=SITE_URL+p.id+'.html';if(p.published!==false&&p.static&&!keep.some(bk=>bk.includes('<loc>'+u+'</loc>')))keep.push(`<url>\n    <loc>${u}</loc>\n    <lastmod>${today()}</lastmod>\n    <priority>0.6</priority>\n  </url>`);});
+      const xml2='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  '+keep.join('\n  ')+'\n</urlset>\n';
+      await api('/api/upload',{path:'sitemap.xml',base64:b64(xml2)});
+    }catch(err){out.msg=out.msg||('Sitemap not updated: '+err.message);}
+  }
+  return out;
+}
+function pruneEmpty(){
+  const bgs=DB.settings.backgrounds;
+  Object.keys(bgs).forEach(k=>{const v=bgs[k];if(!v||!Object.values(v).some(x=>x!==''&&x!==false&&x!=null))delete bgs[k];});
+}
 async function saveAll(){
-  if(!DIRTY.size)return toast('Nothing to publish.');
+  if(!DIRTY.size&&!PAGE_TOUCH.size)return toast('Nothing to publish.');
   if(!cfg.url||!cfg.pw){go('settings');return toast('Enter Worker URL and password first.');}
   const btn=$('#saveAll');btn.disabled=true;btn.textContent='Publishing…';
-  try{for(const k of [...DIRTY]){await api('/api/save',{path:FILES[k],json:DB[k]});DIRTY.delete(k);updateTag();}
-    toast('Published. The live site updates in 1–2 minutes (GitHub Pages rebuild).');}
+  let note='';
+  try{
+    if(PAGE_TOUCH.size){const s=await publishStatics();dirty('pages');
+      if(s.fail)note=`\n\nNote: ${s.fail} page file(s) could not be written as static .html (${s.msg}). Those pages still work at page.html?p=… . To make them static, download the file from the page editor and upload it to GitHub, or allow .html uploads in your Worker.`;}
+    pruneEmpty();
+    for(const k of [...DIRTY]){await api('/api/save',{path:FILES[k],json:DB[k]});DIRTY.delete(k);updateTag();}
+    toast('Published. The live site updates in 1–2 minutes (GitHub Pages rebuild).');
+    if(note)alert('Published.'+note);
+  }
   catch(err){alert('Publish failed: '+err.message);}
-  btn.disabled=false;btn.textContent='Publish changes';
+  btn.disabled=false;btn.textContent='Publish changes';render();
 }
 window.addEventListener('beforeunload',e=>{if(DIRTY.size){e.preventDefault();e.returnValue='';}});
 
 /* ---------- navigation ---------- */
-const NAV=[['dashboard','▦','Dashboard'],['procedures','🩺','Procedures'],['notes','📚','Notes'],['videos','🎬','Videos'],['media','🖼️','Images / Media'],['resources','🔗','Resources'],['text','✎','Website Text'],['appearance','🎨','Appearance'],['settings','⚙','Settings']];
+const NAV=[['dashboard','▦','Dashboard'],['pages','📄','Pages'],['procedures','🩺','Procedures'],['notes','📚','Notes'],['videos','🎬','Videos'],['media','🖼️','Images / Media'],['resources','🔗','Resources'],['text','✎','Website Text'],['backgrounds','🌄','Page Backgrounds'],['appearance','🎨','Site Images'],['theme','🎛️','Theme & Banner'],['menus','☰','Menus & Footer'],['settings','⚙','Settings']];
 function go(v){view=v;EDIT=null;$('#side').classList.remove('on');render();window.scrollTo(0,0);}
 $('#burger').onclick=()=>$('#side').classList.toggle('on');
 $('#saveAll').onclick=saveAll;
@@ -308,7 +384,7 @@ function render(){
   window.scrollTo(0,y);updateTag();
 }
 
-/* ---------- list screen (used by procedures, notes, videos, modules, trending, categories) ---------- */
+/* ---------- list screen (used by procedures, notes, pages, videos, modules, trending, categories) ---------- */
 function rowsHtml(kind){
   const S=SPECS[kind],q=(UI[kind+'q']||'').toLowerCase(),fv=UI[kind+'f']||'',sv=UI[kind+'s']||'';
   const rows=S.arr().map((o,i)=>({o,i})).filter(({o})=>(!q||JSON.stringify(o).toLowerCase().includes(q))&&(!fv||S.filter.get(o)===fv)&&(!sv||(sv==='pub')===(o.published!==false)));
@@ -317,7 +393,7 @@ function rowsHtml(kind){
   return rows.map(({o,i})=>`<div class="lrow"><div class="lmain"><b>${esc(S.name(o)||'(untitled)')}</b><small>${esc(S.sub?S.sub(o):'')}</small></div>
    ${o.published===undefined?'':`<span class="pill ${o.published!==false?'ok':''}">${o.published!==false?'Published':'Draft'}</span>`}
    <div class="lact">${move?`<button data-act="mv" data-k="${kind}" data-i="${i}" data-d="-1" title="Move up">↑</button><button data-act="mv" data-k="${kind}" data-i="${i}" data-d="1" title="Move down">↓</button>`:''}
-   <button data-act="edit" data-k="${kind}" data-i="${i}">Edit</button><button data-act="dup" data-k="${kind}" data-i="${i}">Duplicate</button>
+   <button data-act="edit" data-k="${kind}" data-i="${i}">Edit</button>${kind==='pages'&&o.id?`<a href="../page.html?p=${encodeURIComponent(o.id)}" target="_blank" rel="noopener">Open</a>`:''}<button data-act="dup" data-k="${kind}" data-i="${i}">Duplicate</button>
    ${o.published===undefined?'':`<button data-act="tog" data-k="${kind}" data-i="${i}">${o.published!==false?'Unpublish':'Publish'}</button>`}
    <button class="danger" data-act="del" data-k="${kind}" data-i="${i}">Delete</button></div></div>`).join('');
 }
@@ -329,20 +405,62 @@ function listView(kind,extra=''){
    <button class="btn pri" data-act="new" data-k="${kind}">+ Add ${S.label}</button></div><div id="rows-${kind}">${rowsHtml(kind)}</div>`;
 }
 
+/* ---------- backgrounds ---------- */
+function ensureBg(key){const b=DB.settings.backgrounds;if(!b[key])b[key]={image:'',color:'',blur:'',overlay:'',none:false};}
+function bgBase(key){if(key[0]==='@')return 'pages.items.'+key.slice(1)+'.bg';ensureBg(key);return 'settings.backgrounds.'+key;}
+function bgTargets(){
+  const t=[['default','All pages (default for any page without its own)','General'],['index','Home page','General']];
+  STATIC_BG.forEach(x=>t.push([x[0],x[1],'Site pages']));
+  SUBJECT_BG.forEach(x=>t.push([x[0],x[1],'Study subject pages']));
+  DB.procedures.items.forEach(p=>t.push([p.id,p.title,'Procedure pages']));
+  DB.pages.items.forEach((p,i)=>t.push(['@'+i,p.title||'(untitled page)','Your pages']));
+  return t;
+}
+function bgControls(base,isDB){
+  const attr=isDB?'data-db':'data-f',src=isDB?DB:EDIT.obj,g=k=>getP(src,base+'.'+k);
+  return `<span class="lbl">Background image</span>${imgRow(base+'.image',g('image')||'',isDB)}
+  <div class="grid2"><label class="fld"><span>Background colour (e.g. #f6f9fc)</span><input ${attr}="${base}.color" value="${esc(g('color')||'')}" placeholder="optional"></label>
+  <label class="fld"><span>Blur (0–20 px)</span><input type="number" min="0" max="20" ${attr}="${base}.blur" value="${esc(g('blur')??'')}" placeholder="site default"></label>
+  <label class="fld"><span>White overlay (0–90 %) — helps text stay readable</span><input type="number" min="0" max="90" ${attr}="${base}.overlay" value="${esc(g('overlay')??'')}" placeholder="0"></label>
+  <label class="fld chk"><input type="checkbox" ${attr}="${base}.none" ${g('none')?'checked':''}><span>Hide the background image on this page</span></label></div>
+  <p class="hint">Empty boxes keep the site default. A page's own settings win over "All pages".</p>`;
+}
+function bgList(){
+  const q=(UI.bgq||'').toLowerCase();let g='',h='';
+  bgTargets().forEach(([key,label,group])=>{
+    if(q&&!(label+group).toLowerCase().includes(q))return;
+    if(group!==g){g=group;h+=`<h3 class="lbl" style="margin:16px 0 8px;font-size:15px;color:var(--navy)">${esc(g)}</h3>`;}
+    const base=bgBase(key),b=getP(DB,base)||{},custom=['image','color','blur','overlay'].some(k=>b[k]!==''&&b[k]!=null)||b.none;
+    h+=`<details class="bgd"><summary>${esc(label)} ${custom?'<span class="pill ok">custom</span>':''}</summary>${bgControls(base,true)}</details>`;
+  });
+  return h||'<div class="empty">No matching pages.</div>';
+}
+
+/* ---------- small DB-bound list (menus) ---------- */
+function dbList(path,title,hint){
+  const arr=getP(DB,path)||[];
+  return `<div class="box"><h3>${title}</h3><p class="hint" style="margin-bottom:10px">${hint}</p>
+  ${arr.map((l,i)=>`<div class="row"><div class="rn">${i+1}</div><div class="rb"><div class="grid2"><label class="fld"><span>Link text</span><input data-db="${path}.${i}.label" value="${esc(l.label)}"></label><label class="fld"><span>Address (e.g. about.html or https://…)</span><input data-db="${path}.${i}.url" value="${esc(l.url)}"></label></div></div>
+   <div class="ra"><button type="button" data-act="dbdel" data-path="${path}" data-i="${i}" style="color:var(--danger)">✕</button></div></div>`).join('')}
+  <button class="btn sm" data-act="dbadd" data-path="${path}">+ Add link</button></div>`;
+}
+
 /* ---------- screens ---------- */
 const VIEWS={
  dashboard(){
-  const P=DB.procedures.items,N=DB.notes.items,V=DB.videos.items;
+  const P=DB.procedures.items,N=DB.notes.items,V=DB.videos.items,G=DB.pages.items;
   const pub=a=>a.filter(x=>x.published!==false).length;
   const banner=!LOADED.procedures?`<div class="notice warn"><b>No CMS content found yet.</b><br>Click <b>Import from current website</b> once. It copies everything already in your index.html (procedures, notes, text, video) into editable content files — nothing is deleted. If this page was opened as a local file, serve the site over http(s) instead (GitHub Pages or a local server).<br><br><button class="btn pri" data-act="import">Import from current website</button></div>`:'';
   return `${banner}<div class="cards">
+   <div class="card"><b>${G.length}</b><span>Your pages</span></div>
    <div class="card"><b>${P.length}</b><span>Total procedures</span></div><div class="card"><b>${pub(P)}</b><span>Published procedures</span></div>
    <div class="card"><b>${N.length}</b><span>Total notes</span></div><div class="card"><b>${pub(N)}</b><span>Published notes</span></div>
    <div class="card"><b>${V.length}</b><span>Videos</span></div><div class="card"><b>${DB.media.items.length}</b><span>Media items</span></div></div>
-   <div class="box"><h3>Quick actions</h3><div class="bar"><button class="btn" data-act="new" data-k="procedures">+ New procedure</button><button class="btn" data-act="new" data-k="notes">+ New note</button><button class="btn" data-act="new" data-k="videos">+ New video</button><button class="btn" data-act="go" data-v="text">Edit website text</button></div></div>
+   <div class="box"><h3>Quick actions</h3><div class="bar"><button class="btn" data-act="new" data-k="pages">+ New page</button><button class="btn" data-act="new" data-k="procedures">+ New procedure</button><button class="btn" data-act="new" data-k="notes">+ New note</button><button class="btn" data-act="new" data-k="videos">+ New video</button><button class="btn" data-act="go" data-v="text">Edit website text</button><button class="btn" data-act="go" data-v="backgrounds">Page backgrounds</button></div></div>
    <div class="box"><h3>Publishing status</h3><p>${DIRTY.size?`Unpublished changes in: <b>${[...DIRTY].join(', ')}</b>. Press <b>Publish changes</b> (top right).`:'Everything is published.'}</p>
    <p class="hint">Changes are saved to GitHub through your secure Worker. This page itself holds no secrets.</p></div>`;
  },
+ pages(){return `<div class="notice">Create your own pages (for example “Study tips” or “Exam dates”). Build each page from blocks: headings, text, lists, tables, images, videos, buttons, FAQ and more. Each page can have its own background and can be added to the menu or footer.</div>`+listView('pages');},
  procedures(){return listView('procedures',`<div class="bar"><button class="btn sm" data-act="go" data-v="categories">Manage categories</button></div>`);},
  notes(){return listView('notes');},
  videos(){return listView('videos');},
@@ -355,15 +473,37 @@ const VIEWS={
   ${m.length?`<div class="mgrid">${m.map((x,i)=>`<div class="mitem"><div class="thumb">${thumb(x.path)}</div><div><b>${esc(x.label)}</b><br>${esc(x.path)}<br><button class="btn sm danger" data-act="mdel" data-i="${i}">Remove from library</button></div></div>`).join('')}</div>`:'<div class="empty">No media yet. Import your site or upload a file.</div>'}`;
  },
  text(){
-  return `<div class="notice">Edit any text on the public site. Basic HTML is allowed (<code>&lt;br&gt;</code>, <code>&lt;span&gt;</code>, <code>&amp;amp;</code> for &amp;). Leave a box empty to keep the original text.</div>
+  return `<div class="notice">Edit any text on the public home page. Basic HTML is allowed (<code>&lt;br&gt;</code>, <code>&lt;span&gt;</code>, <code>&amp;amp;</code> for &amp;). Leave a box empty to keep the original text.</div>
   <div class="bar"><input type="search" id="tq" placeholder="Search fields…" data-ui="tq" value="${esc(UI.tq||'')}"></div><div id="tlist">${textList()}</div>
-  <div class="box"><h3>Add a custom text field</h3><p class="hint" style="margin-bottom:10px">Pick any element on your site with a CSS selector (e.g. <code>.footer-column h4</code>).</p>
+  <div class="box"><h3>Add a custom text field</h3><p class="hint" style="margin-bottom:10px">Pick any element on your home page with a CSS selector (e.g. <code>.footer-column h4</code>).</p>
   <div class="grid2"><label class="fld"><span>Label</span><input id="ntl"></label><label class="fld"><span>CSS selector</span><input id="nts"></label></div><button class="btn" data-act="addtext">Add field</button></div>`;
  },
+ backgrounds(){
+  return `<div class="notice">Choose a different background for any page: the home page, each procedure, each study subject, About, Privacy, your own pages… Open a page below, pick an image, and optionally set a colour, blur and a white overlay so the text stays easy to read.</div>
+  <div class="bar"><input type="search" placeholder="Search pages…" data-ui="bgq" value="${esc(UI.bgq||'')}"></div><div id="bglist">${bgList()}</div>`;
+ },
  appearance(){
-  return `<div class="notice">Replace the website's key images. Choose from the library or upload a new file. Procedure images are edited inside each procedure; note images inside each note.</div>
+  return `<div class="notice">Replace the website's key images. Choose from the library or upload a new file. Procedure images are edited inside each procedure; note images inside each note. Backgrounds per page are under <b>Page Backgrounds</b>.</div>
   ${DB.site.images.map((f,i)=>`<div class="box"><h4>${esc(f.label)}</h4>${imgRow('site.images.'+i+'.value',f.value,true)}<small class="hint">Targets: <code>${esc(f.selector)}</code></small></div>`).join('')}
   <div class="box"><h3>Add another image slot</h3><div class="grid2"><label class="fld"><span>Label</span><input id="nil"></label><label class="fld"><span>CSS selector (an &lt;img&gt;)</span><input id="nis"></label></div><button class="btn" data-act="addimg">Add slot</button></div>`;
+ },
+ theme(){
+  const T=DB.settings.theme,B=DB.settings.banner;
+  return `<div class="notice">These settings apply to the whole website (home and every other page). Press <b>Publish changes</b> to save.</div>
+  <div class="box"><h3>Colours</h3>${THEME_VARS.map(([k,l,d])=>`<div class="fld"><span>${l}</span><div class="bar" style="margin:0;align-items:center"><input type="color" data-db="settings.theme.${k}" value="${esc(T[k]||d)}" style="flex:0 0 64px;min-width:64px;height:38px;padding:2px"><span class="hint" style="margin:0">${T[k]?esc(T[k]):'default '+d}</span><button class="btn sm" data-act="resetTheme" data-k="${k}">Reset</button></div></div>`).join('')}</div>
+  <div class="box"><h3>Font</h3><label class="fld"><span>Website font</span><select data-db="settings.font">${FONTS.map(([v,l])=>`<option value="${esc(v)}" ${DB.settings.font===v?'selected':''}>${l}</option>`).join('')}</select></label></div>
+  <div class="box"><h3>Announcement banner</h3>
+   <label class="fld chk"><input type="checkbox" data-db="settings.banner.enabled" ${B.enabled?'checked':''}><span>Show a banner at the top of every page</span></label>
+   <label class="fld"><span>Banner text</span><input data-db="settings.banner.text" value="${esc(B.text)}" placeholder="e.g. New: Oxygen Therapy guide is live"></label>
+   <label class="fld"><span>Link (optional)</span><input data-db="settings.banner.link" value="${esc(B.link)}" placeholder="all-guides.html"></label>
+   <div class="grid2"><div class="fld"><span>Banner colour</span><input type="color" data-db="settings.banner.bg" value="${esc(B.bg||'#0f8b8d')}" style="width:64px;height:38px;padding:2px;border:1px solid var(--border);border-radius:9px"></div>
+   <div class="fld"><span>Text colour</span><input type="color" data-db="settings.banner.color" value="${esc(B.color||'#ffffff')}" style="width:64px;height:38px;padding:2px;border:1px solid var(--border);border-radius:9px"></div></div></div>
+  <div class="box"><h3>Custom CSS (advanced)</h3><label class="fld"><span>Extra styling added to every page</span><textarea rows="6" data-db="settings.customCss" placeholder=".hero h1 { letter-spacing: -1px; }">${esc(DB.settings.customCss)}</textarea><small>Only if you know CSS. If the site looks wrong, empty this box and publish.</small></label></div>`;
+ },
+ menus(){
+  return `<div class="notice">Pages you create can be added to the menu or footer from the page editor. Here you can add extra links (for example to an outside website).</div>
+  ${dbList('settings.header.links','Extra links in the top menu','Shown after the existing menu items.')}
+  ${dbList('settings.footer.links','Extra links in the footer','Added to the last footer column (Platform).')}`;
  },
  settings(){
   return `<div class="box"><h3>Connection to your save Worker</h3>
@@ -412,7 +552,8 @@ function listBox(title,path,tpl,rowFn,addLabel,extraBtns){
 function editView(){
   const S=SPECS[EDIT.kind];
   const body=S.form?S.form():`<div class="box">${S.fields.map(f=>fld(f.l,f.k,f)).join('')}</div>`;
-  return `<button class="btn sm" data-act="cancel" style="margin-bottom:14px">← Back to list</button>${body}
+  const extra=EDIT.kind==='pages'?`<span style="margin-left:8px">${EDIT.obj.id&&EDIT.idx!==null?`<a class="btn sm" href="../page.html?p=${encodeURIComponent(EDIT.obj.id)}" target="_blank" rel="noopener">Open published page</a> `:''}<button class="btn sm" data-act="dlpage">Download .html file</button></span>`:'';
+  return `<button class="btn sm" data-act="cancel" style="margin-bottom:14px">← Back to list</button>${extra}${body}
    <datalist id="artlist">${ART.map(a=>`<option value="${a}">`).join('')}</datalist>
    <div class="sticky"><button class="btn pri" data-act="saveedit">Save ${S.label}</button><button class="btn" data-act="cancel">Cancel</button></div>`;
 }
@@ -447,19 +588,58 @@ function noteForm(){
   ${listBox('Full note content (optional)','blocks','',blockRow,'',btns)}
   ${listBox('References','references','ref',(p)=>`${fld('Title',p+'.title')}${fld('Web address',p+'.url')}`,'Add reference')}`;
 }
+function pageForm(){
+  const blockRow=(p)=>{const b=getP(EDIT.obj,p),t=b.type;
+    const f={
+      heading:()=>fld('Heading text',p+'.text')+fld('Size',p+'.level',{type:'select',opts:[['h2','Large heading'],['h3','Smaller heading']]}),
+      paragraph:()=>fld('Paragraph (blank line = new paragraph; basic HTML like &lt;strong&gt; and &lt;a&gt; is allowed)',p+'.text',{type:'area',rows:5}),
+      bullets:()=>fld('Bullet points (one per line)',p+'.items',{type:'lines'}),
+      numbered:()=>fld('Numbered list (one per line)',p+'.items',{type:'lines'}),
+      table:()=>fld('Table — one row per line, columns separated by |',p+'.rows',{type:'area',rows:5,hint:'First row becomes the header. Example: Sign | Meaning'}),
+      image:()=>`<span class="lbl">Image</span>${imgRow(p+'.src',b.src,false)}${fld('Alt text (describe the image — helps Google and screen readers)',p+'.alt')}${fld('Caption (optional)',p+'.caption')}`,
+      video:()=>`<span class="lbl">Video file</span>${imgRow(p+'.src',b.src,false)}<span class="lbl">Thumbnail (optional)</span>${imgRow(p+'.poster',b.poster,false)}`,
+      button:()=>fld('Button text',p+'.text')+fld('Link address (about.html or https://…)',p+'.url')+fld('Style',p+'.style',{type:'select',opts:[['primary','Dark (main)'],['secondary','Light (outline)']]}),
+      callout:()=>fld('Message',p+'.text',{type:'area',rows:3})+fld('Style',p+'.style',{type:'select',opts:[['info','Blue information box'],['warn','Yellow warning box']]}),
+      cards:()=>fld('Cards — one per line: Title | Text | Link (link optional)',p+'.rows',{type:'area',rows:5,hint:'Example: Hand Hygiene | WHO five moments | hand-hygiene.html'}),
+      faq:()=>fld('Questions — one per line: Question | Answer',p+'.rows',{type:'area',rows:5}),
+      divider:()=>'<p class="hint">A thin dividing line.</p>',
+      html:()=>fld('HTML',p+'.html',{type:'area',rows:6,hint:'Advanced: raw HTML shown as-is (for example an embedded video or a form).'})
+    }[t];
+    return `<span class="pill">${t}</span><div style="margin-top:8px">${f?f():''}</div>`;};
+  const types=[['heading','Heading'],['paragraph','Text'],['bullets','Bullets'],['numbered','Numbered list'],['table','Table'],['image','Image'],['video','Video'],['button','Button'],['callout','Callout'],['cards','Cards'],['faq','FAQ'],['divider','Divider'],['html','HTML']];
+  const btns=types.map(([t,l])=>`<button type="button" class="btn sm" data-act="radd" data-path="blocks" data-tpl="p_${t}">+ ${l}</button>`).join(' ');
+  return `<div class="box"><h3>Page details</h3>${fld('Page title','title')}
+   ${fld('Page address','id',{hint:'The page will live at <code>address.html</code>. Lowercase letters, numbers and hyphens only. Leave empty to create it from the title. Changing it later creates a new file; the old file stays on GitHub.'})}
+   <div class="grid2">${fld('Small label above the title (optional)','label')}${fld('Page width','width',{type:'select',opts:[['narrow','Narrow (reading)'],['normal','Normal'],['wide','Wide']]})}</div>
+   ${fld('Intro text under the title','intro',{type:'area',rows:2})}${fld('Show the title banner at the top','showHeader',{type:'check'})}</div>
+  <div class="box"><h3>Search engines &amp; sharing</h3>${fld('Search-engine title (optional)','seoTitle')}${fld('Search-engine description (about 150 characters)','description',{type:'area',rows:2})}
+   <span class="lbl">Share image (shown when the link is shared)</span>${imgRow('shareImage',EDIT.obj.shareImage,false)}</div>
+  ${listBox('Page content','blocks','',blockRow,'',btns)}
+  <div class="box"><h3>Background for this page</h3>${bgControls('bg',false)}</div>
+  <div class="box"><h3>Menus &amp; visibility</h3>${fld('Published (visible on the website)','published',{type:'check'})}
+   ${fld('Add to the top menu','showInMenu',{type:'check'})}${fld('Add to the footer','showInFooter',{type:'check'})}${fld('Menu / footer link text (optional, defaults to the title)','menuLabel')}</div>`;
+}
 
 /* ---------- editing state ---------- */
-function openEdit(kind,idx){const S=SPECS[kind];EDIT={kind,idx,obj:idx===null?S.blank():clone(S.arr()[idx])};render();window.scrollTo(0,0);}
+function openEdit(kind,idx){const S=SPECS[kind];EDIT={kind,idx,obj:idx===null?S.blank():clone(S.arr()[idx])};
+  if(kind==='pages'){EDIT.obj.bg=EDIT.obj.bg||{image:'',color:'',blur:'',overlay:'',none:false};EDIT.obj.blocks=EDIT.obj.blocks||[];}
+  render();window.scrollTo(0,0);}
 function saveEdit(){
   const {kind,idx,obj}=EDIT,S=SPECS[kind],arr=S.arr();
   if(!String(S.name(obj)||'').trim())return toast('Please enter a title first.');
+  if(kind==='pages')obj.id=slug(obj.id||obj.title);
   if(S.id&&!obj.id)obj.id=slug(S.name(obj));
   if(kind==='categories'){obj.id=slug(obj.id||obj.name);if(!obj.id)return toast('Enter an identifier.');}
+  if(kind==='pages'){
+    if(!obj.id)return toast('Enter a title or page address.');
+    if(RESERVED.includes(obj.id)||DB.procedures.items.some(p=>p.id===obj.id)||DB.notes.items.some(n=>n.id===obj.id))return toast('"'+obj.id+'" is already used by another page of the site. Choose a different address.');
+  }
   if((S.id||kind==='categories')&&arr.some((x,i)=>x.id===obj.id&&i!==idx))return toast('Another item already uses the identifier "'+obj.id+'". Change the title or identifier.');
   if(kind==='procedures'){const c=DB.procedures.categories.find(c=>c.id===obj.category);obj.categoryName=c?c.name:obj.category;}
   if(kind==='categories')DB.procedures.items.forEach(p=>{if(p.category===obj.id)p.categoryName=obj.name;});
   if(kind==='notes')obj.updated=obj.updated||today();
   if(kind==='videos'&&obj.featured)arr.forEach(v=>v.featured=false);
+  if(kind==='pages')PAGE_TOUCH.add(obj.id);
   idx===null?arr.push(obj):arr[idx]=obj;
   dirty(S.file);EDIT=null;if(kind==='categories')view='categories';render();toast('Saved. Press Publish changes when ready.');
 }
@@ -482,8 +662,8 @@ function uploadFlow(){
     const name=f.name.replace(/[^A-Za-z0-9._-]/g,'-');const dir=f.type.startsWith('video')?'videos':'images';
     if(f.size>25*1024*1024&&!confirm('This file is large ('+Math.round(f.size/1048576)+' MB). Upload anyway?'))return;
     toast('Uploading '+name+'…');
-    try{const b64=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(f);});
-      await api('/api/upload',{path:dir+'/'+name,base64:b64});
+    try{const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(f);});
+      await api('/api/upload',{path:dir+'/'+name,base64:data});
       const p=dir+'/'+name;if(!DB.media.items.find(x=>x.path===p)){DB.media.items.push({path:p,label:name});dirty('media');}
       toast('Uploaded '+p+' (live in 1–2 minutes).');
       if(PICK&&$('#modal').classList.contains('on'))choose(p);else render();
@@ -498,18 +678,22 @@ document.addEventListener('click',e=>{
   switch(a){
    case 'go':go(d.v);break;
    case 'import':importFromSite();break;
-   case 'new':if(!LOADED.procedures&&k==='procedures'&&!DB.procedures.categories.length)toast('Tip: import your current website first so categories exist.');openEdit(k,null);break;
+   case 'new':if(!LOADED.procedures&&k==='procedures'&&!DB.procedures.categories.length)toast('Tip: import your current website first so categories exist.');if(k==='pages'||k==='procedures'||k==='notes'||k==='videos')view=k;openEdit(k,null);break;
    case 'edit':openEdit(k,i);break;
    case 'cancel':EDIT=null;render();break;
    case 'saveedit':saveEdit();break;
-   case 'dup':{const o=clone(arr()[i]);if(o.id)o.id=o.id+'-copy-'+Date.now().toString(36).slice(-3);if(o.title)o.title+=' (copy)';if(o.name)o.name+=' (copy)';if(o.published!==undefined)o.published=false;arr().splice(i+1,0,o);dirty(SPECS[k].file);render();toast('Duplicated as a draft.');break;}
-   case 'tog':arr()[i].published=arr()[i].published===false;dirty(SPECS[k].file);render();break;
+   case 'dup':{const o=clone(arr()[i]);if(o.id)o.id=o.id+'-copy-'+Date.now().toString(36).slice(-3);if(o.title)o.title+=' (copy)';if(o.name)o.name+=' (copy)';if(o.published!==undefined)o.published=false;if(k==='pages')o.static=false;arr().splice(i+1,0,o);dirty(SPECS[k].file);render();toast('Duplicated as a draft.');break;}
+   case 'tog':arr()[i].published=arr()[i].published===false;if(k==='pages')PAGE_TOUCH.add(arr()[i].id);dirty(SPECS[k].file);render();break;
    case 'del':if(k==='categories'&&DB.procedures.items.some(p=>p.category===arr()[i].id))return alert('Procedures still use this category. Move them first.');
-     if(confirm('Delete "'+(SPECS[k].name(arr()[i])||'item')+'"? (Unpublish instead if you may need it later.)')){arr().splice(i,1);dirty(SPECS[k].file);render();}break;
+     if(confirm('Delete "'+(SPECS[k].name(arr()[i])||'item')+'"? (Unpublish instead if you may need it later.)')){const gone=arr()[i];arr().splice(i,1);dirty(SPECS[k].file);render();if(k==='pages'&&gone.static)alert('Removed from the admin. The file '+gone.id+'.html may still exist in GitHub — delete it there if you want it gone.');}break;
    case 'mv':{const j=i+ +d.d;if(j<0||j>=arr().length)break;[arr()[i],arr()[j]]=[arr()[j],arr()[i]];dirty(SPECS[k].file);render();break;}
    case 'radd':{const t=getP(EDIT.obj,d.path);t.push(clone(TPL[d.tpl]));render();break;}
    case 'rdel':getP(EDIT.obj,d.path).splice(i,1);render();break;
    case 'rmv':{const t=getP(EDIT.obj,d.path),j=i+ +d.d;if(j<0||j>=t.length)break;[t[i],t[j]]=[t[j],t[i]];render();break;}
+   case 'dbadd':getP(DB,d.path).push(clone(TPL.link));dirty(d.path.split('.')[0]);render();break;
+   case 'dbdel':getP(DB,d.path).splice(i,1);dirty(d.path.split('.')[0]);render();break;
+   case 'resetTheme':delete DB.settings.theme[d.k];dirty('settings');render();break;
+   case 'dlpage':{const pg=clone(EDIT.obj);pg.id=slug(pg.id||pg.title);if(!pg.id)return toast('Add a title first.');if(!window.LN)return toast('site-extras.js not found.');download(pg.id+'.html',LN.buildPage(pg,{site:SITE_URL}));break;}
    case 'pick':PICK={path:d.path,isdb:!!d.isdb};openPicker();break;
    case 'choose':choose(d.p);break;
    case 'closemodal':$('#modal').classList.remove('on');break;
@@ -526,8 +710,8 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{
   const t=e.target;
   if(t.dataset.ui){const k=t.dataset.ui;UI[k]=t.value;
-    if(k==='tq')$('#tlist').innerHTML=textList();else{const kind=k.slice(0,-1);$('#rows-'+kind).innerHTML=rowsHtml(kind);}return;}
-  if(t.dataset.db){setP(DB,t.dataset.db,t.value);dirty(t.dataset.db.split('.')[0]);return;}
+    if(k==='tq')$('#tlist').innerHTML=textList();else if(k==='bgq')$('#bglist').innerHTML=bgList();else{const kind=k.slice(0,-1);$('#rows-'+kind).innerHTML=rowsHtml(kind);}return;}
+  if(t.dataset.db){setP(DB,t.dataset.db,t.type==='checkbox'?t.checked:t.value);dirty(t.dataset.db.split('.')[0]);return;}
   if(!t.dataset.f||!EDIT)return;
   let v=t.type==='checkbox'?t.checked:t.value;
   if(t.dataset.t==='lines')v=v.split('\n').map(s=>s.trim()).filter(Boolean);
