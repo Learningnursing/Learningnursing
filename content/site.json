@@ -117,7 +117,7 @@
       "group": "Stats",
       "selector": ".stats .stat:nth-child(1) strong",
       "attr": "",
-      "value": "8+"
+      "value": "15+"
     },
     {
       "label": "Stat 1 label",
