@@ -1,0 +1,344 @@
+{
+  "text": [
+    {
+      "label": "Browser tab title",
+      "group": "Site & SEO",
+      "selector": "title",
+      "attr": "",
+      "value": "LearningNursing.com | Learn Nursing. Understand Better. Care Better."
+    },
+    {
+      "label": "Search-engine description",
+      "group": "Site & SEO",
+      "selector": "meta[name=\"description\"]",
+      "attr": "content",
+      "value": "LearningNursing.com — simple, visual and practical nursing education resources and clinical procedure guides."
+    },
+    {
+      "label": "Menu: Home",
+      "group": "Navigation",
+      "selector": ".nav-links button:nth-child(1)",
+      "attr": "",
+      "value": "Home"
+    },
+    {
+      "label": "Menu: Categories",
+      "group": "Navigation",
+      "selector": ".nav-links button:nth-child(2)",
+      "attr": "",
+      "value": "Categories"
+    },
+    {
+      "label": "Menu: Procedures",
+      "group": "Navigation",
+      "selector": ".nav-links button:nth-child(3)",
+      "attr": "",
+      "value": "Procedures"
+    },
+    {
+      "label": "Menu: Modules",
+      "group": "Navigation",
+      "selector": ".nav-links button:nth-child(4)",
+      "attr": "",
+      "value": "Modules"
+    },
+    {
+      "label": "Menu: Trending",
+      "group": "Navigation",
+      "selector": ".nav-links button:nth-child(5)",
+      "attr": "",
+      "value": "Trending"
+    },
+    {
+      "label": "Menu: Resources",
+      "group": "Navigation",
+      "selector": ".nav-links button:nth-child(6)",
+      "attr": "",
+      "value": "Resources"
+    },
+    {
+      "label": "Top search placeholder",
+      "group": "Navigation",
+      "selector": "#navSearch",
+      "attr": "placeholder",
+      "value": "Search procedures, topics, resources..."
+    },
+    {
+      "label": "Hero small label",
+      "group": "Hero",
+      "selector": ".hero .eyebrow",
+      "attr": "",
+      "value": "Visual Nursing Education"
+    },
+    {
+      "label": "Hero title (HTML allowed: <br>, <span>)",
+      "group": "Hero",
+      "selector": ".hero h1",
+      "attr": "",
+      "value": "Learn Nursing.<br> <span>Understand Better.</span>"
+    },
+    {
+      "label": "Hero subtitle",
+      "group": "Hero",
+      "selector": ".hero p",
+      "attr": "",
+      "value": "Simple, visual and practical nursing learning resources designed to help students understand clinical knowledge with less confusion and more clarity."
+    },
+    {
+      "label": "Hero search placeholder",
+      "group": "Hero",
+      "selector": "#heroSearch",
+      "attr": "placeholder",
+      "value": "What do you want to learn? Try “hand hygiene”"
+    },
+    {
+      "label": "Hero button: Search",
+      "group": "Hero",
+      "selector": ".hero-search .primary-btn",
+      "attr": "",
+      "value": "Search"
+    },
+    {
+      "label": "Hero button: Explore",
+      "group": "Hero",
+      "selector": ".hero-actions .primary-btn",
+      "attr": "",
+      "value": "Explore Procedures"
+    },
+    {
+      "label": "Hero button: Browse",
+      "group": "Hero",
+      "selector": ".hero-actions .secondary-btn",
+      "attr": "",
+      "value": "Browse Categories"
+    },
+    {
+      "label": "Stat 1 number",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(1) strong",
+      "attr": "",
+      "value": "8+"
+    },
+    {
+      "label": "Stat 1 label",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(1) span",
+      "attr": "",
+      "value": "Demo procedures"
+    },
+    {
+      "label": "Stat 2 number",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(2) strong",
+      "attr": "",
+      "value": "11"
+    },
+    {
+      "label": "Stat 2 label",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(2) span",
+      "attr": "",
+      "value": "Learning categories"
+    },
+    {
+      "label": "Stat 3 number",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(3) strong",
+      "attr": "",
+      "value": "Visual"
+    },
+    {
+      "label": "Stat 3 label",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(3) span",
+      "attr": "",
+      "value": "Step-by-step learning"
+    },
+    {
+      "label": "Stat 4 number",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(4) strong",
+      "attr": "",
+      "value": "24/7"
+    },
+    {
+      "label": "Stat 4 label",
+      "group": "Stats",
+      "selector": ".stats .stat:nth-child(4) span",
+      "attr": "",
+      "value": "Learning access"
+    },
+    {
+      "label": "Categories heading",
+      "group": "Section headings",
+      "selector": "#categories .section-heading h2",
+      "attr": "",
+      "value": "Explore Nursing Categories"
+    },
+    {
+      "label": "Categories description",
+      "group": "Section headings",
+      "selector": "#categories .section-heading p",
+      "attr": "",
+      "value": "Find the area of nursing you want to study."
+    },
+    {
+      "label": "Procedures heading",
+      "group": "Section headings",
+      "selector": "#procedures .section-heading h2",
+      "attr": "",
+      "value": "Nursing Procedures"
+    },
+    {
+      "label": "Procedures description",
+      "group": "Section headings",
+      "selector": "#procedures .section-heading p",
+      "attr": "",
+      "value": "Learn essential procedures through visual, step-by-step guides."
+    },
+    {
+      "label": "Modules heading",
+      "group": "Section headings",
+      "selector": "#learning-modules .section-heading h2",
+      "attr": "",
+      "value": "Learning Modules"
+    },
+    {
+      "label": "Modules description",
+      "group": "Section headings",
+      "selector": "#learning-modules .section-heading p",
+      "attr": "",
+      "value": "Organised learning paths for nursing students."
+    },
+    {
+      "label": "Trending heading",
+      "group": "Section headings",
+      "selector": "#trending .section-heading h2",
+      "attr": "",
+      "value": "Trending Nursing Skills"
+    },
+    {
+      "label": "Trending description",
+      "group": "Section headings",
+      "selector": "#trending .section-heading p",
+      "attr": "",
+      "value": "Touch, drag or scroll horizontally to explore."
+    },
+    {
+      "label": "Notes heading",
+      "group": "Section headings",
+      "selector": "#resources .section-heading h2",
+      "attr": "",
+      "value": "Nursing Notes &amp; Study Resources"
+    },
+    {
+      "label": "Notes description",
+      "group": "Section headings",
+      "selector": "#resources .section-heading p",
+      "attr": "",
+      "value": "Simple, organised notes for nursing students. Choose a subject and explore its main topics and subtopics."
+    },
+    {
+      "label": "Feature panel heading",
+      "group": "About / Feature",
+      "selector": ".feature-panel h2",
+      "attr": "",
+      "value": "Nursing procedures, explained visually."
+    },
+    {
+      "label": "Feature panel text",
+      "group": "About / Feature",
+      "selector": ".feature-panel > div:first-child > p",
+      "attr": "",
+      "value": "Instead of forcing students to read long paragraphs, LearningNursing is designed around visual learning: see the step, understand the action, then read the clinical explanation."
+    },
+    {
+      "label": "Creator label",
+      "group": "About / Creator",
+      "selector": ".creator-label",
+      "attr": "",
+      "value": "About the Creator"
+    },
+    {
+      "label": "Creator name",
+      "group": "About / Creator",
+      "selector": ".creator-info h2",
+      "attr": "",
+      "value": "K. Jashikesh"
+    },
+    {
+      "label": "Creator role",
+      "group": "About / Creator",
+      "selector": ".creator-role",
+      "attr": "",
+      "value": "Nursing Student &amp; Creator of LearningNursing"
+    },
+    {
+      "label": "Creator message",
+      "group": "About / Creator",
+      "selector": ".creator-message",
+      "attr": "",
+      "value": "LearningNursing was created with one simple goal: to make nursing education easier to understand, more practical, and accessible to students."
+    },
+    {
+      "label": "Creator email (shown text)",
+      "group": "About / Creator",
+      "selector": ".creator-email",
+      "attr": "",
+      "value": "jasi.bala2003@gmail.com"
+    },
+    {
+      "label": "Creator quote",
+      "group": "About / Creator",
+      "selector": ".creator-quote",
+      "attr": "",
+      "value": "“Every LESSON you master becomes a WEAPON against the limits of your past”"
+    },
+    {
+      "label": "Footer description",
+      "group": "Footer",
+      "selector": ".footer-brand p",
+      "attr": "",
+      "value": "Learn nursing. Understand better. Care better. A visual-first nursing education platform."
+    },
+    {
+      "label": "Footer copyright line",
+      "group": "Footer",
+      "selector": ".footer-bottom",
+      "attr": "",
+      "value": "© 2026 LearningNursing.com · Educational content should always be checked against current professional and institutional guidance."
+    }
+  ],
+  "images": [
+    {
+      "label": "Hero image",
+      "selector": ".hero-art img",
+      "attr": "src",
+      "value": "images/a_clean_modern_futuristic_healthcare_themed_digi.PNG"
+    },
+    {
+      "label": "Website background (blurred, behind everything)",
+      "selector": "body",
+      "attr": "bg",
+      "value": "nursing-background.JPG"
+    },
+    {
+      "label": "Creator photo",
+      "selector": ".creator-photo",
+      "attr": "src",
+      "value": "images/jashikesh.JPG"
+    },
+    {
+      "label": "Nurse Callie calculator button",
+      "selector": "#nurseCallieButton img",
+      "attr": "src",
+      "value": "Nurse-calcie.png"
+    },
+    {
+      "label": "Favicon (browser tab icon)",
+      "selector": "link[rel~=\"icon\"]",
+      "attr": "favicon",
+      "value": ""
+    }
+  ]
+}
