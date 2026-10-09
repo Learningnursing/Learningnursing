@@ -1,9 +1,15 @@
 {
-  // ...
-  "vars": {
-    "ALLOWED_ORIGIN": "https://learningnursing.github.io",
-    "GITHUB_BRANCH": "main",
-    "GITHUB_REPO": "Learningnursing/Learningnursing"
-  },
-  // ...
+“$schema”: “node_modules/wrangler/config-schema.json”,
+“name”: “learningnursing”,
+“main”: “worker/worker.js”,
+“compatibility_date”: “2026-10-09”,
+“assets”: {
+“directory”: “.”,
+“not_found_handling”: “single-page-application”
+},
+“vars”: {
+“ALLOWED_ORIGIN”: “https://learningnursing.github.io”,
+“GITHUB_BRANCH”: “main”,
+“GITHUB_REPO”: “Learningnursing/Learningnursing”
+}
 }
