@@ -1,0 +1,1578 @@
+{
+  "categories": [
+    {
+      "id": "infection-control",
+      "name": "Infection Control",
+      "icon": "🧼",
+      "blurb": "Hand hygiene, PPE and infection prevention.",
+      "filterLabel": "Infection Control",
+      "card": true,
+      "filter": true
+    },
+    {
+      "id": "patient-assessment",
+      "name": "Patient Assessment",
+      "icon": "🩺",
+      "blurb": "Vital signs and clinical observations.",
+      "filterLabel": "Patient Assessment",
+      "card": true,
+      "filter": true
+    },
+    {
+      "id": "medication-administration",
+      "name": "Medication Administration",
+      "icon": "💊",
+      "blurb": "Learn medication-related clinical skills.",
+      "filterLabel": "Medication",
+      "card": true,
+      "filter": true
+    },
+    {
+      "id": "patient-care",
+      "name": "Patient Care",
+      "icon": "🛏️",
+      "blurb": "Essential bedside nursing skills.",
+      "filterLabel": "Patient Care",
+      "card": true,
+      "filter": true
+    },
+    {
+      "id": "clinical-skills",
+      "name": "Clinical Skills",
+      "icon": "🩹",
+      "blurb": "Practical skills for nursing students.",
+      "filterLabel": "",
+      "card": true,
+      "filter": false
+    },
+    {
+      "id": "wound-care",
+      "name": "Wound Care",
+      "icon": "🩹",
+      "blurb": "Wound assessment and care resources.",
+      "filterLabel": "",
+      "card": true,
+      "filter": false
+    },
+    {
+      "id": "specimen-collection",
+      "name": "Specimen Collection",
+      "icon": "🧪",
+      "blurb": "Learn common specimen procedures.",
+      "filterLabel": "",
+      "card": true,
+      "filter": false
+    },
+    {
+      "id": "respiratory-care",
+      "name": "Respiratory Care",
+      "icon": "🫁",
+      "blurb": "Respiratory assessment and care.",
+      "filterLabel": "",
+      "card": true,
+      "filter": false
+    }
+  ],
+  "items": [
+    {
+      "id": "hand-hygiene",
+      "title": "Hand Hygiene",
+      "category": "infection-control",
+      "categoryName": "Infection Control",
+      "difficulty": "Beginner",
+      "description": "A complete nursing guide to routine handwashing, alcohol-based hand rub, the WHO Five Moments, glove use and surgical hand preparation.",
+      "keywords": [
+        "hand hygiene",
+        "hand washing",
+        "handwashing",
+        "hand wash",
+        "hand rub",
+        "alcohol based hand rub",
+        "ABHR",
+        "surgical hand preparation",
+        "surgical scrub",
+        "five moments",
+        "infection prevention",
+        "gloves"
+      ],
+      "illustration": "images/Handwashing.jpg",
+      "overview": "Hand hygiene is one of the most important infection-prevention practices in healthcare. It includes cleaning the hands with soap and water, using an alcohol-based hand rub when appropriate, and surgical hand preparation before surgical procedures. For routine handwashing, the WHO procedure takes approximately 40–60 seconds. When hands are not visibly soiled, an alcohol-based hand rub is generally preferred for routine clinical hand hygiene.",
+      "why": "<strong>Why hand hygiene matters:</strong><br>Hand hygiene helps reduce the transmission of microorganisms between healthcare workers, patients and the clinical environment.<br><br><strong>WHO Five Moments:</strong><br>1. Before touching a patient<br>2. Before a clean/aseptic procedure<br>3. After body fluid exposure risk<br>4. After touching a patient<br>5. After touching patient surroundings<br><br><strong>Important:</strong> Gloves do not replace hand hygiene. Perform hand hygiene when clinically indicated before putting on gloves and after removing them.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "",
+          "Clean running water — for soap-and-water handwashing"
+        ],
+        [
+          "",
+          "Liquid soap"
+        ],
+        [
+          "",
+          "Single-use disposable paper towel"
+        ],
+        [
+          "",
+          "Alcohol-based hand rub — when appropriate"
+        ],
+        [
+          "",
+          "Waste bin"
+        ],
+        [
+          "",
+          "Hand hygiene sink"
+        ],
+        [
+          "",
+          "Antimicrobial surgical hand preparation product — for surgical procedures"
+        ],
+        [
+          "",
+          "Sterile disposable towel — for surgical hand preparation"
+        ],
+        [
+          "",
+          "Sterile surgical gloves — after surgical hand preparation"
+        ],
+        [
+          "",
+          "Surgical gown, cap and mask — according to operating-room protocol"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Recognise the indication",
+          "instruction": "Identify when hand hygiene is required before beginning patient care.",
+          "explanation": "Use the WHO Five Moments as a framework: before touching a patient, before a clean or aseptic procedure, after body fluid exposure risk, after touching a patient and after touching patient surroundings.",
+          "art": "hands"
+        },
+        {
+          "title": "Prepare your hands",
+          "instruction": "Remove unnecessary hand and wrist jewellery and keep fingernails short and clean.",
+          "explanation": "Artificial nails and extensions should be avoided when caring for high-risk patients or when required by institutional policy. Check the hands for visible contamination.",
+          "art": "hands"
+        },
+        {
+          "title": "Wet the hands",
+          "instruction": "For soap-and-water handwashing, wet the hands with clean running water.",
+          "explanation": "Apply enough liquid soap to cover all surfaces of the hands.",
+          "art": "water"
+        },
+        {
+          "title": "Rub palm to palm",
+          "instruction": "Rub the palms together.",
+          "explanation": "Create a lather and begin covering all surfaces of both hands.",
+          "art": "rub"
+        },
+        {
+          "title": "Clean the backs and between the fingers",
+          "instruction": "Rub the right palm over the left dorsum with fingers interlaced, then repeat on the opposite side.",
+          "explanation": "Continue by rubbing palm to palm with fingers interlaced so that the spaces between the fingers are cleaned.",
+          "art": "rub"
+        },
+        {
+          "title": "Clean the backs of the fingers",
+          "instruction": "Rub the backs of the fingers against the opposite palm with the fingers interlocked.",
+          "explanation": "This helps clean areas that are commonly missed during routine hand hygiene.",
+          "art": "rub"
+        },
+        {
+          "title": "Clean the thumbs and fingertips",
+          "instruction": "Rotationally rub each thumb and clean the fingertips and nail areas against the opposite palm.",
+          "explanation": "Pay particular attention to thumbs, fingertips, around and under the fingernails and other frequently missed areas.",
+          "art": "hands"
+        },
+        {
+          "title": "Clean the wrists",
+          "instruction": "Include the wrists when performing the handwashing procedure.",
+          "explanation": "Ensure all required hand surfaces have been cleaned before rinsing.",
+          "art": "hands"
+        },
+        {
+          "title": "Rinse and dry",
+          "instruction": "Rinse thoroughly with clean running water and dry completely with a single-use towel.",
+          "explanation": "For the WHO handwashing sequence, the entire procedure takes approximately 40–60 seconds.",
+          "art": "water"
+        },
+        {
+          "title": "Turn off the faucet safely",
+          "instruction": "Use the disposable towel to turn off the faucet when appropriate.",
+          "explanation": "This helps avoid recontaminating clean hands by touching a potentially contaminated faucet handle.",
+          "art": "hands"
+        },
+        {
+          "title": "Alcohol-based hand rub",
+          "instruction": "When hands are not visibly soiled, use an appropriate alcohol-based hand rub according to the product instructions.",
+          "explanation": "Apply enough product to cover all hand surfaces. Rub palms, backs of hands, between fingers, backs of fingers, thumbs and fingertips until the hands are completely dry. The CDC describes approximately 20 seconds for this process.",
+          "art": "rub"
+        },
+        {
+          "title": "Surgical hand preparation",
+          "instruction": "Before surgery, follow the approved surgical hand preparation method and the product manufacturer's instructions.",
+          "explanation": "Surgical hand preparation may use an antimicrobial soap-and-water method or an approved surgical alcohol-based hand preparation. Remove jewellery, keep nails short and clean, and follow the operating-room protocol for drying, gowning and sterile gloving. WHO guidance does not routinely recommend nail brushes because they can damage the skin.",
+          "art": "hands"
+        },
+        {
+          "title": "Hand hygiene and gloves",
+          "instruction": "Never use gloves as a substitute for hand hygiene.",
+          "explanation": "Perform hand hygiene whenever indicated before donning gloves and after removing gloves. Change gloves when required by the clinical situation, including when moving from a contaminated body site to a clean body site or between patients.",
+          "art": "hands"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [
+        {
+          "title": "WHO — How to Handwash",
+          "url": "https://www.who.int/publications/m/item/how-to-handwash"
+        },
+        {
+          "title": "WHO — Five Moments for Hand Hygiene",
+          "url": "https://www.who.int/publications/m/item/five-moments-for-hand-hygiene"
+        },
+        {
+          "title": "WHO — Hand Hygiene Technical Reference Manual",
+          "url": "https://iris.who.int/bitstream/handle/10665/44196/9789241598606_eng.pdf"
+        },
+        {
+          "title": "WHO — Infection Prevention and Control: Hand Hygiene Training Tools",
+          "url": "https://www.who.int/teams/integrated-health-services/infection-prevention-control/hand-hygiene/training-tools"
+        },
+        {
+          "title": "CDC — Clinical Safety: Hand Hygiene for Healthcare Workers",
+          "url": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html"
+        },
+        {
+          "title": "CDC — Hand Hygiene Frequently Asked Questions",
+          "url": "https://www.cdc.gov/clean-hands/faq/index.html"
+        }
+      ],
+      "lastReviewed": "8 October 2026",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "blood-pressure",
+      "title": "Blood Pressure Measurement",
+      "category": "patient-assessment",
+      "categoryName": "Patient Assessment",
+      "difficulty": "Beginner",
+      "description": "Understand the basic process of measuring blood pressure.",
+      "keywords": [
+        "BP",
+        "blood pressure",
+        "vital signs",
+        "observations"
+      ],
+      "illustration": "images/Pressure.jpg",
+      "overview": "Blood pressure measurement assesses the pressure of circulating blood against arterial walls.",
+      "why": "Blood pressure is an important component of routine patient assessment.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🩺",
+          "Blood pressure device"
+        ],
+        [
+          "📏",
+          "Appropriate cuff"
+        ],
+        [
+          "⏱️",
+          "Timer when required"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the patient and equipment.",
+          "explanation": "Explain the procedure and prepare the appropriate equipment according to current clinical guidance.",
+          "art": "bp"
+        },
+        {
+          "title": "Position",
+          "instruction": "Position the patient appropriately.",
+          "explanation": "Use the position and arm placement required by your institution's current procedure.",
+          "art": "bp"
+        },
+        {
+          "title": "Measure",
+          "instruction": "Obtain the blood pressure reading.",
+          "explanation": "Use the approved measurement technique for the equipment available.",
+          "art": "bp"
+        },
+        {
+          "title": "Record",
+          "instruction": "Record and communicate the result.",
+          "explanation": "Document the measurement accurately according to local documentation requirements.",
+          "art": "bp"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "temperature",
+      "title": "Temperature Measurement",
+      "category": "patient-assessment",
+      "categoryName": "Patient Assessment",
+      "difficulty": "Beginner",
+      "description": "Learn the basic principles of measuring body temperature.",
+      "keywords": [
+        "temperature",
+        "thermometer",
+        "fever",
+        "vital signs"
+      ],
+      "illustration": "images/Temperature.jpg",
+      "overview": "Temperature measurement provides an assessment of the body's temperature.",
+      "why": "Temperature can contribute important information to a patient's overall assessment.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🌡️",
+          "Appropriate thermometer"
+        ],
+        [
+          "🧤",
+          "Personal protective equipment when indicated"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the equipment and patient.",
+          "explanation": "Select an appropriate measurement method and equipment according to current guidance.",
+          "art": "thermometer"
+        },
+        {
+          "title": "Position",
+          "instruction": "Position the thermometer correctly.",
+          "explanation": "Use the technique appropriate to the device and measurement site.",
+          "art": "thermometer"
+        },
+        {
+          "title": "Measure",
+          "instruction": "Obtain the temperature.",
+          "explanation": "Follow the manufacturer's instructions and local clinical procedure.",
+          "art": "thermometer"
+        },
+        {
+          "title": "Record",
+          "instruction": "Record the result.",
+          "explanation": "Document the result and measurement method accurately.",
+          "art": "thermometer"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "pulse",
+      "title": "Pulse Assessment",
+      "category": "patient-assessment",
+      "categoryName": "Patient Assessment",
+      "difficulty": "Beginner",
+      "description": "Learn the basic process of assessing a peripheral pulse.",
+      "keywords": [
+        "pulse",
+        "heart rate",
+        "radial pulse",
+        "vital signs"
+      ],
+      "illustration": "images/Pulse.jpg",
+      "overview": "Pulse assessment involves evaluating the arterial pulse at an appropriate site.",
+      "why": "Pulse assessment can provide useful information about cardiovascular status.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "⏱️",
+          "Watch or timer"
+        ],
+        [
+          "📝",
+          "Documentation system or chart"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the patient and explain the assessment.",
+          "explanation": "Use an appropriate pulse site and follow your institution's assessment procedure.",
+          "art": "pulse"
+        },
+        {
+          "title": "Locate",
+          "instruction": "Locate the pulse.",
+          "explanation": "Use the appropriate fingers and anatomical location according to clinical teaching.",
+          "art": "pulse"
+        },
+        {
+          "title": "Assess",
+          "instruction": "Assess the pulse.",
+          "explanation": "Assess the characteristics required by your clinical procedure.",
+          "art": "pulse"
+        },
+        {
+          "title": "Record",
+          "instruction": "Document the findings.",
+          "explanation": "Record the relevant assessment findings accurately.",
+          "art": "pulse"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "respiratory-rate",
+      "title": "Respiratory Rate Assessment",
+      "category": "patient-assessment",
+      "categoryName": "Patient Assessment",
+      "difficulty": "Beginner",
+      "description": "Learn how respiratory rate is assessed and documented.",
+      "keywords": [
+        "respiratory rate",
+        "breathing",
+        "respiration",
+        "vital signs"
+      ],
+      "illustration": "images/Rr.jpg",
+      "overview": "Respiratory rate is the number of breaths taken over a specified period.",
+      "why": "Changes in breathing can provide important information about a patient's condition.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "⏱️",
+          "Watch or timer"
+        ],
+        [
+          "📝",
+          "Documentation system or chart"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Observe",
+          "instruction": "Observe the patient's breathing.",
+          "explanation": "Assess breathing discreetly and follow the appropriate clinical procedure.",
+          "art": "lungs"
+        },
+        {
+          "title": "Count",
+          "instruction": "Count the respirations.",
+          "explanation": "Use the timing method specified by your institution.",
+          "art": "lungs"
+        },
+        {
+          "title": "Assess",
+          "instruction": "Consider relevant breathing characteristics.",
+          "explanation": "Follow your assessment framework for the characteristics that should be recorded.",
+          "art": "lungs"
+        },
+        {
+          "title": "Record",
+          "instruction": "Document the findings.",
+          "explanation": "Record the result accurately and communicate concerning findings through the appropriate clinical pathway.",
+          "art": "lungs"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "bed-making",
+      "title": "Bed Making",
+      "category": "patient-care",
+      "categoryName": "Patient Care",
+      "difficulty": "Beginner",
+      "description": "Learn the basic principles of preparing a clean patient bed.",
+      "keywords": [
+        "bed",
+        "bed making",
+        "linen",
+        "sheets",
+        "patient care"
+      ],
+      "illustration": "images/Bedmaking.jpg",
+      "overview": "Bed making involves preparing a clean, safe and comfortable patient bed.",
+      "why": "A properly prepared bed supports comfort, hygiene and patient safety.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🛏️",
+          "Appropriate bed"
+        ],
+        [
+          "🧺",
+          "Clean linen"
+        ],
+        [
+          "🧤",
+          "PPE when indicated"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the environment and equipment.",
+          "explanation": "Gather the required linen and follow local infection prevention procedures.",
+          "art": "bed"
+        },
+        {
+          "title": "Remove",
+          "instruction": "Remove used linen appropriately.",
+          "explanation": "Handle used linen according to institutional infection-control procedures.",
+          "art": "bed"
+        },
+        {
+          "title": "Make",
+          "instruction": "Apply clean linen correctly.",
+          "explanation": "Follow your nursing school's approved bed-making technique.",
+          "art": "bed"
+        },
+        {
+          "title": "Check",
+          "instruction": "Check the finished bed.",
+          "explanation": "Ensure the bed is clean, safe and appropriate for the patient's needs.",
+          "art": "bed"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "oral-medication",
+      "title": "Oral Medication Administration",
+      "category": "medication-administration",
+      "categoryName": "Medication Administration",
+      "difficulty": "Intermediate",
+      "description": "Explore the principles involved in oral medication administration.",
+      "keywords": [
+        "oral medication",
+        "tablets",
+        "medicine",
+        "medication",
+        "pills"
+      ],
+      "illustration": "images/Oralmedication.jpg",
+      "overview": "Oral medication administration involves giving medication by mouth according to an authorised prescription and clinical procedure.",
+      "why": "Safe medication administration is a core nursing responsibility.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "💊",
+          "Prescribed medication"
+        ],
+        [
+          "🥤",
+          "Appropriate fluid when indicated"
+        ],
+        [
+          "📝",
+          "Medication record"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Verify",
+          "instruction": "Verify the medication order and patient.",
+          "explanation": "Follow your institution's medication safety checks and scope of practice.",
+          "art": "medicine"
+        },
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the medication safely.",
+          "explanation": "Use the approved medication preparation process.",
+          "art": "medicine"
+        },
+        {
+          "title": "Administer",
+          "instruction": "Administer the medication safely.",
+          "explanation": "Follow the prescribed route, local policy and medication safety requirements.",
+          "art": "medicine"
+        },
+        {
+          "title": "Document",
+          "instruction": "Document the administration.",
+          "explanation": "Record medication administration according to the applicable documentation system.",
+          "art": "medicine"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "im-injection",
+      "title": "Intramuscular Injection",
+      "category": "medication-administration",
+      "categoryName": "Medication Administration",
+      "difficulty": "Intermediate",
+      "description": "Learn the principles behind intramuscular medication administration.",
+      "keywords": [
+        "IM",
+        "injection",
+        "intramuscular",
+        "syringe",
+        "needle"
+      ],
+      "illustration": "images/Im.jpg",
+      "overview": "An intramuscular injection delivers medication into muscle tissue.",
+      "why": "Intramuscular administration is one of several medication routes used in clinical practice.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "💉",
+          "Appropriate syringe and needle"
+        ],
+        [
+          "💊",
+          "Prescribed medication"
+        ],
+        [
+          "🧤",
+          "Appropriate PPE"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Verify",
+          "instruction": "Verify the medication and patient.",
+          "explanation": "Complete the medication safety checks required by your institution.",
+          "art": "injection"
+        },
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the medication and equipment.",
+          "explanation": "Use an approved preparation and aseptic technique.",
+          "art": "injection"
+        },
+        {
+          "title": "Administer",
+          "instruction": "Administer using the approved technique.",
+          "explanation": "Injection site, needle selection and technique must follow current clinical guidance and patient-specific factors.",
+          "art": "injection"
+        },
+        {
+          "title": "Document",
+          "instruction": "Document the medication administration.",
+          "explanation": "Record the required details in the medication record.",
+          "art": "injection"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "oxygen-therapy",
+      "title": "Oxygen Therapy",
+      "category": "respiratory-care",
+      "categoryName": "Respiratory Care",
+      "difficulty": "Beginner",
+      "description": "Learn the basic nursing approach to safe oxygen therapy.",
+      "keywords": [
+        "oxygen",
+        "oxygen therapy",
+        "nasal cannula",
+        "respiratory",
+        "spo2"
+      ],
+      "illustration": "images/Oxygentherapy.jpg",
+      "overview": "Oxygen therapy provides supplemental oxygen when clinically indicated.",
+      "why": "Correct oxygen delivery and monitoring support safe respiratory care.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🫁",
+          "Oxygen delivery device"
+        ],
+        [
+          "📟",
+          "Pulse oximeter"
+        ],
+        [
+          "🧤",
+          "PPE when indicated"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Assess",
+          "instruction": "Assess the patient and oxygen requirement.",
+          "explanation": "Check the patient's respiratory status and follow the prescribed or local clinical guidance.",
+          "art": "respiratory"
+        },
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the prescribed oxygen equipment.",
+          "explanation": "Select the appropriate device and check the equipment before use.",
+          "art": "respiratory"
+        },
+        {
+          "title": "Apply",
+          "instruction": "Apply the oxygen device correctly.",
+          "explanation": "Position the device safely and provide the prescribed oxygen delivery.",
+          "art": "respiratory"
+        },
+        {
+          "title": "Monitor",
+          "instruction": "Monitor the patient's response.",
+          "explanation": "Reassess respiratory status and oxygen saturation and document findings.",
+          "art": "respiratory"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "pulse-oximetry",
+      "title": "Pulse Oximetry",
+      "category": "respiratory-care",
+      "categoryName": "Respiratory Care",
+      "difficulty": "Beginner",
+      "description": "Learn the basic process of obtaining and interpreting an SpO₂ reading.",
+      "keywords": [
+        "SpO2",
+        "oxygen saturation",
+        "pulse oximeter",
+        "oxygen"
+      ],
+      "illustration": "images/Pulseoximetry.jpg",
+      "overview": "Pulse oximetry provides a non-invasive estimate of peripheral oxygen saturation.",
+      "why": "SpO₂ can support assessment of a patient's respiratory status when used appropriately.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "📟",
+          "Pulse oximeter"
+        ],
+        [
+          "🧼",
+          "Hand hygiene supplies"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the patient and device.",
+          "explanation": "Explain the procedure and check that the device is ready for use.",
+          "art": "respiratory"
+        },
+        {
+          "title": "Position",
+          "instruction": "Place the sensor appropriately.",
+          "explanation": "Use a suitable measurement site and ensure the sensor is positioned correctly.",
+          "art": "respiratory"
+        },
+        {
+          "title": "Read",
+          "instruction": "Allow the reading to stabilise.",
+          "explanation": "Assess the displayed value together with the patient's clinical condition.",
+          "art": "respiratory"
+        },
+        {
+          "title": "Record",
+          "instruction": "Document the result.",
+          "explanation": "Record the reading and relevant clinical observations according to local requirements.",
+          "art": "respiratory"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "blood-glucose",
+      "title": "Capillary Blood Glucose",
+      "category": "patient-assessment",
+      "categoryName": "Patient Assessment",
+      "difficulty": "Intermediate",
+      "description": "Learn the basic workflow for capillary blood glucose monitoring.",
+      "keywords": [
+        "blood glucose",
+        "glucose",
+        "glucometer",
+        "finger prick",
+        "diabetes"
+      ],
+      "illustration": "images/Glucose.jpg",
+      "overview": "Capillary blood glucose testing provides a point-of-care measurement of blood glucose.",
+      "why": "Glucose monitoring can support assessment and management of patients with altered glucose levels.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🩸",
+          "Glucose meter"
+        ],
+        [
+          "🧪",
+          "Test strip"
+        ],
+        [
+          "🧤",
+          "Gloves"
+        ],
+        [
+          "🩹",
+          "Sharps disposal container"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the meter and supplies.",
+          "explanation": "Check the device, test strip and required infection-control supplies.",
+          "art": "blood"
+        },
+        {
+          "title": "Prepare Site",
+          "instruction": "Prepare the selected finger or approved site.",
+          "explanation": "Use the approved site-preparation technique for the device and local policy.",
+          "art": "blood"
+        },
+        {
+          "title": "Test",
+          "instruction": "Obtain and apply the blood sample.",
+          "explanation": "Use the manufacturer's instructions and current clinical procedure.",
+          "art": "blood"
+        },
+        {
+          "title": "Document",
+          "instruction": "Record and respond to the result.",
+          "explanation": "Document the reading and follow the relevant escalation or treatment pathway when indicated.",
+          "art": "blood"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "wound-dressing",
+      "title": "Wound Dressing",
+      "category": "wound-care",
+      "categoryName": "Wound Care",
+      "difficulty": "Intermediate",
+      "description": "Learn the structured approach to wound assessment and dressing care.",
+      "keywords": [
+        "wound",
+        "dressing",
+        "wound care",
+        "aseptic",
+        "infection"
+      ],
+      "illustration": "images/Wounddressing.jpg",
+      "overview": "Wound dressing involves assessment, appropriate preparation and application of the selected dressing.",
+      "why": "Consistent wound care supports healing and helps identify complications early.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🧤",
+          "Appropriate gloves"
+        ],
+        [
+          "🩹",
+          "Prescribed dressing"
+        ],
+        [
+          "🧼",
+          "Cleaning solution as indicated"
+        ],
+        [
+          "🗑️",
+          "Clinical waste container"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Assess",
+          "instruction": "Assess the wound and surrounding skin.",
+          "explanation": "Observe relevant wound characteristics and compare with previous documentation where available.",
+          "art": "wound"
+        },
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the equipment and environment.",
+          "explanation": "Maintain the required infection-prevention and aseptic measures for the procedure.",
+          "art": "wound"
+        },
+        {
+          "title": "Dress",
+          "instruction": "Clean and dress the wound as indicated.",
+          "explanation": "Use the prescribed or approved wound-care technique and dressing.",
+          "art": "wound"
+        },
+        {
+          "title": "Document",
+          "instruction": "Document wound care findings.",
+          "explanation": "Record the wound assessment, care provided and patient's response.",
+          "art": "wound"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "urinary-catheter-care",
+      "title": "Urinary Catheter Care",
+      "category": "patient-care",
+      "categoryName": "Patient Care",
+      "difficulty": "Intermediate",
+      "description": "Learn essential principles of caring for a patient with an indwelling urinary catheter.",
+      "keywords": [
+        "urinary catheter",
+        "catheter care",
+        "Foley",
+        "urine",
+        "UTI"
+      ],
+      "illustration": "images/Urinary.jpg",
+      "overview": "Urinary catheter care aims to maintain a closed system and reduce preventable complications.",
+      "why": "Appropriate catheter care supports patient comfort and infection prevention.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🧤",
+          "Gloves"
+        ],
+        [
+          "🧼",
+          "Approved cleansing supplies"
+        ],
+        [
+          "🗑️",
+          "Waste container"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Assess",
+          "instruction": "Assess the catheter system and patient.",
+          "explanation": "Check comfort, drainage and the integrity of the catheter system.",
+          "art": "catheter"
+        },
+        {
+          "title": "Maintain",
+          "instruction": "Maintain the drainage system appropriately.",
+          "explanation": "Keep the system secure and follow current infection-prevention guidance.",
+          "art": "catheter"
+        },
+        {
+          "title": "Provide Care",
+          "instruction": "Provide routine catheter hygiene.",
+          "explanation": "Use the approved technique and avoid unnecessary manipulation of the system.",
+          "art": "catheter"
+        },
+        {
+          "title": "Document",
+          "instruction": "Document care and observations.",
+          "explanation": "Record relevant findings, urine output when required and any concerns.",
+          "art": "catheter"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "nasogastric-feeding",
+      "title": "Nasogastric Tube Feeding",
+      "category": "patient-care",
+      "categoryName": "Patient Care",
+      "difficulty": "Intermediate",
+      "description": "Review the nursing principles involved in enteral feeding through an NG tube.",
+      "keywords": [
+        "NG tube",
+        "nasogastric",
+        "enteral feeding",
+        "tube feeding"
+      ],
+      "illustration": "images/Ng.jpg",
+      "overview": "Nasogastric feeding delivers prescribed nutrition or fluids through a feeding tube.",
+      "why": "Safe enteral feeding requires appropriate patient assessment, tube verification and monitoring.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🧪",
+          "Prescribed feed"
+        ],
+        [
+          "🧴",
+          "Enteral feeding equipment"
+        ],
+        [
+          "🧤",
+          "Gloves"
+        ],
+        [
+          "💧",
+          "Flush solution as prescribed"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Assess",
+          "instruction": "Assess the patient before feeding.",
+          "explanation": "Check the patient's condition and follow the current enteral-feeding protocol.",
+          "art": "tube"
+        },
+        {
+          "title": "Verify",
+          "instruction": "Verify tube placement using the approved method.",
+          "explanation": "Do not proceed until tube placement has been confirmed according to current clinical guidance.",
+          "art": "tube"
+        },
+        {
+          "title": "Feed",
+          "instruction": "Administer the prescribed feed safely.",
+          "explanation": "Use the prescribed method, rate and precautions for the patient.",
+          "art": "tube"
+        },
+        {
+          "title": "Monitor",
+          "instruction": "Monitor tolerance and document care.",
+          "explanation": "Observe for complications and record the feed, flushes and patient response as required.",
+          "art": "tube"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "iv-site-assessment",
+      "title": "Peripheral IV Site Assessment",
+      "category": "clinical-skills",
+      "categoryName": "Clinical Skills",
+      "difficulty": "Intermediate",
+      "description": "Learn how to assess a peripheral IV site for common complications.",
+      "keywords": [
+        "IV",
+        "intravenous",
+        "cannula",
+        "infiltration",
+        "phlebitis"
+      ],
+      "illustration": "images/Iv.jpg",
+      "overview": "Peripheral IV site assessment checks the insertion site and surrounding tissue for complications.",
+      "why": "Early recognition of infiltration, phlebitis or other complications supports patient safety.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🧤",
+          "Gloves"
+        ],
+        [
+          "🩹",
+          "Dressing supplies when required"
+        ],
+        [
+          "💉",
+          "IV equipment as applicable"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Inspect",
+          "instruction": "Inspect the IV insertion site.",
+          "explanation": "Look for changes such as redness, swelling, leakage or other abnormal findings.",
+          "art": "iv"
+        },
+        {
+          "title": "Assess",
+          "instruction": "Assess the patient and site.",
+          "explanation": "Ask about pain or discomfort and assess the site according to local policy.",
+          "art": "iv"
+        },
+        {
+          "title": "Check",
+          "instruction": "Check the IV system as required.",
+          "explanation": "Review patency and the prescribed infusion without unnecessary manipulation.",
+          "art": "iv"
+        },
+        {
+          "title": "Act",
+          "instruction": "Report or manage concerns appropriately.",
+          "explanation": "Follow local escalation and device-management guidance when abnormalities are identified.",
+          "art": "iv"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "specimen-collection",
+      "title": "Urine Specimen Collection",
+      "category": "specimen-collection",
+      "categoryName": "Specimen Collection",
+      "difficulty": "Beginner",
+      "description": "Learn the basic principles of collecting and labelling a urine specimen.",
+      "keywords": [
+        "urine specimen",
+        "specimen",
+        "urinalysis",
+        "sample collection"
+      ],
+      "illustration": "images/Urine.jpg",
+      "overview": "Urine specimen collection obtains a sample for laboratory or point-of-care testing.",
+      "why": "Correct collection and labelling help maintain specimen quality and patient safety.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🧪",
+          "Appropriate specimen container"
+        ],
+        [
+          "🧤",
+          "Gloves"
+        ],
+        [
+          "🏷️",
+          "Patient identification label"
+        ],
+        [
+          "🗑️",
+          "Waste container"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Identify",
+          "instruction": "Confirm the patient and required specimen.",
+          "explanation": "Use the approved patient-identification process and check the test requested.",
+          "art": "specimen"
+        },
+        {
+          "title": "Collect",
+          "instruction": "Collect the specimen using the required method.",
+          "explanation": "Use the collection method specified for the requested test.",
+          "art": "specimen"
+        },
+        {
+          "title": "Label",
+          "instruction": "Label the specimen correctly.",
+          "explanation": "Follow local specimen-labelling requirements before transport.",
+          "art": "specimen"
+        },
+        {
+          "title": "Send",
+          "instruction": "Transport the specimen appropriately.",
+          "explanation": "Follow the laboratory's current handling and transport requirements.",
+          "art": "specimen"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "oral-care",
+      "title": "Oral Care",
+      "category": "patient-care",
+      "categoryName": "Patient Care",
+      "difficulty": "Beginner",
+      "description": "Learn a structured approach to oral hygiene for dependent patients.",
+      "keywords": [
+        "oral care",
+        "mouth care",
+        "hygiene",
+        "dependent patient"
+      ],
+      "illustration": "images/Oralcare.jpg",
+      "overview": "Oral care maintains oral cleanliness, comfort and tissue health.",
+      "why": "Regular oral care supports comfort and can reduce avoidable oral complications.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🪥",
+          "Toothbrush or oral-care equipment"
+        ],
+        [
+          "💧",
+          "Water or approved solution"
+        ],
+        [
+          "🧤",
+          "Gloves"
+        ],
+        [
+          "🗑️",
+          "Waste container"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Assess",
+          "instruction": "Assess the patient's oral condition.",
+          "explanation": "Observe the mouth, lips, teeth, tongue and relevant symptoms before care.",
+          "art": "mouth"
+        },
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the patient and equipment.",
+          "explanation": "Position the patient safely and explain the procedure.",
+          "art": "mouth"
+        },
+        {
+          "title": "Clean",
+          "instruction": "Provide oral hygiene using the appropriate technique.",
+          "explanation": "Clean the mouth gently according to the patient's needs and current clinical guidance.",
+          "art": "mouth"
+        },
+        {
+          "title": "Finish",
+          "instruction": "Reassess comfort and document as required.",
+          "explanation": "Ensure the patient is comfortable and record relevant findings or care provided.",
+          "art": "mouth"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "patient-transfer",
+      "title": "Safe Patient Transfer",
+      "category": "patient-care",
+      "categoryName": "Patient Care",
+      "difficulty": "Intermediate",
+      "description": "Learn the safety principles for transferring a patient between surfaces.",
+      "keywords": [
+        "patient transfer",
+        "mobility",
+        "moving patient",
+        "safe transfer",
+        "falls"
+      ],
+      "illustration": "images/Pt.jpg",
+      "overview": "Safe patient transfer uses assessment, appropriate equipment and coordinated movement.",
+      "why": "Good transfer technique reduces avoidable injury risk for patients and staff.",
+      "indications": [],
+      "contraindications": [],
+      "equipment": [
+        [
+          "🛏️",
+          "Bed or transfer surface"
+        ],
+        [
+          "♿",
+          "Wheelchair when required"
+        ],
+        [
+          "🦯",
+          "Mobility aid when indicated"
+        ],
+        [
+          "🧤",
+          "PPE as required"
+        ]
+      ],
+      "precautions": [
+        "Follow current institutional guidance.",
+        "Confirm patient-specific requirements.",
+        "Use appropriate infection-prevention measures.",
+        "Escalate unexpected or concerning findings through the appropriate clinical pathway."
+      ],
+      "steps": [
+        {
+          "title": "Assess",
+          "instruction": "Assess mobility and transfer needs.",
+          "explanation": "Consider the patient's condition, strength, cognition and required assistance.",
+          "art": "transfer"
+        },
+        {
+          "title": "Prepare",
+          "instruction": "Prepare the environment and equipment.",
+          "explanation": "Position equipment safely and remove avoidable environmental hazards.",
+          "art": "transfer"
+        },
+        {
+          "title": "Transfer",
+          "instruction": "Perform the transfer with appropriate assistance.",
+          "explanation": "Use the approved technique and equipment for the patient's assessed needs.",
+          "art": "transfer"
+        },
+        {
+          "title": "Reassess",
+          "instruction": "Reassess the patient after transfer.",
+          "explanation": "Ensure the patient is safe, comfortable and positioned appropriately.",
+          "art": "transfer"
+        }
+      ],
+      "images": [],
+      "videos": [],
+      "references": [],
+      "lastReviewed": "",
+      "author": "",
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "published": true,
+      "featured": false
+    }
+  ]
+}
