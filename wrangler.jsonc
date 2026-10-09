@@ -1,7 +1,7 @@
 {
   // ...
   "vars": {
-    "ALLOWED_ORIGIN": "https://learningnursing.github.io/",
+    "ALLOWED_ORIGIN": "https://learningnursing.github.io",
     "GITHUB_BRANCH": "main",
     "GITHUB_REPO": "Learningnursing/Learningnursing"
   },
