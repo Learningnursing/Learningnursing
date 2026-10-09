@@ -1433,7 +1433,7 @@ body::before {
   position: fixed;
   inset: -20px;
 
-  background-image: url("nursing-background.JPG");
+  background-image: var(--site-bg, url("nursing-background.JPG"));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -7082,6 +7082,8 @@ document.addEventListener("keydown", function(event) {
 });
   
 </script>
+
+<script src="cms-loader.js"></script>
 
 </body>
 </html>
