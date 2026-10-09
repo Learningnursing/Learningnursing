@@ -1,0 +1,96 @@
+{
+  "items": [
+    {
+      "path": "images/Handwashing.jpg",
+      "label": "Hand Hygiene"
+    },
+    {
+      "path": "images/Pressure.jpg",
+      "label": "Blood Pressure Measurement"
+    },
+    {
+      "path": "images/Temperature.jpg",
+      "label": "Temperature Measurement"
+    },
+    {
+      "path": "images/Pulse.jpg",
+      "label": "Pulse Assessment"
+    },
+    {
+      "path": "images/Rr.jpg",
+      "label": "Respiratory Rate Assessment"
+    },
+    {
+      "path": "images/Bedmaking.jpg",
+      "label": "Bed Making"
+    },
+    {
+      "path": "images/Oralmedication.jpg",
+      "label": "Oral Medication Administration"
+    },
+    {
+      "path": "images/Im.jpg",
+      "label": "Intramuscular Injection"
+    },
+    {
+      "path": "images/Oxygentherapy.jpg",
+      "label": "Oxygen Therapy"
+    },
+    {
+      "path": "images/Pulseoximetry.jpg",
+      "label": "Pulse Oximetry"
+    },
+    {
+      "path": "images/Glucose.jpg",
+      "label": "Capillary Blood Glucose"
+    },
+    {
+      "path": "images/Wounddressing.jpg",
+      "label": "Wound Dressing"
+    },
+    {
+      "path": "images/Urinary.jpg",
+      "label": "Urinary Catheter Care"
+    },
+    {
+      "path": "images/Ng.jpg",
+      "label": "Nasogastric Tube Feeding"
+    },
+    {
+      "path": "images/Iv.jpg",
+      "label": "Peripheral IV Site Assessment"
+    },
+    {
+      "path": "images/Urine.jpg",
+      "label": "Urine Specimen Collection"
+    },
+    {
+      "path": "images/Oralcare.jpg",
+      "label": "Oral Care"
+    },
+    {
+      "path": "images/Pt.jpg",
+      "label": "Safe Patient Transfer"
+    },
+    {
+      "path": "images/a_clean_modern_futuristic_healthcare_themed_digi.PNG",
+      "label": "Hero image"
+    },
+    {
+      "path": "nursing-background.JPG",
+      "label": "Website background (blurred, behind everything)"
+    },
+    {
+      "path": "images/jashikesh.JPG",
+      "label": "Creator photo"
+    },
+    {
+      "path": "Nurse-calcie.png",
+      "label": "Nurse Callie calculator button"
+    },
+    {
+      "path": "nursingvideo.MP4",
+      "label": "Proud to be a Nurse"
+    }
+  ]
+}
