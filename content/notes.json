@@ -1,0 +1,542 @@
+{
+  "items": [
+    {
+      "id": "nursing-notes",
+      "title": "Nursing Notes",
+      "icon": "📚",
+      "description": "Core nursing concepts, clinical skills and\n        professional nursing knowledge.",
+      "subject": "Nursing Notes",
+      "topics": [
+        {
+          "title": "Fundamentals of Nursing",
+          "items": [
+            "Introduction to Nursing",
+            "Roles and Responsibilities of a Nurse",
+            "Nursing Process",
+            "Assessment",
+            "Nursing Diagnosis",
+            "Planning",
+            "Implementation",
+            "Evaluation"
+          ]
+        },
+        {
+          "title": "Vital Signs",
+          "items": [
+            "Temperature",
+            "Pulse",
+            "Respiratory Rate",
+            "Blood Pressure",
+            "Oxygen Saturation",
+            "Pain Assessment"
+          ]
+        },
+        {
+          "title": "Infection Prevention",
+          "items": [
+            "Chain of Infection",
+            "Hand Hygiene",
+            "Standard Precautions",
+            "Transmission-Based Precautions",
+            "Personal Protective Equipment",
+            "Biomedical Waste Management"
+          ]
+        },
+        {
+          "title": "Patient Safety",
+          "items": [
+            "Patient Identification",
+            "Fall Prevention",
+            "Medication Safety",
+            "Pressure Injury Prevention",
+            "Safe Patient Transfer"
+          ]
+        },
+        {
+          "title": "Communication",
+          "items": [
+            "Therapeutic Communication",
+            "Active Listening",
+            "SBAR",
+            "Patient Education",
+            "Health Teaching"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "pathology",
+      "title": "Pathology",
+      "icon": "🔬",
+      "description": "Understand disease processes and pathological changes\n        in simple language.",
+      "subject": "Pathology",
+      "topics": [
+        {
+          "title": "Cell Injury",
+          "items": [
+            "Causes of Cell Injury",
+            "Hypoxia",
+            "Ischaemia",
+            "Reversible Cell Injury",
+            "Irreversible Cell Injury",
+            "Cell Death"
+          ]
+        },
+        {
+          "title": "Inflammation",
+          "items": [
+            "Acute Inflammation",
+            "Chronic Inflammation",
+            "Cardinal Signs",
+            "Inflammatory Mediators",
+            "Neutrophils",
+            "Macrophages",
+            "Healing and Repair"
+          ]
+        },
+        {
+          "title": "Immune System",
+          "items": [
+            "Innate Immunity",
+            "Adaptive Immunity",
+            "B Cells",
+            "T Cells",
+            "CD4 and CD8 Cells",
+            "MHC Class I and II",
+            "Hypersensitivity",
+            "Autoimmune Disease"
+          ]
+        },
+        {
+          "title": "Haematology",
+          "items": [
+            "Haemostasis",
+            "Coagulation",
+            "Anaemia",
+            "Thrombocytopenia",
+            "ITP",
+            "DIC",
+            "DVT",
+            "Thrombosis"
+          ]
+        },
+        {
+          "title": "Neoplasia",
+          "items": [
+            "Hyperplasia",
+            "Neoplasia",
+            "Benign Tumours",
+            "Malignant Tumours",
+            "Oncogenes",
+            "Tumour Suppressor Genes",
+            "Angiogenesis",
+            "Metastasis",
+            "Immune Surveillance"
+          ]
+        },
+        {
+          "title": "Respiratory Pathology",
+          "items": [
+            "Asthma",
+            "COPD",
+            "Tuberculosis",
+            "Pneumonia",
+            "Bronchiectasis",
+            "Cystic Fibrosis",
+            "Pulmonary Fibrosis",
+            "Sarcoidosis"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "pharmacology",
+      "title": "Pharmacology",
+      "icon": "💊",
+      "description": "Learn medicines through drug classes, mechanisms,\n        uses and nursing considerations.",
+      "subject": "Pharmacology",
+      "topics": [
+        {
+          "title": "General Pharmacology",
+          "items": [
+            "Pharmacokinetics",
+            "Pharmacodynamics",
+            "Absorption",
+            "Distribution",
+            "Metabolism",
+            "Excretion",
+            "Half-Life"
+          ]
+        },
+        {
+          "title": "Routes of Administration",
+          "items": [
+            "Oral",
+            "Subcutaneous",
+            "Intramuscular",
+            "Intradermal",
+            "Intravenous",
+            "Topical",
+            "Inhalation"
+          ]
+        },
+        {
+          "title": "Cardiovascular Drugs",
+          "items": [
+            "Antihypertensives",
+            "ACE Inhibitors",
+            "Beta Blockers",
+            "Calcium Channel Blockers",
+            "Diuretics",
+            "Antiarrhythmics",
+            "Anticoagulants",
+            "Antiplatelet Drugs"
+          ]
+        },
+        {
+          "title": "Respiratory Drugs",
+          "items": [
+            "Bronchodilators",
+            "Beta-2 Agonists",
+            "Anticholinergics",
+            "Corticosteroids",
+            "Leukotriene Modifiers",
+            "Mucolytics"
+          ]
+        },
+        {
+          "title": "Antimicrobial Drugs",
+          "items": [
+            "Penicillins",
+            "Cephalosporins",
+            "Macrolides",
+            "Aminoglycosides",
+            "Fluoroquinolones",
+            "Antitubercular Drugs",
+            "Antifungal Drugs",
+            "Antiviral Drugs"
+          ]
+        },
+        {
+          "title": "Analgesics",
+          "items": [
+            "Paracetamol",
+            "NSAIDs",
+            "Opioids",
+            "Adverse Effects",
+            "Pain Management"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "medical-surgical-nursing",
+      "title": "Medical-Surgical Nursing",
+      "icon": "🫀",
+      "description": "Clinical nursing knowledge for medical and surgical\n        conditions.",
+      "subject": "Medical-Surgical Nursing",
+      "topics": [
+        {
+          "title": "Cardiovascular Nursing",
+          "items": [
+            "Hypertension",
+            "Heart Failure",
+            "Myocardial Infarction",
+            "Angina",
+            "Arrhythmias",
+            "Valvular Heart Disease",
+            "Cardiac Surgery"
+          ]
+        },
+        {
+          "title": "Respiratory Nursing",
+          "items": [
+            "Asthma",
+            "COPD",
+            "Pneumonia",
+            "Tuberculosis",
+            "Pulmonary Embolism",
+            "Respiratory Failure",
+            "Oxygen Therapy"
+          ]
+        },
+        {
+          "title": "Neurological Nursing",
+          "items": [
+            "Stroke",
+            "Seizures",
+            "Epilepsy",
+            "Head Injury",
+            "Raised Intracranial Pressure",
+            "Parkinson's Disease",
+            "Multiple Sclerosis"
+          ]
+        },
+        {
+          "title": "Gastrointestinal Nursing",
+          "items": [
+            "Gastritis",
+            "Peptic Ulcer Disease",
+            "Gastroenteritis",
+            "Hepatitis",
+            "Cirrhosis",
+            "Cholelithiasis",
+            "Pancreatitis",
+            "Appendicitis"
+          ]
+        },
+        {
+          "title": "Renal & Urinary Nursing",
+          "items": [
+            "Acute Kidney Injury",
+            "Chronic Kidney Disease",
+            "Urinary Tract Infection",
+            "Renal Stones",
+            "Dialysis",
+            "Fluid and Electrolyte Balance"
+          ]
+        },
+        {
+          "title": "Endocrine Nursing",
+          "items": [
+            "Diabetes Mellitus",
+            "Hypoglycaemia",
+            "Hyperglycaemia",
+            "Thyroid Disorders",
+            "Hyperthyroidism",
+            "Hypothyroidism",
+            "Adrenal Disorders"
+          ]
+        },
+        {
+          "title": "Perioperative Nursing",
+          "items": [
+            "Pre-operative Assessment",
+            "Patient Preparation",
+            "Informed Consent",
+            "Post-operative Assessment",
+            "Pain Management",
+            "Wound Care",
+            "Post-operative Complications"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "anatomy-physiology",
+      "title": "Anatomy & Physiology",
+      "icon": "🧠",
+      "description": "Build the anatomical and physiological foundation\n        required for clinical nursing.",
+      "subject": "Anatomy & Physiology",
+      "topics": [
+        {
+          "title": "Basic Anatomy",
+          "items": [
+            "Anatomical Position",
+            "Body Planes",
+            "Body Cavities",
+            "Tissues",
+            "Organs",
+            "Body Systems"
+          ]
+        },
+        {
+          "title": "Cardiovascular System",
+          "items": [
+            "Heart Anatomy",
+            "Heart Chambers",
+            "Heart Valves",
+            "Blood Vessels",
+            "Cardiac Cycle",
+            "Cardiac Output",
+            "Blood Pressure"
+          ]
+        },
+        {
+          "title": "Respiratory System",
+          "items": [
+            "Nose and Pharynx",
+            "Larynx",
+            "Trachea",
+            "Bronchi",
+            "Lungs",
+            "Alveoli",
+            "Gas Exchange",
+            "Mechanics of Breathing"
+          ]
+        },
+        {
+          "title": "Nervous System",
+          "items": [
+            "Brain",
+            "Spinal Cord",
+            "Neurons",
+            "Cranial Nerves",
+            "Autonomic Nervous System",
+            "Sympathetic System",
+            "Parasympathetic System"
+          ]
+        },
+        {
+          "title": "Digestive System",
+          "items": [
+            "Mouth",
+            "Oesophagus",
+            "Stomach",
+            "Small Intestine",
+            "Large Intestine",
+            "Liver",
+            "Gallbladder",
+            "Pancreas"
+          ]
+        },
+        {
+          "title": "Urinary System",
+          "items": [
+            "Kidneys",
+            "Nephrons",
+            "Ureters",
+            "Urinary Bladder",
+            "Urethra",
+            "Urine Formation",
+            "Fluid Balance"
+          ]
+        },
+        {
+          "title": "Endocrine System",
+          "items": [
+            "Pituitary Gland",
+            "Thyroid Gland",
+            "Parathyroid Glands",
+            "Adrenal Glands",
+            "Pancreas",
+            "Hormones"
+          ]
+        },
+        {
+          "title": "Musculoskeletal System",
+          "items": [
+            "Bones",
+            "Joints",
+            "Skeletal Muscles",
+            "Muscle Contraction",
+            "Fractures",
+            "Movement"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "nursing-care-plans",
+      "title": "Nursing Care Plans",
+      "icon": "📝",
+      "description": "Learn how to organise patient assessment,\n        nursing diagnoses and care planning.",
+      "subject": "Nursing Care Plans",
+      "topics": [
+        {
+          "title": "",
+          "items": [
+            "Assessment",
+            "NANDA Nursing Diagnosis",
+            "Goals and Expected Outcomes",
+            "Nursing Interventions",
+            "Rationales",
+            "Implementation",
+            "Evaluation",
+            "Gibbs Reflective Cycle",
+            "SBAR"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "nursing-research",
+      "title": "Nursing Research",
+      "icon": "🔎",
+      "description": "Basic research concepts for nursing students.",
+      "subject": "Nursing Research",
+      "topics": [
+        {
+          "title": "",
+          "items": [
+            "Introduction to Research",
+            "Research Problem",
+            "Research Question",
+            "Literature Review",
+            "Quantitative Research",
+            "Qualitative Research",
+            "Study Design",
+            "Sampling",
+            "Data Collection",
+            "Ethics in Research",
+            "Evidence-Based Practice",
+            "PRISMA"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    },
+    {
+      "id": "nclex-preparation",
+      "title": "NCLEX Preparation",
+      "icon": "🎯",
+      "description": "Develop clinical reasoning and nursing decision-making.",
+      "subject": "NCLEX Preparation",
+      "topics": [
+        {
+          "title": "",
+          "items": [
+            "Fundamentals",
+            "Pharmacology Questions",
+            "Medical-Surgical Questions",
+            "Prioritisation",
+            "Delegation",
+            "Safety Questions",
+            "Patient Education",
+            "Clinical Judgement",
+            "Case-Based Questions"
+          ]
+        }
+      ],
+      "blocks": [],
+      "references": [],
+      "published": true,
+      "author": "",
+      "updated": ""
+    }
+  ]
+}
