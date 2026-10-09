@@ -1,0 +1,97 @@
+{
+  "modules": [
+    {
+      "icon": "🩺",
+      "title": "Clinical Assessment",
+      "description": "Build confidence with vital signs, observations and patient assessment.",
+      "cta": "Explore assessment skills →",
+      "published": true
+    },
+    {
+      "icon": "🧼",
+      "title": "Infection Prevention",
+      "description": "Study hand hygiene, PPE, precautions and safe clinical practice.",
+      "cta": "Explore infection control →",
+      "published": true
+    },
+    {
+      "icon": "💊",
+      "title": "Medication Safety",
+      "description": "Review administration principles, routes, monitoring and safety.",
+      "cta": "Explore medication →",
+      "published": true
+    },
+    {
+      "icon": "🫁",
+      "title": "Respiratory Care",
+      "description": "Connect respiratory assessment with oxygen therapy and patient care.",
+      "cta": "Explore respiratory care →",
+      "published": true
+    },
+    {
+      "icon": "🫀",
+      "title": "Medical-Surgical",
+      "description": "Review common medical and surgical conditions from a nursing perspective.",
+      "cta": "Explore medical-surgical →",
+      "published": true
+    },
+    {
+      "icon": "🧠",
+      "title": "Neurological Nursing",
+      "description": "Build a foundation in neurological assessment and patient care.",
+      "cta": "Explore neurology →",
+      "published": true
+    },
+    {
+      "icon": "🩹",
+      "title": "Wound Care",
+      "description": "Learn wound assessment, dressing principles and documentation.",
+      "cta": "Explore wound care →",
+      "published": true
+    },
+    {
+      "icon": "📚",
+      "title": "Exam Revision",
+      "description": "Use organised notes and procedure guides for focused revision.",
+      "cta": "Start revision →",
+      "published": true
+    }
+  ],
+  "trending": [
+    {
+      "title": "Oxygen Therapy",
+      "description": "Review oxygen delivery, monitoring and safe nursing care.",
+      "procedureId": "oxygen-therapy",
+      "label": "Open Guide →",
+      "published": true
+    },
+    {
+      "title": "Pulse Oximetry",
+      "description": "Understand SpO₂ monitoring as part of respiratory assessment.",
+      "procedureId": "pulse-oximetry",
+      "label": "Open Guide →",
+      "published": true
+    },
+    {
+      "title": "Blood Glucose",
+      "description": "Review the basic workflow for point-of-care glucose testing.",
+      "procedureId": "blood-glucose",
+      "label": "Open Guide →",
+      "published": true
+    },
+    {
+      "title": "IV Site Assessment",
+      "description": "Recognise common peripheral IV site concerns early.",
+      "procedureId": "iv-site-assessment",
+      "label": "Open Guide →",
+      "published": true
+    },
+    {
+      "title": "Safe Patient Transfer",
+      "description": "Focus on assessment, preparation and safe movement.",
+      "procedureId": "patient-transfer",
+      "label": "Open Guide →",
+      "published": true
+    }
+  ]
+}
