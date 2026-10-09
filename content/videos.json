@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "id": "main-video",
+      "title": "Proud to be a Nurse",
+      "description": "Visual learning designed to make clinical knowledge easier to understand.",
+      "src": "nursingvideo.MP4",
+      "poster": "",
+      "autoplay": true,
+      "muted": true,
+      "loop": true,
+      "controls": false,
+      "featured": true,
+      "published": true
+    }
+  ]
+}
