@@ -1,2 +1,4 @@
 .footer-column a{display:block;color:#bdc9d8;margin:8px 0;text-align:left}
 .footer-column a:hover{color:#fff}
+.nav-links a{color:#344054;font-weight:600;white-space:nowrap}
+.nav-links a:hover{color:var(--blue)}

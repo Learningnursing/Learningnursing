@@ -65,6 +65,13 @@ footer{background:var(--navy);color:#fff;margin-top:40px}
 .footer-column a{display:block;color:#bdc9d8;margin:8px 0}
 .footer-column a:hover{color:#fff}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:35px;padding-top:20px;color:#9eacbd;font-size:13px}
+.lnb h2{margin-top:6px}.lnb figure{margin:14px 0}.lnb figure img{border-radius:14px;display:block}.lnb figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.lnb video{width:100%;border-radius:14px;margin:12px 0}.lnb hr{border:0;border-top:1px solid var(--border);margin:20px 0}
+.lnb-table{overflow-x:auto;margin:12px 0}.lnb-table table{border-collapse:collapse;width:100%}.lnb-table th,.lnb-table td{border:1px solid var(--border);padding:9px 12px;text-align:left}.lnb-table th{background:var(--blue-light);color:var(--navy)}
+.lnb details{border:1px solid var(--border);border-radius:12px;padding:10px 14px;margin:8px 0;background:#fafcff}.lnb summary{font-weight:700;color:var(--navy);cursor:pointer}
+.btn.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+.callout-info{padding:14px 16px;border-radius:12px;background:var(--blue-light);border:1px solid #cfe3f7;margin:12px 0;color:#475467}
+.lnb .btn{margin:6px 8px 6px 0}.lnb .card-grid{margin:12px 0}
 @media(max-width:700px){
 .navbar{flex-wrap:wrap;gap:6px 16px;padding:10px 16px}
 .nav-links{width:100%;margin-left:0;overflow-x:auto;gap:18px;padding-bottom:6px}
