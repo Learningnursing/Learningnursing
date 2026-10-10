@@ -1,0 +1,19 @@
+{
+  "theme": {},
+  "font": "\"Times New Roman\", serif",
+  "customCss": "",
+  "banner": {
+    "enabled": false,
+    "text": "",
+    "link": "",
+    "bg": "#0f8b8d",
+    "color": "#ffffff"
+  },
+  "header": {
+    "links": []
+  },
+  "footer": {
+    "links": []
+  },
+  "backgrounds": {}
+}
