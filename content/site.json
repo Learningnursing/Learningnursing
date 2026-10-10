@@ -15,6 +15,20 @@
       "value": "LearningNursing.com — simple, visual and practical nursing education resources and clinical procedure guides."
     },
     {
+      "label": "Logo letters",
+      "group": "Header",
+      "selector": ".logo-mark",
+      "attr": "",
+      "value": "LN"
+    },
+    {
+      "label": "Logo name (HTML allowed)",
+      "group": "Header",
+      "selector": ".header .logo-text",
+      "attr": "",
+      "value": "Learning<span>Nursing</span>.com"
+    },
+    {
       "label": "Menu: Home",
       "group": "Navigation",
       "selector": ".nav-links button:nth-child(1)",
@@ -117,7 +131,7 @@
       "group": "Stats",
       "selector": ".stats .stat:nth-child(1) strong",
       "attr": "",
-      "value": "15+"
+      "value": "8+"
     },
     {
       "label": "Stat 1 label",
@@ -225,6 +239,13 @@
       "value": "Touch, drag or scroll horizontally to explore."
     },
     {
+      "label": "Trending swipe hint",
+      "group": "Section headings",
+      "selector": ".scroll-hint",
+      "attr": "",
+      "value": "Swipe on mobile or use Shift + mouse wheel / trackpad to explore →"
+    },
+    {
       "label": "Notes heading",
       "group": "Section headings",
       "selector": "#resources .section-heading h2",
@@ -302,11 +323,67 @@
       "value": "Learn nursing. Understand better. Care better. A visual-first nursing education platform."
     },
     {
+      "label": "Footer heading: Learn",
+      "group": "Footer",
+      "selector": ".footer-grid .footer-column:nth-child(2) h4",
+      "attr": "",
+      "value": "Learn"
+    },
+    {
+      "label": "Footer heading: Future",
+      "group": "Footer",
+      "selector": ".footer-grid .footer-column:nth-child(3) h4",
+      "attr": "",
+      "value": "Future"
+    },
+    {
+      "label": "Footer heading: Platform",
+      "group": "Footer",
+      "selector": ".footer-grid .footer-column:nth-child(4) h4",
+      "attr": "",
+      "value": "Platform"
+    },
+    {
       "label": "Footer copyright line",
       "group": "Footer",
       "selector": ".footer-bottom",
       "attr": "",
       "value": "© 2026 LearningNursing.com · Educational content should always be checked against current professional and institutional guidance."
+    },
+    {
+      "label": "Calculator button label",
+      "group": "Calculator",
+      "selector": ".callie-label",
+      "attr": "",
+      "value": "Nursing Calculator"
+    },
+    {
+      "label": "Calculator title",
+      "group": "Calculator",
+      "selector": ".nursing-calc-brand strong",
+      "attr": "",
+      "value": "Nursing Calculator"
+    },
+    {
+      "label": "Calculator subtitle",
+      "group": "Calculator",
+      "selector": ".nursing-calc-brand span",
+      "attr": "",
+      "value": "Clinical calculation tools"
+    },
+    {
+      "label": "Calculator home heading",
+      "group": "Calculator",
+      "selector": ".nursing-calc-home-title h1",
+      "attr": "",
+      "value": "Choose a calculator."
+    },
+    {
+      "label": "Calculator home text",
+      "group": "Calculator",
+      "selector": ".nursing-calc-home-title p",
+      "attr": "",
+      "value": "Quick calculation tools designed for nursing learning and clinical practice."
     }
   ],
   "images": [
@@ -326,7 +403,7 @@
       "label": "Creator photo",
       "selector": ".creator-photo",
       "attr": "src",
-      "value": "images/IMG_0047.jpeg"
+      "value": "images/jashikesh.JPG"
     },
     {
       "label": "Nurse Callie calculator button",
@@ -338,7 +415,7 @@
       "label": "Favicon (browser tab icon)",
       "selector": "link[rel~=\"icon\"]",
       "attr": "favicon",
-      "value": ""
+      "value": "favicon.svg"
     }
   ]
 }
