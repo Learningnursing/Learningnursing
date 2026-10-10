@@ -210,7 +210,7 @@ const SPECS={
   form:()=>noteForm()},
  pages:{label:'page',plural:'Pages',file:'pages',id:true,arr:()=>DB.pages.items,
   name:o=>o.title,sub:o=>`/${o.id||'…'}.html · ${(o.blocks||[]).length} blocks${o.showInMenu?' · in menu':''}${o.static?' · static file':' · dynamic only'}`,
-  blank:()=>({id:'',title:'',label:'',intro:'',description:'',seoTitle:'',shareImage:'',width:'normal',showHeader:true,blocks:[],bg:{image:'',color:'',blur:'',overlay:'',none:false},showInMenu:false,menuLabel:'',showInFooter:false,published:true,static:false}),
+  blank:()=>({id:'',title:'',label:'',intro:'',description:'',seoTitle:'',shareImage:'',width:'normal',showHeader:true,blocks:[],bg:{image:'',color:'',blur:'',overlay:'',none:false},showInMenu:false,menuLabel:'',showInFooter:false,showOnHome:false,published:true,static:false}),
   form:()=>pageForm()},
  videos:{label:'video',plural:'Videos',file:'videos',id:true,arr:()=>DB.videos.items,
   name:o=>o.title,sub:o=>o.src,
@@ -617,7 +617,7 @@ function pageForm(){
   ${listBox('Page content','blocks','',blockRow,'',btns)}
   <div class="box"><h3>Background for this page</h3>${bgControls('bg',false)}</div>
   <div class="box"><h3>Menus &amp; visibility</h3>${fld('Published (visible on the website)','published',{type:'check'})}
-   ${fld('Add to the top menu','showInMenu',{type:'check'})}${fld('Add to the footer','showInFooter',{type:'check'})}${fld('Menu / footer link text (optional, defaults to the title)','menuLabel')}</div>`;
+   ${fld('Add to the top menu','showInMenu',{type:'check'})}${fld('Add to the footer','showInFooter',{type:'check'})}${fld('Show as a card on the home page (“More to explore”)','showOnHome',{type:'check'})}${fld('Menu / footer link text (optional, defaults to the title)','menuLabel')}</div>`;
 }
 
 /* ---------- editing state ---------- */
