@@ -157,6 +157,28 @@
     var cols_ = document.querySelectorAll('.footer-column'); addLinks(cols_[cols_.length - 1], fl);
   }
 
+  function cardLink(pg) {
+    return '<a class="card" href="' + esc(pageHref(pg)) + '"><strong>' + esc(pg.menuLabel || pg.title) + '</strong><span>' + esc(pg.intro || pg.description || '') + '</span></a>';
+  }
+  function listPages(P, key) {
+    var pub = (P.items || []).filter(function (x) { return x.published !== false; });
+    if (!pub.length) return;
+    if (key === 'all-guides') {
+      var main = document.querySelector('main.page'); if (!main || document.getElementById('ln-more-pages')) return;
+      var sec = document.createElement('section'); sec.className = 'article-section'; sec.id = 'ln-more-pages';
+      sec.innerHTML = '<h2>More pages</h2><div class="card-grid">' + pub.map(cardLink).join('') + '</div>';
+      main.appendChild(sec);
+    } else if (key === 'index') {
+      var feat = pub.filter(function (x) { return x.showOnHome; });
+      var anchor = document.querySelector('.creator-section'); if (!feat.length || !anchor || document.getElementById('ln-home-pages')) return;
+      var s2 = document.createElement('section'); s2.className = 'section'; s2.id = 'ln-home-pages';
+      s2.innerHTML = '<div class="section-heading"><div><h2>More to explore</h2></div></div><div class="category-grid">' + feat.map(function (pg) {
+        return '<a class="category-card" style="display:block" href="' + esc(pageHref(pg)) + '"><h3>' + esc(pg.menuLabel || pg.title) + '</h3><p>' + esc(pg.intro || pg.description || '') + '</p></a>';
+      }).join('') + '</div>';
+      anchor.parentNode.insertBefore(s2, anchor);
+    }
+  }
+
   function renderDynamic(P) {
     var root = document.getElementById('pageRoot'); if (!root) return;
     var key = pageKey(), p = (P.items || []).filter(function (x) { return x.id === key && x.published !== false; })[0];
@@ -170,7 +192,7 @@
 
   Promise.all([getJSON('settings.json'), getJSON('pages.json')]).then(function (r) {
     var S = r[0] || {}, P = r[1] || { items: [] };
-    try { applyAll(S, P); } catch (e) { if (window.console) console.warn('site-extras:', e); }
+    try { applyAll(S, P); listPages(P, pageKey()); } catch (e) { if (window.console) console.warn('site-extras:', e); }
     renderDynamic(P);
   });
 })();
