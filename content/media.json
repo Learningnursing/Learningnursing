@@ -89,12 +89,12 @@
       "label": "Nurse Callie calculator button"
     },
     {
-      "path": "nursingvideo.MP4",
-      "label": "Proud to be a Nurse"
+      "path": "favicon.svg",
+      "label": "Favicon (browser tab icon)"
     },
     {
-      "path": "images/IMG_0047.jpeg",
-      "label": "IMG_0047.jpeg"
+      "path": "nursingvideo.MP4",
+      "label": "Proud to be a Nurse"
     }
   ]
 }
