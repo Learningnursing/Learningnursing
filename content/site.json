@@ -397,7 +397,7 @@
       "label": "Website background (blurred, behind everything)",
       "selector": "body",
       "attr": "bg",
-      "value": "nursing-background.JPG"
+      "value": "images/IMG_6765.jpeg"
     },
     {
       "label": "Creator photo",
