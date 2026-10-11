@@ -1436,29 +1436,42 @@ body {
   background: #ffffff;
 }
 
-/* Blurred background layer */
+/* Background image */
 body::before {
   content: "";
   position: fixed;
   inset: -20px;
-
+  
   background-image: var(--site-bg, url("nursing-background.JPG"));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   opacity: 1;
-  filter: blur(3px);
+  filter: blur(3px) brightness(1.2);
 
   z-index: 0;
   pointer-events: none;
 }
 
-/* Keep website content sharp */
+/* White overlay to brighten the background */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Keep website content sharp and above the background */
 body > * {
   position: relative;
   z-index: 1;
-}
+}  
   
 /* =========================================================
    3D DEPTH — LEARNING NURSING
