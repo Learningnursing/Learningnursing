@@ -415,7 +415,7 @@
       "label": "Favicon (browser tab icon)",
       "selector": "link[rel~=\"icon\"]",
       "attr": "favicon",
-      "value": "favicon.svg"
+      "value": "images/IMG_6770.jpeg"
     }
   ]
 }
