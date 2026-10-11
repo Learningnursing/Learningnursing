@@ -2364,6 +2364,32 @@ body > * {
   }
 
 }
+
+/* ================================
+   LearningNursing Logo
+================================ */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.site-logo {
+    display: block;
+    width: 190px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .site-logo {
+        width: 145px;
+    }
+}
   
 </style>
 </head>
@@ -2377,11 +2403,8 @@ body > * {
 <header class="header">
   <nav class="navbar">
 
-    <a href="#" class="logo" onclick="showHome()">
-      <div class="logo-mark">LN</div>
-      <div class="logo-text">
-        Learning<span>Nursing</span>.com
-      </div>
+    <a href="#" class="logo" onclick="showHome(); return false;" aria-label="LearningNursing Home">
+      <img src="Logo.JPG" alt="LearningNursing" class="site-logo">
     </a>
 
     <div class="nav-search">
