@@ -17,13 +17,5 @@
   "footer": {
     "links": []
   },
-  "backgrounds": {
-    "default": {
-      "image": "images/IMG_6763.png",
-      "color": "",
-      "blur": "",
-      "overlay": "",
-      "none": false
-    }
-  }
+  "backgrounds": {}
 }
