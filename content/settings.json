@@ -1,5 +1,7 @@
 {
-  "theme": {},
+  "theme": {
+    "muted": "#00171f"
+  },
   "font": "",
   "customCss": "",
   "banner": {
