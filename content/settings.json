@@ -15,5 +15,13 @@
   "footer": {
     "links": []
   },
-  "backgrounds": {}
+  "backgrounds": {
+    "default": {
+      "image": "images/IMG_6762.png",
+      "color": "",
+      "blur": "",
+      "overlay": "",
+      "none": false
+    }
+  }
 }
