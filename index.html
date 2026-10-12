@@ -2391,6 +2391,32 @@ body > * {
     }
 }
   
+  /* ===== Hero cursor tracking ===== */
+.hero-art { perspective: 900px; }
+
+.hero-art .hero-img {
+  object-fit: cover;
+  border-radius: 35px;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+              rgba(255,255,255,0.28), transparent 55%);
+}
+.hero-art.active .hero-glow { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .hero-img { transition: none; }
+}
+
 </style>
 </head>
 
