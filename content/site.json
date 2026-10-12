@@ -391,7 +391,7 @@
       "label": "Hero image",
       "selector": ".hero-art img",
       "attr": "src",
-      "value": "images/a_clean_modern_futuristic_healthcare_themed_digi.PNG"
+      "value": "images/nurse-hero.JPG"
     },
     {
       "label": "Website background (blurred, behind everything)",
